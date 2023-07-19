@@ -1,0 +1,76 @@
+/* @import url('./---.css'); */
+
+@import '../../node_modules/modern-normalize/modern-normalize.css';
+
+:root {
+    --dark-text-color: #050505;
+    --light-text-color: #F8F8F8;
+
+    --accent-color: #9BB537;
+
+    --bgc-light-them: #FFFFFF;
+    --bgc-dark-them: #161616;
+}
+
+body {
+    background-color: var(--bgc-light-them);
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    align-items: center;
+}
+
+button,
+a {
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        padding: 0px 32px;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+}
