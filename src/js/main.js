@@ -1,4 +1,5 @@
 import './filter-of-favourite-foods.js';
+import './filter.js';
 import './header.js';
 import './hero-switch.js';
 import './hero.js';
