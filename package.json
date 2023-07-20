@@ -4,8 +4,9 @@
   "description": "",
   "homepage": "https://AnnaKotl.github.io/upGrate",
   "scripts": {
-    "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /upGrate/"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url /upGrate/",
+    "dev": "webpack serve"
   },
   "repository": {
     "type": "git",
@@ -22,9 +23,16 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
+    "css-loader": "^6.8.1",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
-    "posthtml-include": "^1.7.4"
+    "posthtml-include": "^1.7.4",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-bundle-analyzer": "^4.9.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
 }
