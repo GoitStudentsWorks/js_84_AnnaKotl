@@ -1,0 +1,1 @@
+console.log('popular-recipes.js work');

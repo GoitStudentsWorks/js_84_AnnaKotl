@@ -1,0 +1,1 @@
+console.log('recipe-placeholder.js work');

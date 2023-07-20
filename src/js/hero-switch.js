@@ -1,0 +1,1 @@
+console.log('hero-switch.js work');
