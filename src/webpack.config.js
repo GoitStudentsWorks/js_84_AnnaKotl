@@ -1,6 +1,5 @@
 const path = require('path');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -17,10 +16,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-    }),
+    new BundleAnalyzerPlugin()
   ],
   devServer: {
     contentBase: path.join(__dirname, 'public'),
