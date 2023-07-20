@@ -1,21 +1,19 @@
 @import '../../node_modules/modern-normalize/modern-normalize.css';
+/* IMPORT CSS */
 /* Home */
 @import url('./header.css');
-@import url('./favorites.css');
 @import url('./hero.css');
 @import url('./hero-switch.css');
 @import url('./modal-order-now.css');
 @import url('./scroll-categories.css');
 @import url('./popular-recipes.css');
-/* @import url('./filter.css'); */
+@import url('./filter.css');
 @import url('./filter-of-favorite-foods.css');
 @import url('./recipe-placeholder.css');
 /* Favorites */
-/* @import url('./header-favorites.css');
-@import url('./header-favorites.css');
-@import url('./btn-filter-favorites.css'); */
+/* @import url('./favorites.css'); */
 
-
+/* BASE CSS */
 :root {
     --dark-text-color: #050505;
     --light-text-color: #F8F8F8;
@@ -31,6 +29,7 @@ body {
     margin: 0;
     font-family: "Inter", sans-serif;
     align-items: center;
+
 }
 
 button,
