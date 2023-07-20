@@ -7,6 +7,8 @@ import './modal-order-now.js';
 import './popular-recipes.js';
 import './recipe-placeholder.js';
 import './scroll-categories.js';
+import './video-recipe.js';
+import './rating.js';
 // fevorites page
 import './js-file-fevorites/one-fevorites.js';
 import './js-file-fevorites/two-fevorites.js';
