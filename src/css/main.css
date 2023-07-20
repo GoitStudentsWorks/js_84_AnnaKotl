@@ -11,7 +11,7 @@
 @import url('./filter-of-favorite-foods.css');
 @import url('./recipe-placeholder.css');
 /* Favorites */
-/* @import url('./favorites.css'); */
+@import url('./favorites.css');
 
 /* BASE CSS */
 :root {
