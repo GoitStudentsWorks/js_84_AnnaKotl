@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://AnnaKotl.github.io/upGrate",
   "scripts": {
-    "start": "parcel src/index.html",
+    "start": "npm run dev",
     "build": "parcel build src/index.html --public-url /upGrate/",
     "dev": "webpack serve"
   },
@@ -26,6 +26,7 @@
     "css-loader": "^6.8.1",
     "gulp": "^4.0.2",
     "gulp-file-include": "^2.3.0",
+    "html-webpack-plugin": "^5.5.3",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4",
