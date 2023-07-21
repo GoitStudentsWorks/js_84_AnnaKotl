@@ -18,12 +18,6 @@ function fetchMk() {
 
 //   fetchMk();
 
-// function renderMk(event){
-//     const markup =.map(event => {
-//         return `
-
-
-
   function renderMk(data) {
     // const chief = data.cook[0];
     // const info = data.topic[0];
