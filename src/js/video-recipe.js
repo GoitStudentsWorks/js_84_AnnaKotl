@@ -12,11 +12,11 @@
       refs.modal.classList.toggle('is-hidden');
     }
   })();
-
+import axios from "axios";
 const modalVideoRecipes = document.querySelector('.video-recipe')
 
-function showRecieptInfo(info){
-    const modalVideoRecipesMarkup = info.map(({
+function showRecieptInfo(result){
+    const modalVideoRecipesMarkup = result.map(({
         title,
         youtube,
         tags,
@@ -27,7 +27,7 @@ function showRecieptInfo(info){
     }) => {
         return `<h2 class="title">${title}</h2>
         <iframe width="467" height="250"
-src=${youtube}>
+src="${youtube}">
 </iframe>
 <p class="tags">#${tags}</p>
 <p>${rating}</p>
@@ -57,18 +57,21 @@ src=${youtube}>
 modalVideoRecipes.insertAdjacentHTML('beforeend', modalVideoRecipesMarkup)
 }
 
- async function recieptsOfFood(id){
-    const resp = await fetch(
-        `https://tasty-treats-backend.p.goit.global/api/recipes/${id}`
-      );
-      const data = await resp.json();
-      return data;
+async function recieptsOfFood(id){
+    const BASE_URL_RECIEPTS = 'https://tasty-treats-backend.p.goit.global/api/recipes/'
+    const response = await axios.get(`${BASE_URL_RECIEPTS}${id}`);
+      return response;
 }
 
 function showReciepts(){
-    recieptsOfFood()
-    .then((response) =>{
+    renderReciepts()
+    async function renderReciepts () {
+    try {
+        const { data: response } = await recieptsOfFood('6467fb9d3d8125271a59219e')
         showRecieptInfo(response)
-    }).catch(error  => console.log(error))
+    }
+    catch (error) {
+        console.log(error);
+      }}
 }
 showReciepts()
