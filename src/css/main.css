@@ -82,10 +82,24 @@ img {
     overflow: hidden;
 }
 
+.container {
+    min-width: 300px;
+    max-width: 375px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+    max-width: 768px;
+    padding: 0 32px;
+    }
+}
+
 @media screen and (min-width: 1200px) {
     .container {
-        padding: 0px 32px;
+        padding: 0px 100px;
         margin: 0 auto;
-        max-width: 1200px;
+        max-width: 1480px;
     }
 }
