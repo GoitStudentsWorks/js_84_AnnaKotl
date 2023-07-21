@@ -1,3 +1,4 @@
+/* Hero in favorites title */
 .hero-section-of-favorites {
     padding-bottom: 40px;
 }
@@ -36,3 +37,14 @@
         padding-bottom: 64px;
     }
 }
+/* /Hero infavorites title */
+/* Recipe in favorites title */
+.no-favorites-recipe {
+    text-align: center;
+    color: var(--dark-text-color);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* /Recipe in favorites title */
