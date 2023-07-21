@@ -1,3 +1,84 @@
-.sect9 {
-    background-color: burlywood;
-}
+.category-container {
+    max-height: 402px;
+    margin-bottom: 40px;
+  }
+  
+  .all-category-button {
+    width: 176px;
+    height: 50px;
+    border: 1px solid rgba(5, 5, 5, 0.2);
+    background-color: var(--light-text-color);
+    border-radius: 15px;
+    font-weight: 500;
+    font-size: 18px;
+    color: rgba(5, 5, 5, 0.5);
+    margin-bottom: 24px;
+    padding: 14px 10px;
+  }
+  
+  .all-category-button:hover,
+  .all-category-button:focus{
+    border: 1px solid var(--accent-color);
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
+  } 
+  .all-category-button.active {
+    border: 1px solid var(--accent-color);
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
+  } 
+  .category-list {
+    height: 198px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    overflow-y: scroll;
+  }
+  .category-btn {
+    border: none;
+    background-color: transparent;
+    color: rgba(5, 5, 5, 0.3);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0;
+  }
+  .category-btn:hover{
+    color: var(--accent-color);
+  }
+  .category-btn.active {
+    color: var(--accent-color);
+  }
+  .onFocus {
+    color: var(--accent-color);
+    background-color: var(--accent-color);
+  } 
+  @media screen and (min-width: 768px) {
+    .category-container {
+      max-height: 496px;
+      max-width: 176px;
+      margin-bottom: 0;
+    }
+    .all-category-button {
+      margin-bottom: 30px;
+    }
+    .category-list {
+      width: 176px;
+      height: 416px;
+      gap: 24px;
+    }
+  }
+  
+  @media screen and (min-width: 1280px) {
+    .category-container {
+      max-height: 540px;
+      max-width: 174px;
+    }
+  
+    .all-category-button {
+      width: 174px;
+    }
+  
+    .category-list {
+      width: 235px;
+    }
+  }
