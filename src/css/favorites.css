@@ -1,14 +1,38 @@
+.hero-section-of-favorites {
+    padding-bottom: 40px;
+}
+
 .hero-img-of-favorites {
-    background-image: url(../images/hero-mob-2x.png);
     background-color: lightgray;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     border-radius: 15px;
-    max-width: 335px;
-    min-height: 516px;
+    margin: 0 auto;
 }
 
-.hero-section-of-favorites {
-    padding-bottom: 40px;
+@media screen and (max-width: 767px) {
+    .hero-img-of-favorites {
+        background-image: url(../images/hero-mob-2x.png);
+        max-width: 335px;
+        min-height: 516px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .hero-img-of-favorites {
+        background-image: url(../images/hero-tablet-2x.png);
+        min-width: 704px;
+        min-height: 356px;
+        padding-bottom: 64px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .hero-img-of-favorites {
+        background-image: url(../images/hero-desctop-2x.png);
+        width: 1080px;
+        height: 356px;
+        padding-bottom: 64px;
+    }
 }
