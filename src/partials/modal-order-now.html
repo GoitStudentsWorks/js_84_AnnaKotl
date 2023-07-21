@@ -1,8 +1,45 @@
-<p >
-    test
-</p>
-<a href="" class="sect6">modal-order-now</a>
-<p>
-    test
-</p>
-<!-- видаліть коли почнене працювати, це для перевірки чи все працює :) -->
+<div class="modal-ordernow-container visually-hidden">
+  <form class="ordernow-form" autocomplete="off">
+    <h1 class="modal-tittle">Order Now</h1>
+    <label class="modal-order-now-form-field label">
+      <span class="modal-order-now-name modal-text">Name</span>
+      <span class="modal-order-now-form-input-wrapper">
+        <input
+          class="input"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Your name"
+        />
+      </span>
+    </label>
+    <label class="modal-order-now-phone label" for="phone">
+      <span class="modal-text">Phone</span>
+      <input
+        class="input"
+        type="tel"
+        id="phone"
+        name="phone"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        placeholder="Your telephone"
+      />
+    </label>
+    <label class="modal-order-now-email label"
+      ><span class="modal-text"> Email</span>
+      <input
+        class="input"
+        type="email"
+        name="email"
+        autofocus
+        placeholder="Your email"
+      />
+    </label>
+    <label class="modal-order-now-comment">
+      <span class="modal-text">Comment</span>
+      <textarea name="message" rows="8"></textarea>
+    </label>
+    <div class="modal-btn-container">
+      <button class="modal-order-now-btn" type="submit modal-text">Send</button>
+    </div>
+  </form>
+</div>

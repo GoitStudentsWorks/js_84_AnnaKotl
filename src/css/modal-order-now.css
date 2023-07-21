@@ -1,3 +1,105 @@
-.sect6 {
-    background-color: red;
+.modal-ordernow-container {
+  padding: 0px 20px 28px 20px;
+}
+
+.ordernow-form {
+  display: flex;
+  flex-direction: column;
+  width: 335px;
+  padding: 12px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 15px;
+  background: #fff;
+}
+
+.ordernow-form label {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+textarea {
+  padding: 14px 169px 14px 18px;
+  font: inherit;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+}
+
+textarea {
+  resize: none;
+}
+
+.ordernow-form {
+  padding: 0 20px;
+}
+
+.input {
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  width: 295px;
+}
+
+input::placeholder {
+  font-size: 14px;
+  color: rgba(5, 5, 5, 0.3);
+}
+
+.modal-tittle {
+  color: #050505;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px; /* 122.222% */
+  text-transform: uppercase;
+  padding-top: 28px;
+  padding-left: 20px;
+}
+
+.modal-order-now-form-field {
+  padding-top: 28px;
+}
+
+.modal-order-now-comment {
+  width: 295px;
+  height: 100px;
+}
+
+.modal-btn-container {
+  padding-bottom: 28px;
+  padding-top: 40px;
+}
+
+.modal-order-now-btn {
+  display: flex;
+  width: 295px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 15px;
+  background: #9bb537;
+  color: #f8f8f8;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border: 1px solid #9bb537;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.modal-text {
+  color: rgba(5, 5, 5, 0.5);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  margin-bottom: 8px;
+}
+
+.label {
+  padding-bottom: 16px;
 }
