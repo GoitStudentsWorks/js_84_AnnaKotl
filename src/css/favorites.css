@@ -1,6 +1,6 @@
 .hero-img-of-favorites {
     background-image: url(../images/hero-mob-2x.png);
-    /* background-color: lightgray; */
+    background-color: lightgray;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
