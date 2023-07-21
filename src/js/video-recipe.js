@@ -57,13 +57,18 @@ src=${youtube}>
 modalVideoRecipes.insertAdjacentHTML('beforeend', modalVideoRecipesMarkup)
 }
 
-function recieptsOfFood (){
-    const BASE_URL_RECIEPTS = 'https://tasty-treats-backend.p.goit.global/api/recipes/6462a8f74c3d0ddd28897fd9'
-
-    return fetch(BASE_URL_RECIEPTS)
-    .then(resp => {
-        if (!resp.ok) throw new Error(resp.status);
-        return resp.json();
-      })
-      .catch(error  => console.log(error))
+ async function recieptsOfFood(id){
+    const resp = await fetch(
+        `https://tasty-treats-backend.p.goit.global/api/recipes/${id}`
+      );
+      const data = await resp.json();
+      return data;
 }
+
+function showReciepts(){
+    recieptsOfFood()
+    .then((response) =>{
+        showRecieptInfo(response)
+    }).catch(error  => console.log(error))
+}
+showReciepts()
