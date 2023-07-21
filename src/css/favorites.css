@@ -1,6 +1,14 @@
 .hero-img-of-favorites {
-    background: url(), lightgray -320px -587px / 300% 243% no-repeat;
+    background-image: url(../images/hero-mob-2x.png);
+    /* background-color: lightgray; */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     border-radius: 15px;
-    width: 335px;
-    height: 516px;
+    max-width: 335px;
+    min-height: 516px;
+}
+
+.hero-section-of-favorites {
+    padding-bottom: 40px;
 }
