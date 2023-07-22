@@ -27,6 +27,7 @@
   height: 272px;
   position: absolute;
   overflow: hidden;
+  border-radius: 15px;
 }
 .mk-photo-wrapper {
   height: 280px;
