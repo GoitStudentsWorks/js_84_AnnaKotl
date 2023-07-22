@@ -1,13 +1,12 @@
 // // // Modal Rating in progres
 // // LOCALSTORAGE_KEY
-// <!-- Припустимо, у нас є масив об'єктів з рецептами, які зберігаються у localStorage -->
-// <script>
+
 //   const recipesFromLocalStorage = [
 //     {
 //       id: 1,
 //       image: "recipe1.jpg",
 //       title: "Рецепт 1",
-//       description: "Це перший рецепт у вашому списку Favorites.",
+//       description: "",
 //       rating: 4.5,
 //       time: "30 хв",
 //       isFavorite: true,
@@ -16,15 +15,13 @@
 //       id: 2,
 //       image: "recipe2.jpg",
 //       title: "Рецепт 2",
-//       description: "Це другий рецепт у вашому списку Favorites.",
+//       description: "",
 //       rating: 3.8,
 //       time: "45 хв",
 //       isFavorite: true,
 //     },
-//     // Додайте більше рецептів за необхідності
 //   ];
 
-//   // Функція для створення HTML-коду для кожного рецепту
 //   function createRecipeCard(recipe) {
 //     return `
 //       <div class="recipe-card">
@@ -32,34 +29,92 @@
 //         <h3 class="recipe-title">${recipe.title}</h3>
 //         <p class="recipe-description">${recipe.description}</p>
 //         <div class="recipe-details">
-//           <span class="recipe-rating">Рейтинг: ${recipe.rating}</span>
-//           <span class="recipe-time">Час приготування: ${recipe.time}</span>
-//           <span class="favorite-icon">&#10084;</span>
+//           <span class="recipe-rating">${recipe.rating}</span>
+//           <span class="recipe-time">${recipe.time}</span>
+//           <span class="favorite-icon"></span>
 //         </div>
 //       </div>
 //     `;
 //   }
 
-//   // Отримуємо контейнер, в який будемо додавати рецепти
 //   const favoritesContainer = document.getElementById("favoritesContainer");
 
-//   // Функція для відображення рецептів у сторінці Favorites
 //   function showFavorites() {
-//     // Очищаємо контейнер перед додаванням рецептів
 //     favoritesContainer.innerHTML = "";
 
-//     // Перевіряємо наявність рецептів у localStorage та показуємо їх у сторінці Favorites
 //     if (recipesFromLocalStorage.length > 0) {
 //       recipesFromLocalStorage.forEach((recipe) => {
 //         favoritesContainer.innerHTML += createRecipeCard(recipe);
 //       });
 //     } else {
-//       // Якщо немає рецептів у localStorage, показуємо повідомлення
+
 //       const noFavoritesMessage = document.getElementById("noFavoritesMessage");
 //       noFavoritesMessage.style.display = "block";
 //     }
 //   }
 
-//   // Викликаємо функцію для показу рецептів у сторінці Favorites
 //   showFavorites();
-// </script>
+
+
+// //////////////// 2
+function getSavedFavorites() {
+  return JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
+}
+
+function showFavoritesCategories() {
+  const favoritesCategories = document.getElementById("favoritesCategories");
+  favoritesCategories.innerHTML = "";
+
+  const savedFavorites = getSavedFavorites();
+
+  const categories = [...new Set(savedFavorites.map((recipe) => recipe.category))];
+
+  const allCategoriesBtn = document.createElement("button");
+  allCategoriesBtn.textContent = "All categories";
+  allCategoriesBtn.classList.add("favorites-category-btn", "active");
+  favoritesCategories.appendChild(allCategoriesBtn);
+
+  categories.forEach((category) => {
+    const categoryBtn = document.createElement("button");
+    categoryBtn.textContent = category;
+    categoryBtn.classList.add("favorites-category-btn");
+    favoritesCategories.appendChild(categoryBtn);
+  });
+}
+
+function showFavoritesRecipesByCategory(category) {
+  const favoritesRecipeContainer = document.getElementById("favoritesRecipeContainer");
+  favoritesRecipeContainer.innerHTML = "";
+
+  const savedFavorites = getSavedFavorites();
+
+  const filteredRecipes = category === "All categories"
+    ? savedFavorites
+    : savedFavorites.filter((recipe) => recipe.category === category);
+
+  if (filteredRecipes.length > 0) {
+    filteredRecipes.forEach((recipe) => {
+      favoritesRecipeContainer.innerHTML += createRecipeCard(recipe);
+    });
+  } else {
+
+    favoritesRecipeContainer.innerHTML = "<p>No recipes found.</p>";
+  }
+}
+
+const favoritesCategories = document.getElementById("favoritesCategories");
+
+favoritesCategories.addEventListener("click", (event) => {
+  if (event.target.classList.contains("favorites-category-btn")) {
+    const category = event.target.textContent;
+    const activeCategoryBtn = document.querySelector(".favorites-category-btn.active");
+    if (activeCategoryBtn) {
+      activeCategoryBtn.classList.remove("active");
+    }
+    event.target.classList.add("active");
+    showFavoritesRecipesByCategory(category);
+  }
+});
+
+showFavoritesCategories();
+showFavoritesRecipesByCategory("All categories");
