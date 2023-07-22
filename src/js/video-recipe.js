@@ -1,21 +1,26 @@
-(() => {
-    const refs = {
-      openModalBtn: document.querySelector('[data-modal-open-reciepts]'),
-      closeModalBtn: document.querySelector('[data-modal-close-reciepts]'),
-      modal: document.querySelector('[data-modal-reciepts]'),
-    };
+// (() => {
+//     const refs = {
+//       openModalBtn: document.querySelector('[data-modal-open-reciepts]'),
+//       closeModalBtn: document.querySelector('[data-modal-close-reciepts]'),
+//       modal: document.querySelector('[data-modal-reciepts]'),
+//     };
   
-    refs.openModalBtn.addEventListener('click', toggleModal);
-    refs.closeModalBtn.addEventListener('click', toggleModal);
+//     refs.openModalBtn.addEventListener('click', toggleModal);
+//     refs.closeModalBtn.addEventListener('click', toggleModal);
   
-    function toggleModal() {
-      refs.modal.classList.toggle('is-hidden');
-    }
-  })();
-// import axios from "axios";
+//     function toggleModal() {
+//       refs.modal.classList.toggle('is-hidden');
+//     }
+//   })();
+// // import axios from "axios";
+
+
 
 let refs = {
 recieptsTitle: document.querySelector('.reciepts-title'),
+backdropRecipe: document.querySelector('.backdrop-video-recipes'),
+modalRecipe:document.querySelector('.modal-video-recipe'),
+closeBtn: document.querySelector('.modal-video-recipes-close-button'),
 tagsRecipe: document.querySelector('.tags-recipe'),
 ratingRecipe: document.querySelector('.rating-recipe'),
 minutesRecipe: document.querySelector('.minutes-recipe'),
@@ -24,16 +29,46 @@ instructionsRecipe: document.querySelector('.instructions-recipe'),
 videoRecipe: document.querySelector('.video-recipe'),
 }
 
+refs.closeBtn.addEventListener('click', closeModalClose);
+refs.backdropRecipe.addEventListener('click', clickBackdropClick);
+
+function openModalOpen() {
+  setTimeout(() => {
+    window.addEventListener('keydown', onEscPress);
+    document.body.classList.add('overflowHidden');
+    refs.backdropRecipe.classList.add('active');
+    refs.modalRecipe.classList.add('active');
+  }, 50);
+}
+
+function closeModalClose() {
+  window.removeEventListener('keydown', onEscPress);
+  document.body.classList.remove('overflowHidden');
+  refs.backdropRecipe.classList.remove('active');
+  refs.modalRecipe.classList.remove('active');
+}
+
+function onEscPress(key) {
+  if (key.code === 'Escape') {
+    closeModalClose();
+  }
+}
+function clickBackdropClick(element) {
+  if(element.currentTarget === element.target)
+  closeModalClose()
+}
+
 export function finallInitPage(id) {
     recieptsOfFood(id).then(data => {
     //   isFavorite(data._id);
-      // renderVIDEO(data);
+
       renderRanting(data);
     //   markUpRating();
       renderIngridient(data);
       renderHashtags(data);
       renderText(data);
-    //   openModalOpen();
+      openModalOpen();
+      renderVIDEO(data);
       recipeId = data._id;
     });
 }
@@ -53,20 +88,28 @@ function renderText(data) {
     refs.minutesRecipe.textContent = data.time + ' min'; 
   }
 
+function getKeyYouTybe(url) {
+  let indexLast = url.split('').length;
+  
+  let key = url.split('').splice(32, indexLast).join('');
+  return key;
+}
 function renderVIDEO(data) {
-    const markUp = `
-      <iframe
-        width="100%"
-        height="100%"
-        src="${data.youtube}"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-    `;
-    refs.videoRecipe.innerHTML = markUp; // Change refs.tiezer to refs.videoRecipe
-  }
+  const markUp = `
+   <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/${getKeyYouTybe(
+                  data.youtube
+                )}"
+title = "YouTube video player"
+frameborder = "0"
+allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen
+  ></iframe >
+`;
+  refs.videoRecipe.innerHTML = markUp;
+}
   
   function renderRanting(data) {
     let markupR = `
@@ -131,4 +174,4 @@ function renderVIDEO(data) {
     refs.tagsRecipe.innerHTML = markup; // Change refs.hashtagsBox to refs.tagsRecipe
   }
 
-  finallInitPage('6467fb9d3d8125271a59219e')
+finallInitPage('6462a8f74c3d0ddd288980d4')
