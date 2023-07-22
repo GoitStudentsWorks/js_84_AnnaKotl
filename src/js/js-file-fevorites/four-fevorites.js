@@ -1,6 +1,5 @@
 // // Modal Rating in progres
 
-
 // const fetchFavoriteRecipes = async () => {
 //   try {
 //     const response = await axios.get("https://tasty-treats-backend.p.goit.global/api/recipes/popular");
