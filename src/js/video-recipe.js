@@ -13,65 +13,123 @@
     }
   })();
 import axios from "axios";
-const modalVideoRecipes = document.querySelector('.video-recipe')
 
-function showRecieptInfo(result){
-    const modalVideoRecipesMarkup = result.map(({
-        title,
-        youtube,
-        tags,
-        ingredients,
-        instructions,
-        time,
-        rating,
-    }) => {
-        return `<h2 class="title">${title}</h2>
-        <iframe width="467" height="250"
-src="${youtube}">
-</iframe>
-<p class="tags">#${tags}</p>
-<p>${rating}</p>
-<svg class="reciepts-stars1" width="18" height="18">
-        <use href="/src/images/icons-modal-reciepts.svg#icon-Star--converted"></use>
-    </svg>
-    <svg class="reciepts-stars2" width="18" height="18">
-        <use href="/src/images/icons-modal-reciepts.svg#icon-Star--converted"></use>
-    </svg>
-    <svg class="reciepts-stars3" width="18" height="18">
-        <use href="/src/images/icons-modal-reciepts.svg#icon-Star--converted"></use>
-    </svg>
-    <svg class="reciepts-stars4" width="18" height="18">
-        <use href="/src/images/icons-modal-reciepts.svg#icon-Star--converted"></use>
-    </svg>
-    <svg class="reciepts-stars5" width="18" height="18">
-        <use href="/src/images/icons-modal-reciepts.svg#icon-Star--converted"></use>
-</svg>
-<p class="reciepts-time">${time} min</p>
-<ul>
-<li><p class="reciepts-name">${ingredients.name}</p><pclass="reciepts-measure">${ingredients.measure}</pclass=></li>
-</ul>
-<p class="reciepts-instructions">${instructions}</p>
-<button class="add-to-favourite">Add to favorite</button>
-<button class="give-a-rating">Give a rating</button>
-`}).join('')
-modalVideoRecipes.insertAdjacentHTML('beforeend', modalVideoRecipesMarkup)
+let refs = {
+recieptsTitle: document.querySelector('.reciepts-title'),
+tagsRecipe: document.querySelector('.tags-recipe'),
+ratingRecipe: document.querySelector('.rating-recipe'),
+minutesRecipe: document.querySelector('.minutes-recipe'),
+ingredientsRecipe: document.querySelector('.ingredients-recipe'),
+instructionsRecipe: document.querySelector('.instructions-recipe'),
+videoRecipe: document.querySelector('.video-recipe'),
+buttonsAdd: document.querySelector('.buttons-add')
+}
+
+export function finallInitPage(id) {
+    recieptsOfFood(id).then(data => {
+      isFavorite(data._id);
+      renderVIDEO(data);
+      renderRanting(data);
+      markUpRating();
+      renderIngridient(data);
+      renderHashtags(data);
+      renderText(data);
+      openModalOpen();
+      recipeId = data._id;
+    });
 }
 
 async function recieptsOfFood(id){
-    const BASE_URL_RECIEPTS = 'https://tasty-treats-backend.p.goit.global/api/recipes/'
-    const response = await axios.get(`${BASE_URL_RECIEPTS}${id}`);
-      return response;
+    const resp = await fetch(
+        `https://tasty-treats-backend.p.goit.global/api/recipes/${id}`
+      );
+      const data = await resp.json();
+      return data;
 }
 
-function showReciepts(){
-    renderReciepts()
-    async function renderReciepts () {
-    try {
-        const { data: response } = await recieptsOfFood('6467fb9d3d8125271a59219e')
-        showRecieptInfo(response)
+function renderText(data) {
+    refs.recieptsTitle.textContent = data.title; 
+    refs.videoRecipe.src = data.preview; 
+    refs.instructionsRecipe.textContent = data.instructions; 
+    refs.minutesRecipe.textContent = data.time + ' min'; 
+  }
+
+function renderVIDEO(data) {
+    const markUp = `
+      <iframe
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/${getKeyYouTybe(data.youtube)}?origin=https://mrcolti4.github.io"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    `;
+    refs.videoRecipe.innerHTML = markUp; // Change refs.tiezer to refs.videoRecipe
+  }
+  
+  function renderRanting(data) {
+    let markupR = `
+    <div class="cards__rating rating">
+    <div class="rating__value detail">${data.rating}</div>
+    <div class="rating__body">
+      <div class="rating__active"></div>
+      <div class="rating__items">
+        <input
+          type="radio"
+          class="rating__item"
+          name="rating"
+          value="1"
+        />
+        <input
+          type="radio"
+          class="rating__item"
+          name="rating"
+          value="2"
+        />
+        <input
+          type="radio"
+          class="rating__item"
+          name="rating"
+          value="3"
+        />
+        <input
+          type="radio"
+          class="rating__item"
+          name="rating"
+          value="4"
+        />
+        <input
+          type="radio"
+          class="rating__item"
+          name="rating"
+          value="5"
+        />
+      </div>
+    </div>
+  </div>`;
+    refs.ratingRecipe.innerHTML = markupR; // Change refs.ratingBox to refs.ratingRecipe
+  }
+  
+  function renderIngridient(data) {
+    const markup = data.ingredients
+      .map(({ measure, name }) => `
+        <li class="recipes-subtitle">
+          ${name}
+          <p class="recipes-inf">${measure}</p>
+        </li>
+      `)
+      .join('');
+    refs.ingredientsRecipe.innerHTML = markup; // Change refs.IngredientBox to refs.ingredientsRecipe
+  }
+  
+  function renderHashtags(data) {
+    if (data.tags.length === 0) {
+      return;
     }
-    catch (error) {
-        console.log(error);
-      }}
-}
-showReciepts()
+    const markup = data.tags.map(tag => ` <li class="hashtags">#${tag}</li>`).join('');
+    refs.tagsRecipe.innerHTML = markup; // Change refs.hashtagsBox to refs.tagsRecipe
+  }
+
+  finallInitPage('6467fb9d3d8125271a59219e')

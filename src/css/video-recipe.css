@@ -39,7 +39,7 @@ padding-bottom: 0px;
     top: 150px;
     width: 531px;
     max-width: 531px;
-    height: 200px;
+    height: auto;
     display: flex;
     flex-direction: column;
     background: #fff;
