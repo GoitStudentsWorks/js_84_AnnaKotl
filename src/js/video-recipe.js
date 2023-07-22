@@ -22,13 +22,12 @@ minutesRecipe: document.querySelector('.minutes-recipe'),
 ingredientsRecipe: document.querySelector('.ingredients-recipe'),
 instructionsRecipe: document.querySelector('.instructions-recipe'),
 videoRecipe: document.querySelector('.video-recipe'),
-buttonsAdd: document.querySelector('.buttons-add')
 }
 
 export function finallInitPage(id) {
     recieptsOfFood(id).then(data => {
     //   isFavorite(data._id);
-      renderVIDEO(data);
+      // renderVIDEO(data);
       renderRanting(data);
     //   markUpRating();
       renderIngridient(data);
