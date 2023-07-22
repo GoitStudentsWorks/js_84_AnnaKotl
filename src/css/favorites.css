@@ -27,6 +27,11 @@
         min-height: 356px;
         padding-bottom: 64px;
     }
+    .no-favorites-recipe {
+        /* display: flex;
+        min-height: 72px; */
+        margin-top: 32px;
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -37,8 +42,7 @@
         padding-bottom: 64px;
     }
 }
-/* /Hero infavorites title */
-/* Recipe in favorites title */
+
 .no-favorites-recipe {
     text-align: center;
     color: var(--dark-text-color);
@@ -47,4 +51,3 @@
     line-height: 1.5;
 }
 
-/* /Recipe in favorites title */
