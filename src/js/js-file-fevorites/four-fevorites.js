@@ -1,61 +1,65 @@
-// // Modal Rating in progres
-// LOCALSTORAGE_KEY
-// const fetchFavoriteRecipes = async () => {
-//   try {
-//     const response = await axios.get("https://tasty-treats-backend.p.goit.global/api/recipes/popular");
-//     const favoriteRecipes = response.data.recipes;
-//     return favoriteRecipes;
-//   } catch (error) {
-//     console.error("Error fetching favorite recipes:", error);
-//     return [];
-//   }
-// };
+// // // Modal Rating in progres
+// // LOCALSTORAGE_KEY
+// <!-- Припустимо, у нас є масив об'єктів з рецептами, які зберігаються у localStorage -->
+// <script>
+//   const recipesFromLocalStorage = [
+//     {
+//       id: 1,
+//       image: "recipe1.jpg",
+//       title: "Рецепт 1",
+//       description: "Це перший рецепт у вашому списку Favorites.",
+//       rating: 4.5,
+//       time: "30 хв",
+//       isFavorite: true,
+//     },
+//     {
+//       id: 2,
+//       image: "recipe2.jpg",
+//       title: "Рецепт 2",
+//       description: "Це другий рецепт у вашому списку Favorites.",
+//       rating: 3.8,
+//       time: "45 хв",
+//       isFavorite: true,
+//     },
+//     // Додайте більше рецептів за необхідності
+//   ];
 
-// const renderFavoriteRecipes = (recipes) => {
+//   // Функція для створення HTML-коду для кожного рецепту
+//   function createRecipeCard(recipe) {
+//     return `
+//       <div class="recipe-card">
+//         <img src="${recipe.image}" alt="${recipe.title}" class="recipe-img">
+//         <h3 class="recipe-title">${recipe.title}</h3>
+//         <p class="recipe-description">${recipe.description}</p>
+//         <div class="recipe-details">
+//           <span class="recipe-rating">Рейтинг: ${recipe.rating}</span>
+//           <span class="recipe-time">Час приготування: ${recipe.time}</span>
+//           <span class="favorite-icon">&#10084;</span>
+//         </div>
+//       </div>
+//     `;
+//   }
+
+//   // Отримуємо контейнер, в який будемо додавати рецепти
 //   const favoritesContainer = document.getElementById("favoritesContainer");
-//   const noFavoritesMessage = document.getElementById("noFavoritesMessage");
 
-//   if (recipes.length > 0) {
-//     noFavoritesMessage.style.display = "none";
-//     favoritesContainer.innerHTML = recipes
-//       .map((recipe) => createRecipeCard(recipe))
-//       .join("");
-//   } else {
-//     noFavoritesMessage.style.display = "block";
+//   // Функція для відображення рецептів у сторінці Favorites
+//   function showFavorites() {
+//     // Очищаємо контейнер перед додаванням рецептів
 //     favoritesContainer.innerHTML = "";
+
+//     // Перевіряємо наявність рецептів у localStorage та показуємо їх у сторінці Favorites
+//     if (recipesFromLocalStorage.length > 0) {
+//       recipesFromLocalStorage.forEach((recipe) => {
+//         favoritesContainer.innerHTML += createRecipeCard(recipe);
+//       });
+//     } else {
+//       // Якщо немає рецептів у localStorage, показуємо повідомлення
+//       const noFavoritesMessage = document.getElementById("noFavoritesMessage");
+//       noFavoritesMessage.style.display = "block";
+//     }
 //   }
-// };
 
-// const createRecipeCard = (recipe) => {
-//   return `
-//     <div class="recipe-card">
-//       <h3>${recipe.title}</h3>
-//       <p>${recipe.description}</p>
-//       <img src="${recipe.image}" alt="${recipe.title}" />
-//       <p>Rating: ${recipe.rating}</p>
-//       <p>Preparation Time: ${recipe.preparationTime} minutes</p>
-//       <button class="remove-favorite" data-id="${recipe.id}">Remove from Favorites</button>
-//     </div>
-//   `;
-// };
-
-
-// const handleRemoveFavoriteClick = async (event) => {
-//   if (event.target.classList.contains("remove-favorite")) {
-//     const recipeId = event.target.dataset.id;
-
-//     const favoriteRecipes = JSON.parse(localStorage.getItem("favoriteRecipes")) || [];
-//     const updatedFavorites = favoriteRecipes.filter((recipe) => recipe.id !== recipeId);
-//     localStorage.setItem("favoriteRecipes", JSON.stringify(updatedFavorites));
-
-//     const updatedFavoriteRecipes = await fetchFavoriteRecipes();
-//     renderFavoriteRecipes(updatedFavoriteRecipes);
-//   }
-// };
-
-// document.addEventListener("DOMContentLoaded", async () => {
-//   const favoriteRecipes = await fetchFavoriteRecipes();
-//   renderFavoriteRecipes(favoriteRecipes);
-// });
-
-// document.addEventListener("click", handleRemoveFavoriteClick);
+//   // Викликаємо функцію для показу рецептів у сторінці Favorites
+//   showFavorites();
+// </script>
