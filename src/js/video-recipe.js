@@ -12,7 +12,7 @@
       refs.modal.classList.toggle('is-hidden');
     }
   })();
-import axios from "axios";
+// import axios from "axios";
 
 let refs = {
 recieptsTitle: document.querySelector('.reciepts-title'),
@@ -27,14 +27,14 @@ buttonsAdd: document.querySelector('.buttons-add')
 
 export function finallInitPage(id) {
     recieptsOfFood(id).then(data => {
-      isFavorite(data._id);
+    //   isFavorite(data._id);
       renderVIDEO(data);
       renderRanting(data);
-      markUpRating();
+    //   markUpRating();
       renderIngridient(data);
       renderHashtags(data);
       renderText(data);
-      openModalOpen();
+    //   openModalOpen();
       recipeId = data._id;
     });
 }
@@ -59,7 +59,7 @@ function renderVIDEO(data) {
       <iframe
         width="100%"
         height="100%"
-        src="https://www.youtube.com/embed/${getKeyYouTybe(data.youtube)}?origin=https://mrcolti4.github.io"
+        src="${data.youtube}"
         title="YouTube video player"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
