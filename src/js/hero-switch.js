@@ -1,7 +1,10 @@
 import axios from 'axios';
+import Swiper from 'swiper';
+// import { Pagination } from 'swiper/modules';
+// import 'swiper/css';
+// import 'swiper/css/pagination';
 
 const mkBox = document.querySelector('.mk-container');
-// const 
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/events';
 
 // function fetchMk() {
@@ -30,19 +33,23 @@ function renderMk(data) {
       arrMk.map(evt => { 
         console.log(evt);
          const murkup = ` 
+          <div class="mk-card swiper-pagination">
            <ul class="mk-list">
-           <li class="mk-photo chief">
-            <img class="chief-img" src="${evt.cook.imgUrl}" alt="${evt.cook.name}" width="80"/></li>
-            <li class="mk-photo dish">
-              <img class="dish-img" src="${evt.topic.previewUrl}" alt="dish" width="200"/>
+           <li class="mk-item chief">
+           <div class="mk-photo-wrapper chief swiper-pagination">
+            <img class="chief-img img" src="${evt.cook.imgUrl}" alt="${evt.cook.name}" width="80" /></div></li>
+            <li class="mk-item dish">
+            <div class="mk-photo-wrapper preview swiper-pagination">
+            <img class="preview-img img" src="${evt.topic.previewUrl}" alt="dish" width="200"/>
               <div class="mk-info">
                 <h4 class="mk-name">${evt.topic.name}</h4>
                 <p class="mk-region">${evt.topic.area}</p>
-              </div>
+              </div></div>
             </li>
-            <li class="mk-photo zoom">
-            <img class="dish-img" src="${evt.topic.imgUrl}" alt="dish" width="200"/></li>
-          </ul> `;
+            <li class="mk-item">
+            <div class="mk-photo-wrapper zoom swiper-pagination">
+            <img class="dish-img img" src="${evt.topic.imgUrl}" alt="dish" width="200"/></div></li>
+          </ul> </div>`;
         mkBox.innerHTML = murkup;
     }) })
     .catch(error => {
@@ -76,21 +83,15 @@ function renderMk(data) {
 //     mkBox.innerHTML = murkup;
 // }
 
+function addMkInfo() {
 renderMk();
-
-// function addMkInfo() {
-          
-//   fetchMk() 
-//   .then(response => { 
-//     const { cook, topic } = response.data; 
-//     console.log(response.data);
-//       console.log(cook.imgUrl);
-//       console.log(topic.imgUrl);
-
-//       // renderMk(data)
-//     })
-//     .catch(error => {
-//         console.error("Error:", error);
-//     })
-// }
-// addMkInfo();
+const swiper = new Swiper('.swiper', {
+ 
+  direction: 'vertical',
+  loop: true,
+  pagination: {
+    el: '.swiper-pagination',
+  },
+})
+}
+addMkInfo();
