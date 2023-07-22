@@ -32,4 +32,3 @@ import './api-kay-js-files/api-two-fevorites.js';
 import './api-kay-js-files/api-three-fevorites.js';
 import './api-kay-js-files/api-four-fevorites.js';
 import './api-kay-js-files/api-five-fevorites.js';
-
