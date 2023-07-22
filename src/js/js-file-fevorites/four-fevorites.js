@@ -1,5 +1,5 @@
 // // Modal Rating in progres
-
+// LOCALSTORAGE_KEY
 // const fetchFavoriteRecipes = async () => {
 //   try {
 //     const response = await axios.get("https://tasty-treats-backend.p.goit.global/api/recipes/popular");
