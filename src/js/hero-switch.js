@@ -68,5 +68,4 @@ function addMkInfo() {
   });
   console.log(swiper);
 }
-
 addMkInfo();
