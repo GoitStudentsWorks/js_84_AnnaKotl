@@ -1,8 +1,12 @@
 .header-container {
   padding-left: 100px;
   padding-right: 100px;
+  padding-top: 44px;
+  display: flex;
 }
-
+.active {
+  color: #9bb537;
+}
 .header-link {
   color: #050505;
   font-size: 12px;
@@ -12,4 +16,18 @@
 }
 .header-link:hover {
   color: #9bb537;
+}
+.header-logo {
+  color: #050505;
+  font-size: 18px;
+  font-family: Inter;
+  font-weight: 600;
+  line-height: 20px;
+}
+.logo-span {
+  color: #9bb537;
+  font-size: 18px;
+  font-family: Inter;
+  font-weight: 600;
+  line-height: 20px;
 }
