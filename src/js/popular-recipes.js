@@ -1,3 +1,5 @@
+import { schowModalAboutReciepts } from './video-recipe';
+
 const url = 'https://tasty-treats-backend.p.goit.global/api/recipes/popular';
 
 const pop_recipe_info = document.querySelector('.popular-recipes');
@@ -36,3 +38,6 @@ function renderPopularRecipes(recipes) {
     })
     .join('');
 }
+
+const openResipe = document.querySelector('.pop-recipe-link');
+openResipe.addEventListener('click', schowModalAboutReciepts);

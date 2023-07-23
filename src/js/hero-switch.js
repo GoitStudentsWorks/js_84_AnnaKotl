@@ -32,7 +32,7 @@ function renderMk(data) {
       const markup = arrMk.map(evt => { 
         // console.log(evt);
           return ` 
-          <div class="mk-card swiper-pagination">
+         <div class="mk-card swiper-pagination">
            <ul class="mk-list">
            <li class="mk-item chief">
            <div class="mk-photo-wrapper chief swiper-slide">
@@ -48,7 +48,9 @@ function renderMk(data) {
             <li class="mk-item">
             <div class="mk-photo-wrapper zoom swiper-pagination">
             <img class="dish-img img" src="${evt.topic.imgUrl}" alt="dish" width="200"/></div></li>
-          </ul> </div>`}).join("");
+          </ul> 
+          </div>
+          `}).join("");
         mkBox.innerHTML = markup;
      })
     .catch(error => {
@@ -65,7 +67,12 @@ function renderMk(data) {
 
 function addMkInfo() {
   renderMk();
-  
+  // var swiper = new Swiper('.swiper-container', {
+  //     pagination: {
+  //     el: '.swiper-pagination',
+  //     clickable: true, 
+  //   },
+  // });
 }
 // console.log(swiper);
 
