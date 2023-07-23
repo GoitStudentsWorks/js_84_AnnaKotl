@@ -29,11 +29,11 @@ position: fixed;
     backdrop-filter: blur(3px);
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.backdrop-video-recipes.active{
+/* .backdrop-video-recipes.active{
     visibility: visible;
     opacity: 1; 
     overflow-y: auto;
-}
+} */
 .modal-video-recipe {
     position: relative;
     top: 150px;
@@ -47,10 +47,10 @@ position: fixed;
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
 }
-.modal-video-recipe.active {
+/* .modal-video-recipe.active {
     visibility: visible;
     opacity: 1;
-}
+} */
 .reciepts-title{
     color: var(--dark-text-color);
 font-family: Inter;
