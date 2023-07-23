@@ -4,7 +4,7 @@ import Swiper from 'swiper';
 import '../../node_modules/swiper/swiper.css';
 // import '../../node_modules/swiper/swiper.css/pagination';
 
-const mkBox = document.querySelector('.swiper-pagination');
+const mkBox = document.querySelector('.swiper-wrapper');
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/events';
 
 async function fetchMk() {
@@ -45,39 +45,7 @@ function renderMk(data) {
       console.error("Error:", error);
           })
   }
-  const swiperSettings = {
-    // modules: [Navigation],
-
-    breakpoints: {
-      375: {
-        slidesPerView: 1,
-        slidesPerGroup: 1,
-        spaceBetween: 16,
-      },
-
-      768: {
-        spaceBetween: 16,
-      },
-
-      1440: {
-        spaceBetween: 16,
-      },
-    },
-    loop: true,
-    // navigation: {
-    //   nextEl: '.swiper-button-next',
-    //   prevEl: '.swiper-button-prev',
-    // },
-  };
-
-  // const swiper = new Swiper('.swiper', {
  
-  //   direction: 'vertical',
-  //   loop: true,
-  //   pagination: {
-  //     el: '.swiper-pagination',
-  //   },})
-
 function addMkInfo() {
   renderMk();
   const swiper = new Swiper(".swiper", {
@@ -87,7 +55,7 @@ function addMkInfo() {
     grabCursor: true,
     // centeredSlides: true,
     slidesPerView: 'auto',
-    direction: 'vertical',
+    direction: 'horizontal',
     rewind: true,
     loop: true,
     scrollbar: {
