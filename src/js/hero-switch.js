@@ -1,25 +1,26 @@
 import Swiper from 'swiper';
+import 'swiper/swiper-bundle.css';
 // import '@splidejs/splide/css/core';
 // import { Pagination } from '../../node_modules/swiper/modules';
-import '../../node_modules/swiper/swiper.css';
 // import '../../node_modules/swiper/swiper.css/pagination';
 
 const mkBox = document.querySelector('.swiper-wrapper');
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/events';
 
 async function fetchMk() {
-  let resp = await fetch (`${BASE_URL}`);
-    if (!resp.ok) {throw new Error(resp.statusText);}
-  let arrMk = await resp.json();
-  return arrMk;
+  let resp = await fetch(`${BASE_URL}`);
+  if (!resp.ok) {
+    throw new Error(resp.statusText);
+  }
+  return await resp.json();
 }
     
-function renderMk(data) {
-    fetchMk() 
-    .then(arrMk => {
-      const markup = arrMk.map(evt => { 
-        // console.log(evt);
-          return ` 
+async function renderMk() {
+  try {
+    const arrMk = await fetchMk();
+    const markup = arrMk
+      .map(evt => {
+        return `
          <div class="mk-card swiper-slide">
            <ul class="mk-list">
            <li class="mk-item chief">
@@ -38,13 +39,14 @@ function renderMk(data) {
             <img class="dish-img img" src="${evt.topic.imgUrl}" alt="dish" width="200"/></div></li>
           </ul> 
           </div>
-          `}).join("");
-        mkBox.innerHTML = markup;
-     })
-    .catch(error => {
-      console.error("Error:", error);
-          })
+        `;
+      })
+      .join("");
+    mkBox.innerHTML = markup;
+  } catch (error) {
+    console.error("Error:", error);
   }
+}
  
 function addMkInfo() {
   renderMk();
