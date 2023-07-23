@@ -5,9 +5,9 @@
 }
 
 .mk-card {
-  /* display: flex;
+  display: flex;
   flex-direction: row;
-  gap: 16px; */
+  gap: 16px;
   /* flex-wrap: wrap; */
 }
 .mk-list {
