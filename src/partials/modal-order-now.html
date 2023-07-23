@@ -1,5 +1,14 @@
-<div class="modal-ordernow-container">
+<div class="modal-ordernow-container" id="modalordernow">
   <form class="ordernow-form" autocomplete="off">
+    <button
+      class="modal-order-now-close-button"
+      type="button"
+      id="closeModalOrderNowBtn"
+    >
+      <svg class="modal-order-now-close-button-icon" width="20" height="20">
+        <use href="/src/images/symbol-defs.svg#icon-close-modal-r"></use>
+      </svg>
+    </button>
     <h1 class="modal-tittle">Order Now</h1>
     <label class="modal-order-now-form-field label">
       <span class="modal-order-now-name modal-text">Name</span>
@@ -36,10 +45,16 @@
     </label>
     <label class="modal-order-now-comment">
       <span class="modal-text">Comment</span>
-      <textarea name="message" rows="8"></textarea>
+      <textarea class="comment" name="message" rows="8"></textarea>
     </label>
     <div class="modal-btn-container">
-      <button class="modal-order-now-btn" type="submit modal-text">Send</button>
+      <button
+        class="modal-order-now-btn"
+        type="submit modal-text data-modal-open-ordernow"
+        data-modal-open-ordernow
+      >
+        Send
+      </button>
     </div>
   </form>
 </div>

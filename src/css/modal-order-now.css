@@ -1,5 +1,20 @@
 .modal-ordernow-container {
   padding: 0px 20px 28px 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .ordernow-form {
@@ -20,7 +35,7 @@
 
 input,
 textarea {
-  padding: 14px 169px 14px 18px;
+  padding: 14px 0 14px 18px;
   font: inherit;
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
@@ -54,14 +69,13 @@ input::placeholder {
   line-height: 22px; /* 122.222% */
   text-transform: uppercase;
   padding-top: 28px;
-  padding-left: 20px;
 }
 
 .modal-order-now-form-field {
   padding-top: 28px;
 }
 
-.modal-order-now-comment {
+.comment {
   width: 295px;
   height: 100px;
 }
@@ -102,4 +116,58 @@ input::placeholder {
 
 .label {
   padding-bottom: 16px;
+}
+
+.modal-order-now-close-button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  display: flex;
+  position: absolute;
+  top: 14px;
+  right: 34px;
+}
+
+.modal-order-now-close-button-icon:hover {
+  fill: #9bb537;
+}
+
+/* Стилі для таблета */
+@media screen and (min-width: 768px) {
+  .ordernow-form {
+    width: 440px;
+    height: 632px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .modal-order-now-close-button-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .input {
+    width: 360px;
+  }
+  .comment {
+    width: 360px;
+  }
+  .modal-order-now-btn {
+    width: 360px;
+  }
+  .label {
+    padding-bottom: 18px;
+  }
+  .modal-order-now-close-button {
+    top: 16px;
+    right: 36px;
+  }
+}
+
+/* Стилі для десктопа */
+@media screen and (min-width: 1280px) {
+  .modal-order-now-form-field {
+    padding-top: 40px;
+  }
 }
