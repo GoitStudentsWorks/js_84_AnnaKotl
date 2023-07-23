@@ -24,10 +24,9 @@ jsonplaceholderInstance
 
     const renderCards = createMarkup(arrayRecipes);
     const renderFilter = createFilterMarkup(arrayRecipes);
+
     filterList.insertAdjacentHTML('beforeend', renderFilter);
     recipesList.insertAdjacentHTML('beforeend', renderCards);
-    // let allDiscr = [...document.getElementsById('instructions')].slice(0, 50);
-    // console.log(allDiscr);
   })
   .catch(err => {
     console.warn(err);
@@ -45,7 +44,11 @@ function createMarkup(arr) {
       <h2 class="${category} hidden">category: ${category}</h2>
       <p class="instructions">(${instructions}).slice(0, 50)</p>
    </div>
-</li>`;
+<div class="rating">
+<div></div>
+   <button type="button" class="recipe-btn btn">See recipe</button>
+</div>
+   </li>`;
     })
     .join('');
 }
@@ -66,10 +69,10 @@ function onFilterClick(evt) {
   if (evt.target.tagName !== 'BUTTON') return;
 
   let filterClass = evt.target.textContent;
-  console.log(filterClass);
+  // console.log(filterClass);
 
   let allCards = [...document.getElementsByClassName('cards')];
-  console.log(allCards);
+  // console.log(allCards);
 
   allCards.forEach(elem => {
     elem.classList.remove('hidden');
