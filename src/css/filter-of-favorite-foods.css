@@ -58,29 +58,23 @@
 
 /* потом удалить */
 .recipes-list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  row-gap: 32px;
-  column-gap: 16px;
-  max-width: 1440px;
+  display: block;
 }
 .cards {
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
   display: flex;
-  /* width: 258px; */
+  width: 258px;
   height: 287px;
   flex-shrink: 0;
-  width: calc((100% - 48px) / 4);
   border-radius: 8px;
-  /* background: linear-gradient(
+  background: linear-gradient(
       1deg,
       rgba(5, 5, 5, 0.6) 0%,
       rgba(5, 5, 5, 0) 100%
     ),
     lightgray -29.5px 0px / 125.194% 112.544% no-repeat;
-  z-index: 100; */
+  margin-bottom: 24px;
 }
 .images {
   display: block;
@@ -92,7 +86,7 @@
 .recipe-desc {
   display: flex;
   flex-direction: column;
-  position: absolute;
+
   top: 0;
   right: 0;
   margin: 0;
@@ -125,4 +119,28 @@
   width: 226px;
   height: 32px;
   flex-shrink: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .cards {
+    width: calc((100% - 32px) / 3);
+    margin-bottom: 0;
+  }
+  .recipes-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    row-gap: 16px;
+    column-gap: 16px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .cards {
+    width: calc((100% - 48px) / 4);
+  }
+  .recipes-list {
+    row-gap: 32px;
+    column-gap: 16px;
+  }
 }
