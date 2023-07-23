@@ -1,12 +1,7 @@
 /* .mk-container {
 }
 .img {
-<<<<<<< Updated upstream
   /* background-color: var(--dark-text-color); }*/
-=======
-  /* background-color: var(--dark-text-color); */
-/* }  */
->>>>>>> Stashed changes
 
 .mk-card {
   display: flex;
@@ -43,7 +38,7 @@
   background-color: var(--dark-text-color);
   position: relative;
 }
-<<<<<<< Updated upstream
+
 /* .zoom {} */
 /* background: ; */
 /* url(<path-to-image>),
@@ -51,15 +46,7 @@
 
 /* .preview-img {
 } */
-=======
-/* .zoom {
-  background: ; 
-   url(<path-to-image>),
-    lightgray -24.355px -94.404px / 97.72% 146.68% no-repeat;
-}
- .preview-img {
-}  */
->>>>>>> Stashed changes
+
 .mk-info {
   display: flex;
   position: absolute;
@@ -87,3 +74,24 @@
   width: 512px;
   height: 302px;
 }
+/* 
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
