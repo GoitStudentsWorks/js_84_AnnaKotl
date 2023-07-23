@@ -1,4 +1,4 @@
-// // // Modal Rating in progres
+// // // in progres
 // // LOCALSTORAGE_KEY
 
 //   const recipesFromLocalStorage = [
@@ -57,64 +57,64 @@
 
 
 // //////////////// 2
-function getSavedFavorites() {
-  return JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
-}
+// function getSavedFavorites() {
+//   return JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
+// }
 
-function showFavoritesCategories() {
-  const favoritesCategories = document.getElementById("favoritesCategories");
-  favoritesCategories.innerHTML = "";
+// function showFavoritesCategories() {
+//   const favoritesCategories = document.getElementById("favoritesCategories");
+//   favoritesCategories.innerHTML = "";
 
-  const savedFavorites = getSavedFavorites();
+//   const savedFavorites = getSavedFavorites();
 
-  const categories = [...new Set(savedFavorites.map((recipe) => recipe.category))];
+//   const categories = [...new Set(savedFavorites.map((recipe) => recipe.category))];
 
-  const allCategoriesBtn = document.createElement("button");
-  allCategoriesBtn.textContent = "All categories";
-  allCategoriesBtn.classList.add("favorites-category-btn", "active");
-  favoritesCategories.appendChild(allCategoriesBtn);
+//   const allCategoriesBtn = document.createElement("button");
+//   allCategoriesBtn.textContent = "All categories";
+//   allCategoriesBtn.classList.add("favorites-category-btn", "active");
+//   favoritesCategories.appendChild(allCategoriesBtn);
 
-  categories.forEach((category) => {
-    const categoryBtn = document.createElement("button");
-    categoryBtn.textContent = category;
-    categoryBtn.classList.add("favorites-category-btn");
-    favoritesCategories.appendChild(categoryBtn);
-  });
-}
+//   categories.forEach((category) => {
+//     const categoryBtn = document.createElement("button");
+//     categoryBtn.textContent = category;
+//     categoryBtn.classList.add("favorites-category-btn");
+//     favoritesCategories.appendChild(categoryBtn);
+//   });
+// }
 
-function showFavoritesRecipesByCategory(category) {
-  const favoritesRecipeContainer = document.getElementById("favoritesRecipeContainer");
-  favoritesRecipeContainer.innerHTML = "";
+// function showFavoritesRecipesByCategory(category) {
+//   const favoritesRecipeContainer = document.getElementById("favoritesRecipeContainer");
+//   favoritesRecipeContainer.innerHTML = "";
 
-  const savedFavorites = getSavedFavorites();
+//   const savedFavorites = getSavedFavorites();
 
-  const filteredRecipes = category === "All categories"
-    ? savedFavorites
-    : savedFavorites.filter((recipe) => recipe.category === category);
+//   const filteredRecipes = category === "All categories"
+//     ? savedFavorites
+//     : savedFavorites.filter((recipe) => recipe.category === category);
 
-  if (filteredRecipes.length > 0) {
-    filteredRecipes.forEach((recipe) => {
-      favoritesRecipeContainer.innerHTML += createRecipeCard(recipe);
-    });
-  } else {
+//   if (filteredRecipes.length > 0) {
+//     filteredRecipes.forEach((recipe) => {
+//       favoritesRecipeContainer.innerHTML += createRecipeCard(recipe);
+//     });
+//   } else {
 
-    favoritesRecipeContainer.innerHTML = "<p>No recipes found.</p>";
-  }
-}
+//     favoritesRecipeContainer.innerHTML = "<p>No recipes found.</p>";
+//   }
+// }
 
-const favoritesCategories = document.getElementById("favoritesCategories");
+// const favoritesCategories = document.getElementById("favoritesCategories");
 
-favoritesCategories.addEventListener("click", (event) => {
-  if (event.target.classList.contains("favorites-category-btn")) {
-    const category = event.target.textContent;
-    const activeCategoryBtn = document.querySelector(".favorites-category-btn.active");
-    if (activeCategoryBtn) {
-      activeCategoryBtn.classList.remove("active");
-    }
-    event.target.classList.add("active");
-    showFavoritesRecipesByCategory(category);
-  }
-});
+// favoritesCategories.addEventListener("click", (event) => {
+//   if (event.target.classList.contains("favorites-category-btn")) {
+//     const category = event.target.textContent;
+//     const activeCategoryBtn = document.querySelector(".favorites-category-btn.active");
+//     if (activeCategoryBtn) {
+//       activeCategoryBtn.classList.remove("active");
+//     }
+//     event.target.classList.add("active");
+//     showFavoritesRecipesByCategory(category);
+//   }
+// });
 
-showFavoritesCategories();
-showFavoritesRecipesByCategory("All categories");
+// showFavoritesCategories();
+// showFavoritesRecipesByCategory("All categories");

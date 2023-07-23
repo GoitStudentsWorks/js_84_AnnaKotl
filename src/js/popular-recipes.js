@@ -1,4 +1,4 @@
-import { schowModalAboutReciepts } from './video-recipe';
+// import { schowModalAboutReciepts } from './video-recipe';
 
 const url = 'https://tasty-treats-backend.p.goit.global/api/recipes/popular';
 
@@ -39,5 +39,7 @@ function renderPopularRecipes(recipes) {
     .join('');
 }
 
+
+// тут може бути помилка:
 const openResipe = document.querySelector('.pop-recipe-link');
 openResipe.addEventListener('click', schowModalAboutReciepts);
