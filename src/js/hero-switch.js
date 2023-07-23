@@ -1,5 +1,4 @@
 import 'swiper/swiper-bundle.css';
-
 import Swiper from 'swiper';
 
 const mkBox = document.querySelector('.swiper-wrapper');
