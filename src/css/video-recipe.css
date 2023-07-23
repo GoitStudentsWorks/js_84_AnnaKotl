@@ -14,8 +14,8 @@ margin-left: 491px;
 position: fixed;
 }
 .backdrop-video-recipes {
-    visibility: hidden;
-    opacity: 0;
+    visibility: visible;
+    opacity: 1;
     position: fixed;
     top: 0;
     left: 0;

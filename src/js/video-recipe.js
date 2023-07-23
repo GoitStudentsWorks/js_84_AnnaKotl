@@ -1,21 +1,3 @@
-// (() => {
-//     const refs = {
-//       openModalBtn: document.querySelector('[data-modal-open-reciepts]'),
-//       closeModalBtn: document.querySelector('[data-modal-close-reciepts]'),
-//       modal: document.querySelector('[data-modal-reciepts]'),
-//     };
-  
-//     refs.openModalBtn.addEventListener('click', toggleModal);
-//     refs.closeModalBtn.addEventListener('click', toggleModal);
-  
-//     function toggleModal() {
-//       refs.modal.classList.toggle('is-hidden');
-//     }
-//   })();
-// // import axios from "axios";
-
-
-
 let refs = {
 recieptsTitle: document.querySelector('.reciepts-title'),
 backdropRecipe: document.querySelector('.backdrop-video-recipes'),
