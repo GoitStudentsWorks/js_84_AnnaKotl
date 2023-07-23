@@ -1,18 +1,3 @@
-.container {
-min-width: 300px;
-max-width: 375px;
-margin: 0 auto;
-padding: 0 auto;
-}
-
-@media screen and (min-width:1200px){
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0px 100px;
-    }
-}
-
 .pagination {
     margin-top: 40px;
 }
@@ -64,7 +49,7 @@ padding: 0 auto;
 }
 
 .pagination .pag__current-page {
-    background-color: #9bb537;
+    background-color: var(--main-color);
     margin-right: 8px;
 }
 
@@ -73,7 +58,7 @@ padding: 0 auto;
 }
 
 .pagination .pag__current-page:hover {
-    background-color: #9bb537;
+    background-color: var(--main-color);
 }
 
 .tui-first-child {
@@ -89,11 +74,11 @@ padding: 0 auto;
 }
 
 .pagination .pag__btn-move {
-    background: #9bb537;
+    background: var(--main-color);
 }
 
 .tui-pagination .tui-page-btn:hover {
-    background: #9bb537;
+    background: var(--main-color);
 }
 
 .pagination .pag__btn-move:first-child {
@@ -101,12 +86,12 @@ padding: 0 auto;
 }
 
 .pagination .pag__btn-disabled {
-    background: #050505;
-    border: 1px solid #050505;
+    background: var(--primary-text-color);
+    border: 1px solid var(--primary-text-color);
 }
 
 .tui-pagination .tui-is-disabled:hover {
-    background: #050505;
+    background: var(--primary-text-color);
 }
 
 @media screen and (min-width: 768px) {
