@@ -1,6 +1,15 @@
-.sect3 {
-    background-color: blue;
+.header-container {
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
-
-
+.header-link {
+  color: #050505;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.header-link:hover {
+  color: #9bb537;
+}

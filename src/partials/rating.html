@@ -1,8 +1,31 @@
-<p >
-    test
-</p>
-<a href="" class="sect11">rating</a>
-<p>
-    test
-</p>
-<!-- видаліть коли почнене працювати, це для перевірки чи все працює :) -->
+<button id="openModalRatingBtn" class="open-modal-rating-btn">Give a rating</button>
+
+<div id="modal-rating-js" class="modal-rating is-hidden">
+  <form class="modal-rating-content" onsubmit="return handleSubmit(event)">
+
+    <span class="close-rating-btn">
+        <svg width="20" height="20">
+            <use href="/src/images/symbol-defs.svg#icon-close-modal-r"></use>
+        </svg>
+    </span>
+
+    <h2 class="rating-title">Rating</h2>
+
+    <div class="ratings-js">
+      <div class="active-rating-js"></div>
+      <div class="val-rating-js value-of-rating">0.0</div>
+    </div>
+
+    <div class="rating-stars">
+      <span class="star-rating" data-rating="1"></span>
+      <span class="star-rating" data-rating="2"></span>
+      <span class="star-rating" data-rating="3"></span>
+      <span class="star-rating" data-rating="4"></span>
+      <span class="star-rating" data-rating="5"></span>
+    </div>
+
+    <input type="email" id="emailInput" class="rating-input" placeholder="Enter email" required>
+    <button id="submitBtn" class="submit-rating-btn">Send</button>
+
+  </form>
+</div>
