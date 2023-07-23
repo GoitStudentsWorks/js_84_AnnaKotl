@@ -1,10 +1,5 @@
 import Pagination from 'tui-pagination';
 import '../css/recipe-placeholder.css';
-async function getRecipesData() {
-    const showRecipes = await fetch('https://tasty-treats-backend.p.goit.global/api/recipes/popular');
-    const data = await response.json();
-    return data;
-}
 
 const URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 const container = document.getElementById('tui-pagination-container');
