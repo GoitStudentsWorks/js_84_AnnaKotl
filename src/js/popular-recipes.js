@@ -39,5 +39,7 @@ function renderPopularRecipes(recipes) {
     .join('');
 }
 
+
+// тут може бути помилка:
 const openResipe = document.querySelector('.pop-recipe-link');
 openResipe.addEventListener('click', schowModalAboutReciepts);
