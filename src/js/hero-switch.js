@@ -1,7 +1,7 @@
 import Swiper from 'swiper';
 import 'swiper/swiper-bundle.css';
 // import '@splidejs/splide/css/core';
-// import { Pagination } from '../../node_modules/swiper/modules';
+// import { Pagination } from 'swiper/modules';
 // import '../../node_modules/swiper/swiper.css/pagination';
 
 const mkBox = document.querySelector('.swiper-wrapper');
