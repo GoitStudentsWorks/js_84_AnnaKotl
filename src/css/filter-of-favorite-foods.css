@@ -43,8 +43,9 @@
     line-height: 1.25;
   }
 }
-.hidden {
+/* .hidden {
   position: absolute;
+  opacity: 1;
   width: 1px;
   height: 1px;
   margin: -1px;
@@ -54,6 +55,27 @@
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+} */
+.hidden {
+  opacity: 1;
+  animation-name: a1;
+  animation-duration: 1500ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes a1 {
+  to {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
 }
 
 /* потом удалить */
@@ -61,20 +83,22 @@
   display: block;
 }
 .cards {
-  /* position: relative; */
+  position: relative;
   overflow: hidden;
   display: flex;
   width: 258px;
   height: 287px;
   flex-shrink: 0;
   border-radius: 8px;
-  background: linear-gradient(
-      1deg,
-      rgba(5, 5, 5, 0.6) 0%,
-      rgba(5, 5, 5, 0) 100%
-    ),
-    lightgray -29.5px 0px / 125.194% 112.544% no-repeat;
+
   margin-bottom: 24px;
+}
+.recipe-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  z-index: 0;
 }
 .images {
   display: block;
@@ -86,16 +110,24 @@
 .recipe-desc {
   display: flex;
   flex-direction: column;
-
+  position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   margin: 0;
   padding: 8px 16px;
   border-bottom-left-radius: 4px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(
+      1deg,
+      rgba(5, 5, 5, 0.6) 0%,
+      rgba(5, 5, 5, 0) 100%
+    ),
+    no-repeat;
 }
 .title-favor {
   color: #f8f8f8;
-  text-align: center;
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
