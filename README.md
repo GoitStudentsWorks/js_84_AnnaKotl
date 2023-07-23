@@ -1,7 +1,9 @@
 Live page:
-  https://annakotl.github.io/upGrate/
+
+https://annakotl.github.io/upGrate/
 
 Team:
+
   Світлана - https://github.com/Svitlana-Ivanchuk
 
   Світлана - https://github.com/SvAmi1
@@ -19,10 +21,7 @@ Team:
   Олег - https://github.com/OlegMalyshok
 
   Scrum Master:
-
-    Анатолій - https://github.com/Ne1rem
+  Анатолій - https://github.com/Ne1rem
 
   Team Lead:
-
-    Анна - https://github.com/AnnaKotl
-    
+  Анна - https://github.com/AnnaKotl
