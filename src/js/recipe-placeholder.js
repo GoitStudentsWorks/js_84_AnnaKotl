@@ -1,4 +1,4 @@
-import Pagination from 'tui-pagination';
+// import Pagination from 'tui-pagination';
 import '../css/recipe-placeholder.css';
 // import { showRecipes, getRecipesData } from './all-recipes';
 async function getRecipesData(url = URL, params) {
