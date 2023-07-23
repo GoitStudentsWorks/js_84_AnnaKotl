@@ -20,7 +20,7 @@
 :root {
     --dark-text-color: #050505;
     --light-text-color: #F8F8F8;
-
+    --dark-text-color-with-blur : rgba(5, 5, 5, 0.50);
     --accent-color: #9BB537;
 
     --bgc-light-them: #FFFFFF;
