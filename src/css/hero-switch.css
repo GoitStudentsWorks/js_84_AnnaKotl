@@ -17,20 +17,21 @@
 }
 /* .mk-item {
 } */
-.chief {
+/* .chief {
   width: 80px;
   height: 280px;
   border-radius: 15px;
-}
+} */
 .chief-img {
-  width: 109px;
+  width: 182px;
   height: 272px;
   position: absolute;
   overflow: hidden;
   border-radius: 15px;
 }
 .mk-photo-wrapper {
-  height: 280px;
+  height: 442px;
+  width: 137px;
   display: flex;
   flex-direction: column;
   justify-content: center;
