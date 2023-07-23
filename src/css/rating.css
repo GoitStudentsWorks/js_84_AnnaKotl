@@ -81,6 +81,17 @@
     align-items: flex-start;
     border-radius: 15px;
     border: 1px solid rgba(5, 5, 5, 0.20);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rating-input:hover {
+    border-color: var(--bgc-dark-them);
+}
+
+.rating-input:focus {
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-color: #1e251a;
 }
 
 .submit-rating-btn {
@@ -93,9 +104,16 @@
     border-radius: 15px;
     border: none;
     background: var(--accent-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     color: var(--light-text-color);
     font-size: 14px;
     font-weight: 500;
     line-height: normal;
+}
+
+.submit-rating-btn:hover,
+.submit-rating-btn:focus {
+    color: var(--dark-text-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
