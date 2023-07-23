@@ -14,7 +14,6 @@ class JSONPlaceholderAPI {
 const recipesList = document.querySelector('.recipes-list');
 const filterList = document.querySelector('.favorite-filter-list');
 const filterItem = document.querySelector('.filter-item');
-let recipeElements = '';
 
 const jsonplaceholderInstance = new JSONPlaceholderAPI();
 
@@ -22,22 +21,13 @@ jsonplaceholderInstance
   .fetchRecipes()
   .then(data => {
     arrayRecipes = data.results;
-    console.log(arrayRecipes);
-    // arrayRecipes.forEach((element) => {
-    //   recipeElements = element.instructions.slice(0, 50).trim();
-    //   console.log(recipeElements);
-    // });
+
     const renderCards = createMarkup(arrayRecipes);
     const renderFilter = createFilterMarkup(arrayRecipes);
     filterList.insertAdjacentHTML('beforeend', renderFilter);
     recipesList.insertAdjacentHTML('beforeend', renderCards);
-    let allDiscr = [...document.getElementsById('instructions')].slice(0, 50);
-    console.log(allDiscr);
-
-    // allDiscr.forEach((element) => {
-    //   recipeElements = element.instructions.slice(0, 50).trim();
-    //   console.log(recipeElements);
-    // });
+    // let allDiscr = [...document.getElementsById('instructions')].slice(0, 50);
+    // console.log(allDiscr);
   })
   .catch(err => {
     console.warn(err);
@@ -51,7 +41,7 @@ function createMarkup(arr) {
   <div class="recipe-desc">
     <h1>Title: ${title}</h1>
     <h2 class="${category}">category: ${category}</h2>
-    <p class="instructions">(${instructions}).slice(0, 50)</p>
+    <p class="instructions"></p>
   </div>
 </li>`;
     })
