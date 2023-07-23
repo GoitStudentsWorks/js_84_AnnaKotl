@@ -61,7 +61,6 @@ function clickBackdropClick(element) {
 export function finallInitPage(id) {
     recieptsOfFood(id).then(data => {
     //   isFavorite(data._id);
-
       renderRanting(data);
     //   markUpRating();
       renderIngridient(data);
@@ -90,15 +89,14 @@ function renderText(data) {
 
 function getKeyYouTybe(url) {
   let indexLast = url.split('').length;
-  
   let key = url.split('').splice(32, indexLast).join('');
   return key;
 }
 function renderVIDEO(data) {
   const markUp = `
    <iframe
-                width="100%"
-                height="100%"
+                width="467px"
+                height="250px"
                 src="https://www.youtube.com/embed/${getKeyYouTybe(
                   data.youtube
                 )}"
@@ -110,7 +108,7 @@ allowfullscreen
 `;
   refs.videoRecipe.innerHTML = markUp;
 }
-  
+
   function renderRanting(data) {
     let markupR = `
     <div class="cards__rating rating">
