@@ -1,3 +1,16 @@
-.sect10 {
-    background-color: darkgray;
+.video-recipes.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.modal-video-recipes-close-button-icon {
+    display: flex;
+    justify-content: center;
+    background-color: #FFFFFF;
+    color: var(--dark-text-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-video-recipes-close-button{
+    padding: 0;
+    border: 0;
 }
