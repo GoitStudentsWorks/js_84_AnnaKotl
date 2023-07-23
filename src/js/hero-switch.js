@@ -1,5 +1,5 @@
-import Swiper from 'swiper'; //
-import 'swiper/swiper-bundle.css'; //
+import 'swiper/swiper-bundle.css';
+import Swiper from 'swiper';
 // import '@splidejs/splide/css/core';
 // import { Pagination } from '../../node_modules/swiper/modules';
 // import '../../node_modules/swiper/swiper.css/pagination';
