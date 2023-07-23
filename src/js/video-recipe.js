@@ -58,7 +58,7 @@ function clickBackdropClick(element) {
   closeModalClose()
 }
 
-export function finallInitPage(id) {
+export function showModalAboutReciepts(id) {
     recieptsOfFood(id).then(data => {
     //   isFavorite(data._id);
       renderRanting(data);
@@ -172,4 +172,4 @@ allowfullscreen
     refs.tagsRecipe.innerHTML = markup; // Change refs.hashtagsBox to refs.tagsRecipe
   }
 
-finallInitPage('6462a8f74c3d0ddd288980d4')
+showModalAboutReciepts('6462a8f74c3d0ddd28897fba')
