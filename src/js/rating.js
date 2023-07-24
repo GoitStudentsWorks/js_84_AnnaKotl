@@ -3,7 +3,7 @@ import Notiflix from 'notiflix';
 const getElement = (selector) => document.querySelector(selector);
 const getElements = (selector) => document.querySelectorAll(selector);
 
-const openModalRatingBtn = getElement('#give-a-rating-ann');
+const openModalRatingBtn = getElement('#give-a-rating');
 const modalRating = getElement('#modal-rating-js');
 const closeModalBtn = getElement('.close-rating-btn');
 const ratingStars = getElements('.star-rating');
