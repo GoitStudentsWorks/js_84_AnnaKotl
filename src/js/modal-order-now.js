@@ -10,5 +10,7 @@ function closeModalOrderNow() {
   modal.classList.remove('open');
 }
 
-openModalOrderNowBtn.addEventListener('click', openModalOrderNow);
-closeModalOrderNowBtn.addEventListener('click', closeModalOrderNow);
+openModalBtn.addEventListener('click', openModalOrderNow);
+closeModalBtn.addEventListener('click', closeModalOrderNow);
+
+console.log(openModalBtn);
