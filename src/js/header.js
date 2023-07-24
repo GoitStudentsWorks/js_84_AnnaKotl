@@ -17,11 +17,15 @@ toggleButton.addEventListener('mousedown', () => {
     toggleButton.style.boxShadow = '7px 5px 15px rgba(155, 181, 55, 0.69)';
     toggleIndicator.style.left = '26.2px';
     body.classList.add('dark-mode');
+    body.style.background = '#161616';
+    body.style.color = '#fff'; // Устанавливаем белый цвет текста
   } else {
     toggleButton.style.background = '#cecdcd';
     toggleButton.style.boxShadow = '7px 5px 15px rgba(160, 158, 160, 0.6)';
     toggleIndicator.style.left = '0.6px';
     body.classList.remove('dark-mode');
+    body.style.background = '#fff'; // Возвращаем белый фон
+    body.style.color = '#000'; // Возвращаем черный цвет текста
   }
 });
 
