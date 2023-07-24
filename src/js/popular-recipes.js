@@ -1,4 +1,4 @@
-import { schowModalAboutReciepts } from './video-recipe';
+// import { schowModalAboutReciepts } from './video-recipe';
 
 const url = 'https://tasty-treats-backend.p.goit.global/api/recipes/popular';
 
@@ -26,7 +26,7 @@ fetchPopularRecipes()
 function renderPopularRecipes(recipes) {
   return recipes
     .map(({ preview, title, description }) => {
-      return `<a href="" class="pop-recipe-link">
+      return `<li class="pop-recipe-link">
       <div class="pop-recipe-card"> 
     <img class="img-pop-recipe" src="${preview}" width="64" height="64" alt="">
     <div class="text-pop-recipe">  
@@ -34,7 +34,7 @@ function renderPopularRecipes(recipes) {
     <p class="description-pop-recipe">${description}</p>
     </div>
     </div>
-  </a>`;
+  </li>`;
     })
     .join('');
 }
