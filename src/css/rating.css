@@ -63,6 +63,13 @@
     margin: 20px 0 4px 20px;
 }
 
+.rating-flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .value-of-rating {
     color: var(--dark-text-color);
     font-size: 16px;
@@ -77,7 +84,6 @@
     min-width: 295px;
     height: 46px;
     padding: 14px 18px;
-    margin: 0 20px;
     align-items: flex-start;
     border-radius: 15px;
     border: 1px solid rgba(5, 5, 5, 0.20);
@@ -116,4 +122,34 @@
 .submit-rating-btn:focus {
     color: var(--dark-text-color);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (min-width: 767px) {
+    .modal-rating-content {
+        width: 424px;
+        height: 254px;
+    }
+    .rating-title {
+        margin: 32px 0 4px 32px;
+    }
+    .close-rating-btn {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+    }
+    .value-of-rating {
+        margin-left: 32px;
+        margin-bottom: 32px;
+    }
+    .rating-input {
+        width: 360px;
+        height: 48px;
+        padding: 14px 18px;
+        margin: 0 16px;
+    }
+    .submit-rating-btn {
+        width: 360px;
+        height: 48px;
+        padding: 14px 162px;
+    }
 }

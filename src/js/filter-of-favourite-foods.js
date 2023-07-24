@@ -36,19 +36,20 @@ function createMarkup(arr) {
   return arr
     .map(({ title, category, preview, tags, instructions }) => {
       return `<li class="cards ${category}">
-      <div class="recipe-img">
-       <img class="images" src="${preview}" alt="${tags}" />
-       </div>
-    <div class="recipe-desc">
-      <h1 class="title-favor">Title: ${title}</h1>
-      <h2 class="${category} hidden">category: ${category}</h2>
-      <p class="instructions">(${instructions}).slice(0, 50)</p>
-   </div>
-<div class="rating">
-<div></div>
-   <button type="button" class="recipe-btn btn">See recipe</button>
-</div>
-   </li>`;
+  <div class="recipe-img">
+    <img class="images" src="${preview}" alt="${tags}" />
+  </div>
+
+  <div class="recipe-desc">
+    <h1 class="title-favor">Title: ${title}</h1>
+    <h2 class="${category} hidden">category: ${category}</h2>
+    <p class="instructions">(${instructions}).slice(0, 50)</p>
+  </div>
+  <div class="rating-btn">
+    <div class="rating"></div>
+    <button type="button" class="recipe-btn btn">See recipe</button>
+  </div>
+</li>`;
     })
     .join('');
 }
