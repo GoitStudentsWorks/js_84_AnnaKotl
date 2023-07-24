@@ -1,4 +1,4 @@
-import Notiflix from 'notiflix';
+// import Notiflix from 'notiflix';
 
 const getElement = (selector) => document.querySelector(selector);
 const getElements = (selector) => document.querySelectorAll(selector);
@@ -32,7 +32,7 @@ async function handleSubmit(event) {
   const ratingValue = valRating.textContent;
 
   if (emailValue === '' || !emailRegex.test(emailValue)) {
-    Notiflix.Notify.failure('Please enter a valid email.');
+    // Notiflix.Notify.failure('Please enter a valid email.');
     return;
   }
   closeModal();
