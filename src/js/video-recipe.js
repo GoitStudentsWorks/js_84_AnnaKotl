@@ -1,5 +1,7 @@
 export
 let refs = {
+addToFavoriteBtn: document.querySelector('.btn-add'),
+removeFromFavoriteBtn:document.querySelector('.btn-outline-remove'),
 recieptsTitle: document.querySelector('.reciepts-title'),
 backdropRecipe: document.querySelector('.backdrop-video-recipes'),
 modalRecipe:document.querySelector('.modal-video-recipe'),
@@ -45,7 +47,7 @@ export function showModalAboutReciepts(id) {
     recieptsOfFood(id).then(data => {
     //   isFavorite(data._id);
       renderRanting(data);
-    //   markUpRating();
+      markUpRating();
       renderIngridient(data);
       renderHashtags(data);
       renderText(data);
@@ -68,6 +70,32 @@ function renderText(data) {
     refs.videoRecipe.src = data.preview; 
     refs.instructionsRecipe.textContent = data.instructions; 
     refs.minutesRecipe.textContent = data.time + ' min'; 
+  }
+
+  let ratings;
+  let ratingActive, ratingValue;
+  
+  function initRating(rating) {
+    initValues(rating);
+    if (ratingValue.innerHTML > 5) {
+      ratingValue.innerHTML = 5;
+    }
+    const ratingActiveWidth = ratingValue.innerHTML / 0.05;
+  
+    ratingActive.style.width = `${ratingActiveWidth}%`;
+  }
+  
+  function initValues(rating) {
+    ratingActive = rating.querySelector('.rating__active');
+    ratingValue = rating.querySelector('.rating__value');
+  }
+  
+  export function markUpRating() {
+    ratings = document.querySelectorAll('.rating');
+    ratings.forEach(item => {
+      const rating = item;
+      initRating(rating);
+    });
   }
 
 function getKeyYouTybe(url) {
@@ -155,5 +183,4 @@ allowfullscreen
     refs.tagsRecipe.innerHTML = markup; // Change refs.hashtagsBox to refs.tagsRecipe
   }
 
-  
-showModalAboutReciepts('6462a8f74c3d0ddd28897fba')
+showModalAboutReciepts('6462a8f74c3d0ddd28897fc8')
