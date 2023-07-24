@@ -1,4 +1,9 @@
+.con-select {
+    margin-bottom: 50px;
+}
+
 .con-search{
+  width: 335px;
   margin-bottom: 14px;
 }
   
@@ -104,6 +109,7 @@
 }
   
 .time{
+  width: 160px;
   margin-right: 14px;
 }
   
@@ -112,6 +118,7 @@
 }
   
 .ingredients{
+  width: 188px;
   margin-top: 14px;  
 }
   
@@ -185,9 +192,13 @@
   font-family: Inter;
   font-weight: 500;
   line-height: 18px;
+
+  background-color: transparent;
+  border: none;
 }
   
 .selected-option{
+  width: 160px;
   padding: 14px 18px;
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
@@ -240,7 +251,6 @@
   display: flex;
   align-items: center;
   max-width: 100%;
-  width: 160px;
  
   cursor: pointer;
 }
@@ -343,7 +353,11 @@
 }
   
 @media screen and (min-width: 768px){
+    .con-select {
+      margin-bottom: 44px;
+    }
     .con-search{
+      width: 278px;
       margin-bottom: 0px;
     }
 
@@ -360,7 +374,12 @@
     }
 
     .time{
+        width: 125px;
         margin-right: 0px;
+    }
+
+    .area {
+        width: 140px;
     }
   
     .ingredients{
@@ -423,7 +442,7 @@
     }  
   }
   
-@media screen and (min-width: 1280px){
+@media screen and (min-width: 1200px){
     .con-select{
       max-width: 780px;
     }
