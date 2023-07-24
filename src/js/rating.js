@@ -35,9 +35,6 @@ async function handleSubmit(event) {
     Notiflix.Notify.failure('Please enter a valid email.');
     return;
   }
-  //
-  //
-  //
   closeModal();
 }
 
