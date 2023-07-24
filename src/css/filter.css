@@ -27,6 +27,7 @@
   
 .con-inp{
   position: relative;
+  width: 335px;
 }
   
 .inp-search {
@@ -105,6 +106,8 @@
   
 .time{
   margin-right: 14px;
+  width: 160px;
+  
 }
   
 .area{
@@ -112,13 +115,16 @@
 }
   
 .ingredients{
+  width: 188px;
   margin-top: 14px;  
 }
   
 .con-select{
-  max-width: 335px;
+  max-width: 375px;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 50px;
+  margin-right: 14px;
 }
 
 .custom-select .selected-option span {
@@ -185,6 +191,8 @@
   font-family: Inter;
   font-weight: 500;
   line-height: 18px;
+  background-color: transparent;
+  border: none;
 }
   
 .selected-option{
@@ -347,9 +355,14 @@
       margin-bottom: 0px;
     }
 
+    .con-inp{
+      width: 278px;
+    }
+
     .con-select{
       max-width: 496px;
       gap: 16px;
+      margin-bottom: 44px;
     }
     .list-item{
       display: flex;
@@ -360,8 +373,13 @@
     }
 
     .time{
+        width: 125px;
         margin-right: 0px;
     }
+
+    .area{
+        width: 140px;
+      }
   
     .ingredients{
       margin-top: auto;
@@ -423,7 +441,7 @@
     }  
   }
   
-@media screen and (min-width: 1280px){
+@media screen and (min-width: 1200px){
     .con-select{
       max-width: 780px;
     }
