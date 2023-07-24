@@ -167,7 +167,7 @@
 }
 @media screen and (min-width: 768px) {
   .mk-container {
-    margin-bottom: 106px;
+    margin-bottom: 80px;
   }
   .mk.swiper-wrapper {
     height: 468px;
@@ -219,4 +219,7 @@
   }
 }
 @media screen and (min-width: 1200px) {
+  .mk-container {
+    margin-bottom: 100px;
+  }
 }
