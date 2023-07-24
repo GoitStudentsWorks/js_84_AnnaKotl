@@ -32,9 +32,9 @@ function renderPopularRecipes(recipes) {
   return recipes
     .map(({ id, preview, title, description }) => {
       return `<li class="pop-recipe-link" id="${id}">
-      <div class="pop-recipe-card"> 
+      <div class="pop-recipe-card">
     <img class="img-pop-recipe" src="${preview}" width="64" height="64" alt="">
-    <div class="text-pop-recipe">  
+    <div class="text-pop-recipe">
     <h3 class="title-pop-recipe">${title}</h3>
     <p class="description-pop-recipe">${description}</p>
     </div>
@@ -50,5 +50,5 @@ const openResipesCards = document.getElementById(`${id}`);
 // const openResipesCards = document.querySelectorAll('li');
 
 openResipesCards.forEach(card => {
-  card.addEventListener('click', showModalAboutReciepts(card.id));
+  card.addEventListener('click', showModalAboutReciepts(id));
 });
