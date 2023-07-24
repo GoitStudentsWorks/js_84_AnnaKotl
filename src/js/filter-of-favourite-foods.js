@@ -11,7 +11,7 @@ class JSONPlaceholderAPI {
   }
 }
 
-const recipesListFilter = document.querySelector('.recipes-list-filter');
+const recipesList = document.querySelector('.recipes-list');
 const filterList = document.querySelector('.favorite-filter-list');
 const filterItem = document.querySelector('.filter-item');
 
@@ -20,13 +20,13 @@ const jsonplaceholderInstance = new JSONPlaceholderAPI();
 jsonplaceholderInstance
   .fetchRecipes()
   .then(data => {
-    arrayRecipesFilter = data.results;
+    arrayRecipes = data.results;
 
-    const renderCardsFilter = createMarkup(arrayRecipesFilter);
-    const renderFilter = createFilterMarkup(arrayRecipesFilter);
+    const renderCards = createMarkup(arrayRecipes);
+    const renderFilter = createFilterMarkup(arrayRecipes);
 
     filterList.insertAdjacentHTML('beforeend', renderFilter);
-    recipesListFilter.insertAdjacentHTML('beforeend', renderCardsFilter);
+    recipesList.insertAdjacentHTML('beforeend', renderCards);
   })
   .catch(err => {
     console.warn(err);
