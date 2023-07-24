@@ -80,7 +80,7 @@
   width: 100%;
   height: 100%;
 }
-.recipe-btn {
+.rating-panel {
   padding: 8px 16px;
   text-align: center;
   font-size: 12px;
@@ -101,7 +101,7 @@
 }
 @media screen and (min-width: 768px) {
   .cards {
-    width: calc((100% - 32px) / 3);
+    width: calc((100% - 16px) / 2);
     margin-bottom: 0;
   }
   .recipes-list {
@@ -115,10 +115,10 @@
 
 @media screen and (min-width: 1200px) {
   .cards {
-    width: calc((100% - 48px) / 4);
+    width: calc((100% - 32px) / 3);
   }
   .recipes-list {
-    row-gap: 32px;
+    row-gap: 20px;
     column-gap: 16px;
   }
 }

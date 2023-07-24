@@ -1,3 +1,6 @@
+.filter-container {
+}
+
 .btn {
   font-family: inherit;
   font-weight: 500;
@@ -76,8 +79,9 @@
 /* потом удалить */
 .recipes-list-filter {
   display: block;
+  margin-bottom: 64px;
 }
-.cards {
+.cards-favorite {
   position: relative;
   overflow: hidden;
   display: flex;
@@ -103,7 +107,7 @@
   flex-shrink: 0;
   object-fit: cover;
 }
-.recipe-desc {
+.recipe-favorite-desc {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-end;
@@ -145,7 +149,7 @@
   height: 32px;
   max-width: 100%;
 }
-.rating-btn {
+.rating-panel-favorite {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -173,7 +177,7 @@
   color: #050505;
 }
 @media screen and (min-width: 768px) {
-  .cards {
+  .cards-favorite {
     width: calc((100% - 32px) / 3);
     margin-bottom: 0;
   }
@@ -186,7 +190,7 @@
   }
 }
 @media screen and (min-width: 1200px) {
-  .cards {
+  .cards-favorite {
     width: calc((100% - 48px) / 4);
   }
   .recipes-list-filter {
