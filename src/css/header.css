@@ -1,6 +1,49 @@
-.sect3 {
-    background-color: blue;
+.header-container {
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 44px;
+  display: flex;
 }
-
-
-
+.active {
+  color: #9bb537;
+}
+.header-link {
+  color: #050505;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.header-link:hover {
+  color: #9bb537;
+}
+.header-nav {
+  display: flex;
+  gap: 16px;
+}
+.header-logo {
+  color: #050505;
+  font-size: 18px;
+  font-family: Inter;
+  font-weight: 600;
+  line-height: 20px;
+}
+.logo-span {
+  color: #9bb537;
+  font-size: 18px;
+  font-family: Inter;
+  font-weight: 600;
+  line-height: 20px;
+}
+.header-right {
+  display: flex;
+  margin-left: auto;
+  position: relative;
+  align-items: center;
+}
+.cart-button {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  left: -50px;
+}

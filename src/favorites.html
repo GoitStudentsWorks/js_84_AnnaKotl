@@ -1,63 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorites</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
     <!-- пишемо свій код нижче, 
     ПОСИЛАННЯ в тегу <a> НА СТОРІНКИ НЕ ПЕРЕРОБЛЯТИ! -->
-   
-        <!-- header -->
-        
+
+    <!-- header -->
+
     <header class="favorites-header">
-        <div class="favorites-header-container">
-            <a href="./index.html" class="favorites-header-link">Home</a>
-            <a href="./" class="favorites-header-link active">Favorites</a>
-        </div>
+      <div class="favorites-header-container">
+        <a href="./index.html" class="favorites-header-link">Home</a>
+        <a href="./" class="favorites-header-link active">Favorites</a>
+      </div>
     </header>
 
-        <!-- /header -->
+    <!-- /header -->
 
     <main>
+      <!-- hero -->
 
-        <!-- hero -->
-
-        <section class="hero-section-of-favorites">
-            <div class="hero-container-of-favorites container">
-                <div class="hero-img-of-favorites"></div>
-            </div>
-
-        </section>
-
-        <!-- /hero -->
-
-        <!-- Favortes recipes -->
-        <div class="favorites-recipe-container container" id="favoritesContainer">
-
+      <section class="hero-section-of-favorites">
+        <div class="hero-container-of-favorites container">
+          <div class="hero-img-of-favorites block-img"></div>
         </div>
+      </section>
 
-        <img src="./images/elements.png" 
-        alt="no-resipe-img" 
-        width="68px", 
-        height="58px"
-        class="no-resipe-img">
+      <!-- /hero -->
+
+      <!-- Favorites recipes -->
+
+      <div class="favorites-categories" id="favoritesCategories"></div>
+
+      <!----------------------------- ФІЛЬТР ---------------------->
+      <div class="container filter-container">
+        <ul class="favorite-filter-list list">
+          <li class="filter-item">
+            <button type="button" class="filter-btn btn">All categories</button>
+          </li>
+        </ul>
+        <ul class="recipes-list-filter"></ul>
+      </div>
+
+      <div
+        class="favorites-recipe-container"
+        id="favoritesRecipeContainer"
+      ></div>
+
+      <div class="favorit-container block-favorit mobil-favorit-container">
+        <img
+          src="./images/elements.png"
+          alt="no-resipe-img"
+          width="68px"
+          height="58px"
+          class="no-resipe-img"
+        />
 
         <div class="no-favorites-recipe" id="noFavoritesMessage">
-            It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.
+          It appears that you haven't added any recipes to your favorites yet.
+          To get started, you can add recipes that you like to your favorites
+          for easier access in the future.
         </div>
-        <!-- /Favortes recipes -->
+      </div>
 
-        
-    <!-- ПИШЕМО КОД ВИЩЕ -->
+      <!-- /Favorites recipes -->
+
+      <!-- ПИШЕМО КОД ВИЩЕ -->
     </main>
 
     <script src="./js/main.js" type="module"></script>
-</body>
+  </body>
 </html>
