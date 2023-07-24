@@ -3,11 +3,11 @@ const closeModalBtn = document.getElementById('closeModalOrderNowBtn');
 const modal = document.getElementById('modalordernow');
 
 function openModalOrderNow() {
-  modal.style.display = 'block';
+  modal.classList.add('open');
 }
 
 function closeModalOrderNow() {
-  modal.style.display = 'none';
+  modal.classList.remove('open');
 }
 
 openModalOrderNowBtn.addEventListener('click', openModalOrderNow);
