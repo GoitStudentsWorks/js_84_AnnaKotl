@@ -1,4 +1,4 @@
-<button id="openModalRatingBtn" class="open-modal-rating-btn">Give a rating</button>
+<!-- <button id="openModalRatingBtn" class="open-modal-rating-btn">Give a rating</button> -->
 
 <div id="modal-rating-js" class="modal-rating is-hidden">
   <form class="modal-rating-content" onsubmit="return handleSubmit(event)">
@@ -24,8 +24,10 @@
       <span class="star-rating" data-rating="5"></span>
     </div>
 
-    <input type="email" id="emailInput" class="rating-input" placeholder="Enter email" required>
-    <button id="submitBtn" class="submit-rating-btn">Send</button>
+    <div class="rating-flex-container">
+      <input type="email" id="emailInput" class="rating-input" placeholder="Enter email" required>
+      <button id="submitBtn" class="submit-rating-btn">Send</button>
+    </div>
 
   </form>
 </div>

@@ -1,8 +1,5 @@
-import Swiper from 'swiper'; //
-import 'swiper/swiper-bundle.css'; //
-// import '@splidejs/splide/css/core';
-// import { Pagination } from '../../node_modules/swiper/modules';
-// import '../../node_modules/swiper/swiper.css/pagination';
+import 'swiper/swiper-bundle.css';
+import Swiper from 'swiper';
 
 const mkBox = document.querySelector('.swiper-wrapper');
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/events';
@@ -12,13 +9,13 @@ async function fetchMk() {
   if (!resp.ok) {
     throw new Error(resp.statusText);
   }
-  return await resp.json(); //
+  return await resp.json();
 }
-    
+
 async function renderMk() {
   try {
-    const arrMk = await fetchMk(); //
-    const markup = arrMk //
+    const arrMk = await fetchMk();
+    const markup = arrMk
       .map(evt => {
         return `
          <div class="mk-card swiper-slide">
@@ -41,13 +38,13 @@ async function renderMk() {
           </div>
         `;
       })
-      .join(""); //
+      .join("");
     mkBox.innerHTML = markup;
   } catch (error) {
-    console.error("Error:", error); //
+    console.error("Error:", error);
   }
 }
- 
+
 function addMkInfo() {
   renderMk();
   const swiper = new Swiper(".swiper", {
@@ -55,7 +52,6 @@ function addMkInfo() {
     slidesPerGroup: 1,
     spaceBetween: 16,
     grabCursor: true,
-    // centeredSlides: true,
     slidesPerView: 'auto',
     direction: 'horizontal',
     rewind: true,
@@ -64,13 +60,11 @@ function addMkInfo() {
       el: '.swiper-scrollbar',
       draggable: true,
     },
-
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
-    }
+    },
   });
   console.log(swiper);
 }
-
 addMkInfo();

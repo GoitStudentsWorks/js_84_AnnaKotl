@@ -17,6 +17,10 @@
 .header-link:hover {
   color: #9bb537;
 }
+.header-nav {
+  display: flex;
+  gap: 16px;
+}
 .header-logo {
   color: #050505;
   font-size: 18px;
@@ -30,4 +34,16 @@
   font-family: Inter;
   font-weight: 600;
   line-height: 20px;
+}
+.header-right {
+  display: flex;
+  margin-left: auto;
+  position: relative;
+  align-items: center;
+}
+.cart-button {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  left: -50px;
 }

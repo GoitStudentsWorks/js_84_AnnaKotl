@@ -1,45 +1,50 @@
-import { schowModalAboutReciepts } from './video-recipe';
+//-----------------------------------------
+// закоментувала все бо помилки в консолі:
+// ЗРОБИТИ ПУШ ПІСЛЯ ВИПРАВЛЕНЬ І БЕЗ ПОМИЛОК
+//-----------------------------------------
 
-const url = 'https://tasty-treats-backend.p.goit.global/api/recipes/popular';
+// // import { schowModalAboutReciepts } from './video-recipe';
 
-const pop_recipe_info = document.querySelector('.popular-recipes');
+// const url = 'https://tasty-treats-backend.p.goit.global/api/recipes/popular';
 
-function fetchPopularRecipes() {
-  return fetch(`${url}`).then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  });
-}
+// const pop_recipe_info = document.querySelector('.popular-recipes');
 
-fetchPopularRecipes()
-  .then(data => {
-    console.log(data);
-    //pop_recipe_info.insertAdjacentHTML('beforeend', renderPopularRecipes(data));
-    pop_recipe_info.innerHTML = renderPopularRecipes(data);
-  })
-  .catch(error => {
-    console.log(error);
-  });
+// function fetchPopularRecipes() {
+//   return fetch(`${url}`).then(response => {
+//     if (!response.ok) {
+//       throw new Error(response.status);
+//     }
+//     return response.json();
+//   });
+// }
 
-function renderPopularRecipes(recipes) {
-  return recipes
-    .map(({ preview, title, description }) => {
-      return `<a href="" class="pop-recipe-link">
-      <div class="pop-recipe-card"> 
-    <img class="img-pop-recipe" src="${preview}" width="64" height="64" alt="">
-    <div class="text-pop-recipe">  
-    <h3 class="title-pop-recipe">${title}</h3>
-    <p class="description-pop-recipe">${description}</p>
-    </div>
-    </div>
-  </a>`;
-    })
-    .join('');
-}
+// fetchPopularRecipes()
+//   .then(data => {
+//     console.log(data);
+//     //pop_recipe_info.insertAdjacentHTML('beforeend', renderPopularRecipes(data));
+//     pop_recipe_info.innerHTML = renderPopularRecipes(data);
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   });
+
+// function renderPopularRecipes(recipes) {
+//   return recipes
+//     .map(({ preview, title, description }) => {
+//       return `<li class="pop-recipe-link">
+//       <div class="pop-recipe-card"> 
+//     <img class="img-pop-recipe" src="${preview}" width="64" height="64" alt="">
+//     <div class="text-pop-recipe">  
+//     <h3 class="title-pop-recipe">${title}</h3>
+//     <p class="description-pop-recipe">${description}</p>
+//     </div>
+//     </div>
+//   </li>`;
+//     })
+//     .join('');
+// }
 
 
-// тут може бути помилка:
-const openResipe = document.querySelector('.pop-recipe-link');
-openResipe.addEventListener('click', schowModalAboutReciepts);
+// // тут може бути помилка:
+// const openResipe = document.querySelector('.pop-recipe-link');
+// openResipe.addEventListener('click', schowModalAboutReciepts);
