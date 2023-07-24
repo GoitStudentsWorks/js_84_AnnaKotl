@@ -1,33 +1,43 @@
-<!-- <button id="openModalRatingBtn" class="open-modal-rating-btn">Give a rating</button> -->
-
 <div id="modal-rating-js" class="modal-rating is-hidden">
-  <form class="modal-rating-content" onsubmit="return handleSubmit(event)">
-
-    <span class="close-rating-btn">
+  <div class="visibility-rating-modal">
+    <form class="modal-rating-content" onsubmit="return handleSubmit(event)">
+      <!-- icon close -->
+      <span class="close-rating-btn">
         <svg width="20" height="20">
-            <use href="/src/images/symbol-defs.svg#icon-close-modal-r"></use>
+          <use href="/src/images/symbol-defs.svg#icon-close-modal-r"></use>
         </svg>
-    </span>
-
-    <h2 class="rating-title">Rating</h2>
-
-    <div class="ratings-js">
-      <div class="active-rating-js"></div>
-      <div class="val-rating-js value-of-rating">0.0</div>
-    </div>
-
-    <div class="rating-stars">
-      <span class="star-rating" data-rating="1"></span>
-      <span class="star-rating" data-rating="2"></span>
-      <span class="star-rating" data-rating="3"></span>
-      <span class="star-rating" data-rating="4"></span>
-      <span class="star-rating" data-rating="5"></span>
-    </div>
-
-    <div class="rating-flex-container">
-      <input type="email" id="emailInput" class="rating-input" placeholder="Enter email" required>
-      <button id="submitBtn" class="submit-rating-btn">Send</button>
-    </div>
-
-  </form>
+      </span>
+      <!-- /icon close -->
+      <h2 class="rating-title">Rating</h2>
+      <!-- value of rating -->
+      <div class="ratings-js">
+        <div class="active-rating-js"></div>
+        <div class="val-rating-js value-of-rating">0.0</div>
+      </div>
+      <!-- /value of rating -->
+      <!-- radio-btn -->
+        <div class="rating-options">
+          <input type="radio" name="rating-option" value="option1" id="option1" required>
+          <label for="option1">Option 1</label>
+          <input type="radio" name="rating-option" value="option2" id="option2" required>
+          <label for="option2">Option 2</label>
+          <input type="radio" name="rating-option" value="option3" id="option3" required>
+          <label for="option3">Option 3</label>
+          <input type="radio" name="rating-option" value="option4" id="option4" required>
+          <label for="option4">Option 4</label>
+          <input type="radio" name="rating-option" value="option5" id="option5" required>
+          <label for="option5">Option 5</label>
+        </div>
+      <!-- /radio-btn -->
+        <!-- email -->
+      <div class="rating-flex-container">
+        <label for="emailInput">Email:</label>
+        <input type="email" id="emailInput" class="rating-input" placeholder="Enter email" required>
+        <!-- /email -->
+        <!-- submit -->
+        <button id="submitBtn" class="submit-rating-btn">Send</button>
+        <!-- /submit -->
+      </div>
+    </form>
+  </div>
 </div>
