@@ -11,6 +11,7 @@ import './video-recipe.js';
 import './rating.js';
 import './all-foods.js';
 import './heder-modal-menu.js';
+import './scroll-to-start.js';
 // Fevorites
 import './js-file-fevorites/one-fevorites.js';
 import './js-file-fevorites/two-fevorites.js';
