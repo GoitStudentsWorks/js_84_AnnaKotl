@@ -105,9 +105,7 @@ function getKeyYouTybe(url) {
 }
 function renderVIDEO(data) {
   const markUp = `
-   <iframe
-                width="467px"
-                height="250px"
+   <iframe class="video-recipe-instruction"
                 src="https://www.youtube.com/embed/${getKeyYouTybe(
                   data.youtube
                 )}"
