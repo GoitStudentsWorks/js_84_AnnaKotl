@@ -1,6 +1,8 @@
 import './filter-of-favourite-foods.js';
 import './filter.js';
-import './header.js';
+
+// import './header.js';
+
 import './hero-switch.js';
 import './hero.js';
 import './modal-order-now.js';
@@ -8,7 +10,9 @@ import './popular-recipes.js';
 import './recipe-placeholder.js';
 import './scroll-categories.js';
 import './video-recipe.js';
-import './rating.js';
+
+// import './rating.js';
+
 import './all-foods.js';
 import './heder-modal-menu.js';
 import './scroll-to-start.js';
