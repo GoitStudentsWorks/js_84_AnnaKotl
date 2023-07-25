@@ -143,6 +143,10 @@
   fill: currentColor;
 }
 
+.heart-button.active {
+  fill: currentColor;
+}
+
 @media screen and (min-width: 768px) {
   .recipes-container{
     width: 496px;
