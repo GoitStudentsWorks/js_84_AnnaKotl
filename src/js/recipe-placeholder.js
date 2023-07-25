@@ -1,6 +1,5 @@
 // виправлени код
 import '../css/recipe-placeholder.css';
-<<<<<<< HEAD
 // import { showRecipes, createMarkup } from './all-foods';
  async function showRecipes(url, params = {}) {
   const recipes = await createRecipeList(url, params);
@@ -13,9 +12,6 @@ async function getRecipesData(url = URL, params) {
 
   return { perPage, totalPages };
 }
-=======
-import { createMarkup } from './all-foods';
->>>>>>> main
 
 const URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 const container = document.getElementById('tui-pagination-container');
@@ -59,7 +55,7 @@ async function createPagination(url, params) {
           '<span class="tui-ico-ellip">...</span>' +
           '</a>',
       },
-    };
+    };a
 
     const paginationP = new Pagination(container, options);
 
