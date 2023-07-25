@@ -9,7 +9,7 @@ import svg from '../images/heart-defs.svg';
 // const SVG_URL = './images/heart-defs.svg';
 class RecipesPlaceholderAPI {
   fetchRecipes() {
-    return fetch(`${BASE_URL}/recipes?limit=3&page=1`).then(response => {
+    return fetch(`${BASE_URL}/recipes?limit=9&page=${page}`).then(response => {
       if (!response.ok) {
         throw new Error(response.status);
       }
@@ -17,12 +17,12 @@ class RecipesPlaceholderAPI {
     });
   }
 }
-
+let page = 1;
 const recipesList = document.querySelector('.recipes-list');
 
 const recipesplaceholderInstance = new RecipesPlaceholderAPI();
 
-// console.log(recipesList);
+console.log(cards);
 
 recipesplaceholderInstance
   .fetchRecipes()
@@ -35,6 +35,7 @@ recipesplaceholderInstance
     recipesList.insertAdjacentHTML('beforeend', renderCards);
     // recipesList.innerHTML = createMarkup(arrayRecipes);
     const heartButton = document.querySelector('.heart-button');
+
     heartButton.addEventListener('click', onHeartButtonClick);
     console.log(heartButton);
   })
@@ -98,27 +99,33 @@ recipeButtons.forEach(button => {
 });
 
 function onHeartButtonClick(evt) {
-  console.log(evt.target);
+  const currentBtn = evt.currentTarget;
+
+  currentBtn.classList.toggle('active');
+
+  if (currentBtn.classList.contains('active')) {
+    localStorage.setItem('favorites', JSON.stringify([...renderCards]));
+    // } else {
+    //   localStorage.setItem(
+    //     'favorites',
+    //     JSON.stringify([...storage.filter(el => el.id !== recipeInfo.id)])
+    //   );
+    // }
+  }
 }
 
-// function checkOnFavor(id) {
-//   const storage = localStorage.getItem('favorites');
-//   const data = JSON.parse(storage);
-//   if (storage && data.find(el => el.id === id)) {
-//     return 'active';
-//   }
-//   return '';
+// const storage = localStorage.getItem('favorites');
+// const data = JSON.parse(storage);
+// if (storage && data.find(el => el.id === id)) {
+//   return 'active';
 // }
+<<<<<<< Updated upstream
+=======
+// return '';
+
+>>>>>>> Stashed changes
 // function toggleFavriteRecipe(currentBtn) {
 //   const recipeInfo = JSON.parse(currentBtn.dataset.info);
 //   currentBtn.classList.toggle('active');
 //   const storage = JSON.parse(localStorage.getItem('favorites')) ?? [];
-//   if (currentBtn.classList.contains('active')) {
-//     localStorage.setItem('favorites', JSON.stringify([...storage, recipeInfo]));
-//   } else {
-//     localStorage.setItem(
-//       'favorites',
-//       JSON.stringify([...storage.filter(el => el.id !== recipeInfo.id)])
-//     );
-//   }
-// }
+//

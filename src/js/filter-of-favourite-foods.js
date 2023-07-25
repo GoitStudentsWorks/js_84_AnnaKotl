@@ -35,7 +35,6 @@ jsonplaceholderInstance
     } else favoriteFilterList.classList.add('hidden');
 
     favoriteFilterList.addEventListener('click', onFilterClick);
-    console.log(favoriteFilterList);
   })
 
   .catch(err => {
@@ -85,7 +84,7 @@ function onFilterClick(evt) {
   if (evt.target.tagName !== 'BUTTON') return;
 
   let filterClass = evt.target.textContent;
-  console.log(filterClass);
+  // console.log(filterClass);
 
   let allCards = [...document.getElementsByClassName('cards-favorite')];
   // console.log(allCards);
