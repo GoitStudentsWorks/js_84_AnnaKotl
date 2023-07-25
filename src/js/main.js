@@ -11,7 +11,7 @@ import './recipe-placeholder.js';
 import './scroll-categories.js';
 import './video-recipe.js';
 
-// import './rating.js';
+import './rating.js';
 
 import './all-foods.js';
 import './heder-modal-menu.js';
