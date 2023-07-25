@@ -49,7 +49,7 @@ function addMkInfo() {
   renderMk();
   const swiper = new Swiper(".swiper", {
         // slidesPerView: 1,
-    // slidesPerGroup: 1,
+    slidesPerGroup: 1,
     spaceBetween: 16,
     grabCursor: true,
     slidesPerView: 'auto',
