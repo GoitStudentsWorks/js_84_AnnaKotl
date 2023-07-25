@@ -1,5 +1,14 @@
+.con-select {
+    max-width: 348px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    gap: 14px;
+}
+
 .con-search{
-  margin-bottom: 14px;
+  width: 335px;
+  /*margin-bottom: 14px;*/
 }
   
 .upside {
@@ -27,6 +36,7 @@
   
 .con-inp{
   position: relative;
+  width: 335px;
 }
   
 .inp-search {
@@ -42,7 +52,7 @@
 .inp-search::placeholder {
     font-family: "Inter", sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     color: rgba(5, 5, 5, 0.5);
 }
   
@@ -104,7 +114,9 @@
 }
   
 .time{
-  margin-right: 14px;
+  width: 160px;
+  /*margin-right: 14px;*/
+  width: 160px;
 }
   
 .area{
@@ -112,13 +124,16 @@
 }
   
 .ingredients{
-  margin-top: 14px;  
+  width: 188px;
+  /*margin-top: 14px;*/  
 }
   
 .con-select{
-  max-width: 335px;
+  /*max-width: 375px;*/
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 50px;
+  /*margin-right: 14px;*/
 }
 
 .custom-select .selected-option span {
@@ -185,9 +200,12 @@
   font-family: Inter;
   font-weight: 500;
   line-height: 18px;
+  background-color: transparent;
+  border: none;
 }
   
 .selected-option{
+  width: 160px;
   padding: 14px 18px;
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
@@ -240,7 +258,6 @@
   display: flex;
   align-items: center;
   max-width: 100%;
-  width: 160px;
  
   cursor: pointer;
 }
@@ -344,12 +361,19 @@
   
 @media screen and (min-width: 768px){
     .con-search{
+      width: 278px;
       margin-bottom: 0px;
     }
 
+    .con-inp{
+      width: 278px;
+    }
+
     .con-select{
-      max-width: 496px;
+      max-width: 420px;
       gap: 16px;
+      margin-left: 0;
+      margin-bottom: 44px;
     }
     .list-item{
       display: flex;
@@ -359,9 +383,22 @@
         max-width: 278px;
     }
 
+    .inp-search::placeholder{
+        font-size: 16px;
+    }
+
+    .elem-prev{
+        font-size: 16px;
+    } 
+    
     .time{
+        width: 125px;
         margin-right: 0px;
     }
+
+    .area{
+        width: 140px;
+      }
   
     .ingredients{
       margin-top: auto;
@@ -430,7 +467,6 @@
     .ingredients{
       margin-top: 0;
     }
-
 
     .left-txt{
       position: absolute;
