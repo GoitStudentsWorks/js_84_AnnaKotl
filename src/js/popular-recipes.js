@@ -1,8 +1,3 @@
-//-----------------------------------------
-// закоментувала все бо помилки в консолі:
-// ЗРОБИТИ ПУШ ПІСЛЯ ВИПРАВЛЕНЬ І БЕЗ ПОМИЛОК
-//-----------------------------------------
-
 import { showModalAboutReciepts } from './video-recipe';
 
 
@@ -51,7 +46,8 @@ function renderPopularRecipes(recipes) {
 // // const openResipesCards = document.querySelectorAll('li');
 
 
-document.getElementById('popularRecipeList').addEventListener('click', (event) => {
-  const clickedRecipeElement = event.target.closest('.pop-recipe-link');
-    showModalAboutReciepts(clickedRecipeElement.id);
+openResipesCards.forEach(card => {
+  card.addEventListener('click', event => {
+    showModalAboutReciepts(event.target._id);
+  });
 });
