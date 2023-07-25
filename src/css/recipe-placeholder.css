@@ -30,7 +30,7 @@
     font-weight: 600;
     line-height: calc(22 / 18);
     position: relative;
-    color: var(--primary-text-CH-color);
+    color: black;
     border-radius: 50%;
     border: 1px solid var(--border-paginatio);
 }
