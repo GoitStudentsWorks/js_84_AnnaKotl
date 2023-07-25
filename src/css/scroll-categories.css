@@ -83,10 +83,10 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1200px) {
   .category-container {
     max-height: 540px;
-    max-width: 174px;
+    max-width: 235px;
   }
 
   .all-category-button {

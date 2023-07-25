@@ -131,14 +131,14 @@
   }
 
   .hero-container {
-    /*margin-left: 100px;*/
+    margin-left: 0px;
     margin-bottom: 0;
   }
 
   .hero-container {
     padding-right: 0;
     max-width: 546px;
-    padding-left: 100px;
+    /*padding-left: 100px;*/
   }
 
   .hero-section-container {
