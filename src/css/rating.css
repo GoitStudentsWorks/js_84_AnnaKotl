@@ -1,21 +1,6 @@
-/* .open-modal-rating-btn {
-    display: inline-flex;
-    padding: 12px 24px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    border: 1px solid #9BB537;
-    background-color: transparent;
-
-    color: var(--dark-text-color);
-    font-size: 14px;
-    font-weight: 500;
-    line-height: normal;
-} */
-
 .modal-rating {
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     left: 0;
     top: 0;
     width: 100%;
@@ -92,7 +77,7 @@
     line-height: 1.5;
     border: none;
     outline: none;
-    width: 25px;
+    width: 28px;
     height: 24px;
     margin-right: 8px;
     background-color: transparent;

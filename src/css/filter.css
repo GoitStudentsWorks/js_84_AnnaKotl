@@ -114,7 +114,7 @@
   
 .time{
   width: 160px;
-  margin-right: 14px;
+  /*margin-right: 14px;*/
   width: 160px;
 }
   
@@ -128,11 +128,11 @@
 }
   
 .con-select{
-  max-width: 375px;
+  /*max-width: 375px;*/
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 50px;
-  margin-right: 14px;
+  /*margin-right: 14px;*/
 }
 
 .custom-select .selected-option span {
