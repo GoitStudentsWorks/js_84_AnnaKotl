@@ -2,8 +2,6 @@ const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
 import { showModalAboutReciepts } from "./video-recipe";
 import svg from '../images/heart-defs.svg';
 
-
-const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
 // const SVG_URL = './images/heart-defs.svg';
 class RecipesPlaceholderAPI {
   fetchRecipes() {
