@@ -3,13 +3,16 @@
 const openModalBtn = document.getElementById('openModalOrderNowBtn');
 const closeModalBtn = document.getElementById('closeModalOrderNowBtn');
 const modal = document.getElementById('modalordernow');
+const backdropmodal = document.getElementById('backdropmodalordernow');
 
 function openModalOrderNow() {
   modal.classList.add('open');
+  backdropmodal.classList.add('open');
 }
 
 function closeModalOrderNow() {
   modal.classList.remove('open');
+  backdropmodal.classList.remove('open');
 }
 
 openModalBtn.addEventListener('click', openModalOrderNow);
