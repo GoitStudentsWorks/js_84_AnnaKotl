@@ -45,10 +45,14 @@ function renderPopularRecipes(recipes) {
 }
 
 // // тут може бути помилка:
-const openResipesCards = document.getElementById(`${id}`);
+
 //showModalAboutReciepts('6462a8f74c3d0ddd28898040');
-// const openResipesCards = document.querySelectorAll('li');
+// // const openResipesCards = document.querySelectorAll('li');
+
+const openResipesCards = document.querySelectorAll('.pop-recipe-link');
 
 openResipesCards.forEach(card => {
-  card.addEventListener('click', showModalAboutReciepts(id));
+  card.addEventListener('click', event => {
+    showModalAboutReciepts(event.target.id);
+  });
 });
