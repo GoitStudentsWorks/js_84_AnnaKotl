@@ -1,4 +1,6 @@
-import svg from '../images/heart-defs.svg';
+const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
+import { showModalAboutReciepts } from "./video-recipe";
+// import svg from '../images/heart-defs.svg';
 
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
 // const SVG_URL = './images/heart-defs.svg';
@@ -82,6 +84,14 @@ export function createMarkup(arr) {
     )
     .join('');
 }
+
+const recipeButtons = document.querySelectorAll('.see-recipe-btn');
+recipeButtons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    const clickedRecipeElement = event.currentTarget.id;
+    showModalAboutReciepts(clickedRecipeElement);
+  });
+});
 
 function onHeartButtonClick(evt) {
   console.log(evt.target);
