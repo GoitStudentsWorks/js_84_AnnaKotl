@@ -1,10 +1,9 @@
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
-import { showModalAboutReciepts } from "./video-recipe";
+import { showModalAboutReciepts } from './video-recipe';
 
 // import svg from '../images/heart-defs.svg';
 
 import svg from '../images/heart-defs.svg';
-
 
 // const SVG_URL = './images/heart-defs.svg';
 class RecipesPlaceholderAPI {
@@ -21,8 +20,6 @@ let page = 1;
 const recipesList = document.querySelector('.recipes-list');
 
 const recipesplaceholderInstance = new RecipesPlaceholderAPI();
-
-console.log(cards);
 
 recipesplaceholderInstance
   .fetchRecipes()
@@ -92,7 +89,7 @@ export function createMarkup(arr) {
 
 const recipeButtons = document.querySelectorAll('.see-recipe-btn');
 recipeButtons.forEach(button => {
-  button.addEventListener('click', (event) => {
+  button.addEventListener('click', event => {
     const clickedRecipeElement = event.currentTarget.id;
     showModalAboutReciepts(clickedRecipeElement);
   });
@@ -102,28 +99,24 @@ function onHeartButtonClick(evt) {
   const currentBtn = evt.currentTarget;
 
   currentBtn.classList.toggle('active');
-
-  if (currentBtn.classList.contains('active')) {
-    localStorage.setItem('favorites', JSON.stringify([...renderCards]));
-    // } else {
-    //   localStorage.setItem(
-    //     'favorites',
-    //     JSON.stringify([...storage.filter(el => el.id !== recipeInfo.id)])
-    //   );
-    // }
-  }
 }
+
+// if (currentBtn.classList.contains('active')) {
+//   localStorage.setItem('favorites', JSON.stringify([...renderCards]));
+// } else {
+//   localStorage.setItem(
+//     'favorites',
+//     JSON.stringify([...storage.filter(el => el.id !== recipeInfo.id)])
+//   );
+// }
+//   }
+// }
 
 // const storage = localStorage.getItem('favorites');
 // const data = JSON.parse(storage);
 // if (storage && data.find(el => el.id === id)) {
 //   return 'active';
 // }
-<<<<<<< Updated upstream
-=======
-// return '';
-
->>>>>>> Stashed changes
 // function toggleFavriteRecipe(currentBtn) {
 //   const recipeInfo = JSON.parse(currentBtn.dataset.info);
 //   currentBtn.classList.toggle('active');
