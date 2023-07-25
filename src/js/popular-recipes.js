@@ -30,8 +30,8 @@ fetchPopularRecipes()
 
 function renderPopularRecipes(recipes) {
   return recipes
-    .map(({ id, preview, title, description }) => {
-      return `<li class="pop-recipe-link" id="${id}">
+    .map(({ _id, preview, title, description }) => {
+      return `<li class="pop-recipe-link" id="${_id}">
       <div class="pop-recipe-card">
     <img class="img-pop-recipe" src="${preview}" width="64" height="64" alt="">
     <div class="text-pop-recipe">
