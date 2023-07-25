@@ -41,11 +41,11 @@ function renderPopularRecipes(recipes) {
     .join('');
 }
 
+
+// // тут може бути помилка:
+
 const openResipesCards = document.getElementById('popularRecipeList');
 openResipesCards.addEventListener('click', event => {
   const clickedEl = event.target.closest('.pop-recipe-link');
-  if (clickedEl) {
-    const recipeId = clickedEl.id;
-    showModalAboutReciepts(recipeId);
-  }
+    showModalAboutReciepts(clickedEl.id);
 });
