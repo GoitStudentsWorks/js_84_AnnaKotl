@@ -1,5 +1,6 @@
 import './filter-of-favourite-foods.js';
 import './filter.js';
+import './time.js';
 import './header.js';
 import './hero-switch.js';
 import './hero.js';
@@ -10,12 +11,9 @@ import './scroll-categories.js';
 import './video-recipe.js';
 import './rating.js';
 import './all-foods.js';
-// Fevorites
-import './js-file-fevorites/one-fevorites.js';
-import './js-file-fevorites/two-fevorites.js';
-import './js-file-fevorites/three-fevorites.js';
-import './js-file-fevorites/four-fevorites.js';
-import './js-file-fevorites/five-fevorites.js';
+import './heder-modal-menu.js';
+import './scroll-to-start.js';
+
 // All API js files
 import './api-kay-js-files/api-filter-of-favourite-foods.js'
 import './api-kay-js-files/api-filter.js';

@@ -1,6 +1,6 @@
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
 
-class JSONPlaceholderAPI {
+class RecipesPlaceholderAPI {
   fetchRecipes() {
     return fetch(`${BASE_URL}/recipes?limit=9&page=1`).then(response => {
       if (!response.ok) {
@@ -13,16 +13,20 @@ class JSONPlaceholderAPI {
 
 const recipesList = document.querySelector('.recipes-list');
 
-const jsonplaceholderInstance = new JSONPlaceholderAPI();
+const recipesplaceholderInstance = new RecipesPlaceholderAPI();
 
-jsonplaceholderInstance
+console.log(recipesList);
+
+recipesplaceholderInstance
   .fetchRecipes()
   .then(data => {
     arrayRecipes = data.results;
+    console.log(arrayRecipes);
 
     const renderCards = createMarkup(arrayRecipes);
-
+    console.log(renderCards);
     recipesList.insertAdjacentHTML('beforeend', renderCards);
+    // recipesList.innerHTML = createMarkup(arrayRecipes);
   })
   .catch(err => {
     console.warn(err);
@@ -30,21 +34,35 @@ jsonplaceholderInstance
 
 function createMarkup(arr) {
   return arr
-    .map(({ title, category, preview, tags, instructions }) => {
-      return `<li class="cards ${category}">
+    .map(
+      ({
+        title,
+        category,
+        preview,
+        tags,
+        instructions,
+        area,
+        time,
+        ingredients,
+      }) => {
+        return `<li class="cards ${category}">
   <div class="recipe-img">
     <img class="images" src="${preview}" alt="${tags}" />
   </div>
   <div class="recipe-desc">
-    <h1 class="title-favor">Title: ${title}</h1>
-    <h2 class="${category} hidden">category: ${category}</h2>
-    <p class="instructions">(${instructions}).slice(0, 50)</p>
+    <h2 class="title-recipe">Title: ${title}</h2>
+    <h3 class="${category} hidden">category: ${category}</h3>
+    <p class="instructions">(${instructions})</p>
+    <p class="area hidden">(${area})</p>
+    <p class="time hidden">(${time})</p>
+    <p class="ingredients hidden">(${ingredients})</p>
   </div>
-  <div class="rating-btn">
+  <div class="rating-panel">
     <div class="rating"></div>
-    <button type="button" class="recipe-btn btn">See recipe</button>
+    <button type="button" class="see-recipe-btn btn">See recipe</button>
   </div>
 </li>`;
-    })
+      }
+    )
     .join('');
 }

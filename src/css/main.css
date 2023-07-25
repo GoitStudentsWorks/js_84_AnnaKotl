@@ -13,8 +13,9 @@
 @import url('./video-recipe.css');
 @import url('./rating.css');
 @import url('./all-foods.css');
+@import url('./scroll-to-start.css');
 /* Favorites */
-@import url('./favorites.css');
+/* @import url('./favorites.css'); */
 
 /* BASE CSS */
 :root {

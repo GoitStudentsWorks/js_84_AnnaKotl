@@ -64,10 +64,11 @@
   .category-container {
     max-height: 496px;
     max-width: 176px;
-    margin-bottom: 0;
+    margin-bottom: 64px;
   }
 
   .all-category-button {
+    margin-top: 24px;
     margin-bottom: 30px;
   }
 

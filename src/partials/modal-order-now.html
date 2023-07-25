@@ -19,6 +19,8 @@
           name="name"
           id="name"
           placeholder="Your name"
+          pattern="[A-Za-zА-Яа-яЁё\s]+"
+          required
         />
       </span>
     </label>
@@ -31,6 +33,7 @@
         name="phone"
         pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
         placeholder="Your telephone"
+        required
       />
     </label>
     <label class="modal-order-now-email label"
@@ -41,6 +44,7 @@
         name="email"
         autofocus
         placeholder="Your email"
+        required
       />
     </label>
     <label class="modal-order-now-comment">
