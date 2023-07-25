@@ -45,7 +45,7 @@ export function showModalAboutReciepts(id) {
   recieptsOfFood(id).then(data => {
     //   isFavorite(data._id);
     renderRanting(data);
-    markUpRating();
+    // markUpRating();
     renderIngridient(data);
     renderHashtags(data);
     renderText(data);
@@ -183,4 +183,4 @@ function renderHashtags(data) {
   refs.tagsRecipe.innerHTML = markup; // Change refs.hashtagsBox to refs.tagsRecipe
 }
 
-showModalAboutReciepts('6462a8f74c3d0ddd28897fc8');
+// showModalAboutReciepts('6462a8f74c3d0ddd28897fc8');
