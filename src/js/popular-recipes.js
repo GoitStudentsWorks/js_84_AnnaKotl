@@ -1,5 +1,3 @@
-//-----------------------------------------
-
 import { showModalAboutReciepts } from './video-recipe';
 
 const url = 'https://tasty-treats-backend.p.goit.global/api/recipes/popular';
