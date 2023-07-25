@@ -14,43 +14,35 @@
     <link rel="stylesheet" href="./css/main.css">
   </head>
   <body>
-    <!-- пишемо свій код нижче, 
-    ПОСИЛАННЯ в тегу <a> НА СТОРІНКИ НЕ ПЕРЕРОБЛЯТИ! -->
-
     <!-- header -->
-
     <header class="favorites-header">
       <div class="favorites-header-container">
         <a href="./index.html" class="favorites-header-link">Home</a>
-        <a href="./" class="favorites-header-link active">Favorites</a>
+        <a href="" class="favorites-header-link active">Favorites</a>
       </div>
     </header>
-
     <!-- /header -->
 
     <main>
       <!-- hero -->
-
       <section class="hero-section-of-favorites">
         <div class="hero-container-of-favorites container">
           <div class="hero-img-of-favorites block-img"></div>
         </div>
       </section>
-
       <!-- /hero -->
 
       <!-- Favorites recipes -->
-
       <div class="favorites-categories" id="favoritesCategories"></div>
 
       <!----------------------------- ФІЛЬТР ---------------------->
-      <div class="container filter-container">
+      <div class="container favorite-filter-container">
         <ul class="favorite-filter-list list">
-          <li class="filter-item">
+          <li class="favorite-filter-item">
             <button type="button" class="filter-btn btn">All categories</button>
           </li>
         </ul>
-        <ul class="recipes-list-filter"></ul>
+        <ul class="favorite-recipes-list"></ul>
       </div>
 
       <div
@@ -73,14 +65,12 @@
           for easier access in the future.
         </div>
       </div>
-
       <!-- /Favorites recipes -->
-
-      <!-- ПИШЕМО КОД ВИЩЕ -->
       <!-- scroll -->
       <a href="#" class="to-top">
         <i class="fas fa-chevron-up"></i>
       </a>
+      <!-- /scroll -->
     </main>
     <script src="./js/main.js" type="module"></script>
     <script src="/src/favorites.js" type="module"></script>

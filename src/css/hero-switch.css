@@ -3,9 +3,10 @@
 .img {
   max-width: none;
 }
-/*.mk-container {
+
+.mk-container {
   margin-bottom: 80px;
-}*/
+}
 
 .mk.swiper-wrapper {
   height: 302px;
@@ -59,7 +60,9 @@
   flex-direction: row;
   flex-wrap: nowrap;
   margin-right: -141px;
-  /*margin-left: 20px;*/
+
+  margin-left: 20px;
+
 }
 .mk-list {
   display: flex;
