@@ -3,51 +3,52 @@ import Notiflix from 'notiflix';
 import 'notiflix/src/notiflix.css';
 
 const refs = {
-    openModalBtn: document.querySelectorAll('.give-a-rating'),
-    closeModalBtn: document.querySelector('.close-rating-btn'),
-    modal: document.querySelector('.modal-rating is-hidden'),
-    form: document.querySelector('.modal-rating-content'),
+  openModalBtn: document.querySelectorAll('.give-a-rating'),
+  closeModalBtn: document.querySelectorAll('.close-rating-btn'),
+  modal: document.querySelectorAll('.modal-rating'),
+  form: document.querySelectorAll('.modal-rating-content'),
+  idButton: document.getElementById('idButton'),
 };
-  
+
 refs.openModalBtn.forEach(btn => btn.addEventListener("click", openModal));
-refs.closeModalBtn.addEventListener("click", closeModal);
-refs.form.addEventListener("submit", sendForm)
-  
+refs.closeModalBtn.forEach(btn => btn.addEventListener("click", closeModal));
+refs.form.forEach(form => form.addEventListener('submit', sendForm));
+
 function openModal(e) {
-    e.preventDefault();
-    document.addEventListener('keydown', keyDownRate);
-    refs.modal.classList.remove("is-hidden");
-    refs.modal.addEventListener('click', closeBackdrop);
+  e.preventDefault();
+  document.addEventListener('keydown', keyDownRate);
+  refs.modal.forEach(modal => modal.classList.remove("is-hidden"));
+  refs.modal.forEach(modal => modal.addEventListener('click', closeBackdrop));
 }
 
 function closeModal() {
-    document.removeEventListener('keydown', keyDownRate);
-    refs.modal.removeEventListener('click', closeBackdrop);
-    refs.modal.classList.add("is-hidden");
-}
-  
-function closeBackdrop(e) {
-  if (e.target === refs.modal) {
-     closeModal()
-   }
-}
-  
-function clearRating() {
-  const ratingIcons = document.querySelectorAll('.close-rating-svg');
-  ratingIcons.forEach(icon => icon.classList.remove('active'));
-}
-  
-function toggleModal() {
-    refs.modal.classList.toggle("is-hidden");
+  document.removeEventListener('keydown', keyDownRate);
+  refs.modal.forEach(modal => modal.removeEventListener('click', closeBackdrop));
+  refs.modal.forEach(modal => modal.classList.add("is-hidden"));
 }
 
-function keyDownRate  (e) {
-    if (e.key === 'Escape') {
+function closeBackdrop(e) {
+  if (e.target === refs.modal) {
     closeModal();
-    e.target.blur(); 
-    }
-};
-  
+  }
+}
+
+function clearRating() {
+  const ratingIcons = document.querySelectorAll('.rating-modal-form-icon');
+  ratingIcons.forEach(icon => icon.classList.remove('active'));
+}
+
+function toggleModal() {
+  refs.modal.forEach(modal => modal.classList.toggle("is-hidden"));
+}
+
+function keyDownRate(e) {
+  if (e.key === 'Escape') {
+    closeModal();
+    e.target.blur();
+  }
+}
+
 async function sendForm(e) {
   try {
     e.preventDefault();
@@ -56,9 +57,9 @@ async function sendForm(e) {
     if (!result) return Notiflix.Notify.failure("Send rating failure");
     Notiflix.Notify.success("Thank you for your rating");
     clearRating()
-    refs.form.reset();
+    refs.form.forEach(form => form.reset());
     toggleModal();
-   } catch (err) {
+  } catch (err) {
     onError(err);
   }
 }
@@ -66,9 +67,9 @@ async function sendForm(e) {
 function getArgs({ user_email, ratingValue }) {
   if (user_email.value.trim() === "" || ratingValue.value < 1) return Notiflix.Notify.failure('Please fill in all the fields!');
   return {
-        rate: Number(ratingValue.value),
-       email: user_email.value
-  }
+    rate: Number(ratingValue.value),
+    email: user_email.value
+  };
 }
 
 function onError(error) {
@@ -80,17 +81,17 @@ const ratingIcons = document.querySelectorAll('.rating-modal-form-icon');
 const ratingValueInput = document.getElementById('ratingValue');
 
 ratingIcons.forEach(function (icon) {
-    icon.addEventListener('click', function () {
-        const ratingValue = this.getAttribute('data-rating');
+  icon.addEventListener('click', function () {
+    const ratingValue = this.getAttribute('data-rating');
 
-        ratingIcons.forEach(function (icon) {
-            if (icon.getAttribute('data-rating') <= ratingValue) {
-                icon.classList.add('active');
-            } else {
-                icon.classList.remove('active');
-            }
-        });
-
-        ratingValueInput.value = ratingValue;
+    ratingIcons.forEach(function (icon) {
+      if (icon.getAttribute('data-rating') <= ratingValue) {
+        icon.classList.add('active');
+      } else {
+        icon.classList.remove('active');
+      }
     });
+
+    ratingValueInput.value = ratingValue;
+  });
 });
