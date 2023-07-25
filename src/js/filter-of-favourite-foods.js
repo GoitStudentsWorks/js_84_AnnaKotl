@@ -1,3 +1,5 @@
+import svg from '../images/heart-defs.svg';
+
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
 
 class JSONPlaceholderAPI {
@@ -31,7 +33,11 @@ jsonplaceholderInstance
     if (renderCardsFilter) {
       blockFavorit.classList.add('hidden');
     } else favoriteFilterList.classList.add('hidden');
+
+    favoriteFilterList.addEventListener('click', onFilterClick);
+    console.log(favoriteFilterList);
   })
+
   .catch(err => {
     console.warn(err);
   });
@@ -47,12 +53,18 @@ function createMarkup(arr) {
   <div class="recipe-favorite-desc">
     <h1 class="title-favor">Title: ${title}</h1>
     <h2 class="${category} hidden">category: ${category}</h2>
-    <p class="instructions">(${instructions}).slice(0, 50)</p>
+    <p class="instr-favor">(${instructions}).slice(0, 50)</p>
   </div>
   <div class="rating-panel-favorite">
     <div class="rating"></div>
     <button type="button" class="recipe-btn btn">See recipe</button>
   </div>
+    <button class="heart-button" type="button">
+  <svg class="heart-button-icon" width="20" height="20">
+  <use href="${svg}#heart">
+  </use>
+  </svg>
+  </button>
 </li>`;
     })
     .join('');
@@ -88,6 +100,3 @@ function onFilterClick(evt) {
     }
   });
 }
-
-favoriteFilterList.addEventListener('click', onFilterClick);
-console.log(favoriteFilterList);

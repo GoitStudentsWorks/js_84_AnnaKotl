@@ -1,6 +1,7 @@
-
-
 .con-select {
+    max-width: 348px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 50px;
     gap: 14px;
 }
@@ -369,8 +370,9 @@
     }
 
     .con-select{
-      max-width: 496px;
+      max-width: 420px;
       gap: 16px;
+      margin-left: 0;
       margin-bottom: 44px;
     }
     .list-item{

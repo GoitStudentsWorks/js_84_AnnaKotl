@@ -91,6 +91,16 @@ img {
     padding: 0 20px;
 }
 
+.left-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.right-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 @media screen and (min-width: 768px) {
     .container {
         /*max-width: 768px;*/
@@ -101,6 +111,14 @@ img {
        display: flex;
        flex-wrap: wrap;
        gap: 32px; 
+    }
+
+    .left-container {
+        width: 176px;
+    }
+
+    .right-container {
+        width: 496px;
     }
 }
 
@@ -114,4 +132,19 @@ img {
     .section-container {
         gap: 64px;
     }
+}
+
+@media screen and (min-width: 1280px) {
+    .left-container {
+        width: 235px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .right-container {
+        width: 780px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
 }
