@@ -54,7 +54,7 @@ function addMkInfo() {
     grabCursor: true,
     slidesPerView: 'auto',
     direction: 'horizontal',
-    // rewind: true,
+    rewind: true,
     loop: true,
     // scrollbar: {
     //   el: '.swiper-scrollbar',
