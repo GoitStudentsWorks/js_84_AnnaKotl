@@ -7,12 +7,17 @@
 
 // import Pagination from 'tui-pagination';
 import '../css/recipe-placeholder.css';
-import { showRecipes, createMarkup } from './all-foods';
+// import { showRecipes, createMarkup } from './all-foods';
  async function showRecipes(url, params = {}) {
   const recipes = await createRecipeList(url, params);
   clearRecipeList();
   recipeList.insertAdjacentHTML('beforeend', recipes);
   markUpRating();
+ }
+async function getRecipesData(url = URL, params) {
+  const { perPage, totalPages } = await getAllRecipes(url, params);
+
+  return { perPage, totalPages };
 }
 
 showRecipes(URL, { limit: limitCount });
