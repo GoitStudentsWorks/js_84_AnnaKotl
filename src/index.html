@@ -17,12 +17,26 @@
     <include src="./partials/header.html"></include>
 
     <main>
-      <include src="./partials/hero.html"></include>
-      <include src="./partials/hero-switch.html"></include>
+      <div class="container hero-section-container">
+        <include src="./partials/hero.html"></include>
+        <include src="./partials/hero-switch.html"></include>
+      </div>
+
       <include src="./partials/modal-order-now.html"></include>
-      <include src="./partials/scroll-categories.html"></include>
-      <include src="./partials/filter.html"></include>
-      <include src="./partials/popular-recipes.html"></include>
+
+      <div class="main-section">
+        <div class="container section-container">
+          <div class="left-container">
+            <include src="./partials/scroll-categories.html"></include>
+            <include src="./partials/popular-recipes.html"></include>
+          </div>
+          <div class="right-container">
+            <include src="./partials/filter.html"></include>
+
+          </div>
+        </div>
+      </div>
+
       <include src="./partials/filter-of-favourite-foods.html"></include>
       <include src="./partials/all-foods.html"></include>
       <include src="./partials/recipe-placeholder.html"></include>

@@ -1,3 +1,5 @@
+
+
 .con-select {
     margin-bottom: 50px;
 }
@@ -47,7 +49,7 @@
 .inp-search::placeholder {
     font-family: "Inter", sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     color: rgba(5, 5, 5, 0.5);
 }
   
@@ -353,9 +355,6 @@
 }
   
 @media screen and (min-width: 768px){
-    .con-select {
-      margin-bottom: 44px;
-    }
     .con-search{
       width: 278px;
       margin-bottom: 0px;
@@ -364,6 +363,7 @@
     .con-select{
       max-width: 496px;
       gap: 16px;
+      margin-bottom: 44px;
     }
     .list-item{
       display: flex;
@@ -373,6 +373,14 @@
         max-width: 278px;
     }
 
+    .inp-search::placeholder{
+        font-size: 16px;
+    }
+
+    .elem-prev{
+        font-size: 16px;
+    } 
+    
     .time{
         width: 125px;
         margin-right: 0px;
@@ -442,14 +450,13 @@
     }  
   }
   
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1280px){
     .con-select{
       max-width: 780px;
     }
     .ingredients{
       margin-top: 0;
     }
-
 
     .left-txt{
       position: absolute;
