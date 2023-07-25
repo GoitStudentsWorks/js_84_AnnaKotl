@@ -5,6 +5,7 @@
 
 import { showModalAboutReciepts } from './video-recipe';
 
+
 const url = 'https://tasty-treats-backend.p.goit.global/api/recipes/popular';
 
 const pop_recipe_info = document.querySelector('.popular-recipes');
@@ -30,8 +31,8 @@ fetchPopularRecipes()
 
 function renderPopularRecipes(recipes) {
   return recipes
-    .map(({ id, preview, title, description }) => {
-      return `<li class="pop-recipe-link" id="${id}">
+    .map(({ _id, preview, title, description }) => {
+      return `<li class="pop-recipe-link" id="${_id}">
       <div class="pop-recipe-card">
     <img class="img-pop-recipe" src="${preview}" width="64" height="64" alt="">
     <div class="text-pop-recipe">
@@ -45,10 +46,12 @@ function renderPopularRecipes(recipes) {
 }
 
 // // тут може бути помилка:
-const openResipesCards = document.getElementById(`${id}`);
-//showModalAboutReciepts('6462a8f74c3d0ddd28898040');
-// const openResipesCards = document.querySelectorAll('li');
 
-openResipesCards.forEach(card => {
-  card.addEventListener('click', showModalAboutReciepts(id));
+//showModalAboutReciepts('6462a8f74c3d0ddd28898040');
+// // const openResipesCards = document.querySelectorAll('li');
+
+
+document.getElementById('popularRecipeList').addEventListener('click', (event) => {
+  const clickedRecipeElement = event.target.closest('.pop-recipe-link');
+    showModalAboutReciepts(clickedRecipeElement.id);
 });

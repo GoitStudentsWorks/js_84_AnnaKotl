@@ -85,12 +85,6 @@ showRecipes(URL, { limit: limitCount });
 showPagination(URL);
 /////////////////////////////////
 
-
-
-
-
-
-
 // старий код
 // import Pagination from 'tui-pagination';
 // import '../css/recipe-placeholder.css';
@@ -159,9 +153,6 @@ showPagination(URL);
 //   createPagination(url, { ...params, limit: limitCount });
 // }
 // showPagination(URL);
-
-
-
 
 // const { Pagination } = require('tui-pagination');
 
