@@ -5,6 +5,7 @@
 }
 .mk-container {
   margin-bottom: 80px;
+  min-width: 0;
 }
 .mk.swiper-wrapper {
   height: 302px;
