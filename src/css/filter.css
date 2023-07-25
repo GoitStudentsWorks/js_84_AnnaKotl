@@ -32,6 +32,7 @@
   
 .con-inp{
   position: relative;
+  width: 335px;
 }
   
 .inp-search {
@@ -111,6 +112,8 @@
 .time{
   width: 160px;
   margin-right: 14px;
+  width: 160px;
+  
 }
   
 .area{
@@ -123,9 +126,11 @@
 }
   
 .con-select{
-  max-width: 335px;
+  max-width: 375px;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 50px;
+  margin-right: 14px;
 }
 
 .custom-select .selected-option span {
@@ -192,7 +197,6 @@
   font-family: Inter;
   font-weight: 500;
   line-height: 18px;
-
   background-color: transparent;
   border: none;
 }
@@ -361,9 +365,14 @@
       margin-bottom: 0px;
     }
 
+    .con-inp{
+      width: 278px;
+    }
+
     .con-select{
       max-width: 496px;
       gap: 16px;
+      margin-bottom: 44px;
     }
     .list-item{
       display: flex;
@@ -378,9 +387,9 @@
         margin-right: 0px;
     }
 
-    .area {
+    .area{
         width: 140px;
-    }
+      }
   
     .ingredients{
       margin-top: auto;
