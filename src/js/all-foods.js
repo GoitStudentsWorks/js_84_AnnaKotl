@@ -95,10 +95,8 @@ function onHeartButtonClick(evt) {
 //   }
 //   return '';
 // }
-
 // function toggleFavriteRecipe(currentBtn) {
 //   const recipeInfo = JSON.parse(currentBtn.dataset.info);
-
 //   currentBtn.classList.toggle('active');
 //   const storage = JSON.parse(localStorage.getItem('favorites')) ?? [];
 //   if (currentBtn.classList.contains('active')) {
