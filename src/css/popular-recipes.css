@@ -6,7 +6,10 @@ p {
     padding-bottom: 10px;
 } */
 .container-popular {
+  width: 326px;
   margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title-popular-recipes {
@@ -83,6 +86,16 @@ p {
     height: 316px;
     overflow: visible;
   }
+
+  .pop-recipe-card{
+    gap: 8px;
+  }
+
+  .img-pop-recipe {
+    width: 48px;
+    height: 48px;
+  }
+  
   .text-pop-recipe {
     height: 67px;
     width: 120px;
