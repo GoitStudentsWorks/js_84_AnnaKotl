@@ -1,6 +1,11 @@
+const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
+import { showModalAboutReciepts } from "./video-recipe";
+
+// import svg from '../images/heart-defs.svg';
+
 import svg from '../images/heart-defs.svg';
 
-const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
+
 // const SVG_URL = './images/heart-defs.svg';
 class RecipesPlaceholderAPI {
   fetchRecipes() {
@@ -41,6 +46,7 @@ export function createMarkup(arr) {
   return arr
     .map(
       ({
+        _id,
         title,
         category,
         preview,
@@ -57,7 +63,7 @@ export function createMarkup(arr) {
   </div>
     
   <div class="recipe-desc">
-    <h2 class="title-recipe">Title: ${title}</h2>
+    <h2 class="title-recipe">${title}</h2>
     <h3 class="${category} hidden">category: ${category}</h3>
     <p class="instr-recipe">(${instructions})</p>
     <p class="area hidden">(${area})</p>
@@ -67,7 +73,7 @@ export function createMarkup(arr) {
 
   <div class="rating-panel">
     <div class="rating"></div>
-    <button type="button" class="see-recipe-btn btn">See recipe</button>
+    <button type="button" class="see-recipe-btn btn" id="${_id}">See recipe</button>
   </div>
   
   <button class="heart-button" type="button">
@@ -83,6 +89,14 @@ export function createMarkup(arr) {
     .join('');
 }
 
+const recipeButtons = document.querySelectorAll('.see-recipe-btn');
+recipeButtons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    const clickedRecipeElement = event.currentTarget.id;
+    showModalAboutReciepts(clickedRecipeElement);
+  });
+});
+
 function onHeartButtonClick(evt) {
   console.log(evt.target);
 }
@@ -95,10 +109,8 @@ function onHeartButtonClick(evt) {
 //   }
 //   return '';
 // }
-
 // function toggleFavriteRecipe(currentBtn) {
 //   const recipeInfo = JSON.parse(currentBtn.dataset.info);
-
 //   currentBtn.classList.toggle('active');
 //   const storage = JSON.parse(localStorage.getItem('favorites')) ?? [];
 //   if (currentBtn.classList.contains('active')) {
