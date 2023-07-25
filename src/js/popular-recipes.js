@@ -43,8 +43,8 @@ function renderPopularRecipes(recipes) {
 // // тут може бути помилка:
 
 //showModalAboutReciepts('6462a8f74c3d0ddd28898040');
-// // const openResipesCards = document.querySelectorAll('li');
 
+const openResipesCards = document.querySelectorAll('li');
 
 openResipesCards.forEach(card => {
   card.addEventListener('click', event => {
