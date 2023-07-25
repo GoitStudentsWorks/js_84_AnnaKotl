@@ -1,6 +1,5 @@
 import { showModalAboutReciepts } from './video-recipe';
 
-
 const url = 'https://tasty-treats-backend.p.goit.global/api/recipes/popular';
 
 const pop_recipe_info = document.querySelector('.popular-recipes');
@@ -40,14 +39,11 @@ function renderPopularRecipes(recipes) {
     .join('');
 }
 
+
 // // тут може бути помилка:
 
-//showModalAboutReciepts('6462a8f74c3d0ddd28898040');
-// // const openResipesCards = document.querySelectorAll('li');
-
-
-openResipesCards.forEach(card => {
-  card.addEventListener('click', event => {
-    showModalAboutReciepts(event.target._id);
-  });
+const openResipesCards = document.getElementById('popularRecipeList');
+openResipesCards.addEventListener('click', event => {
+  const clickedEl = event.target.closest('.pop-recipe-link');
+    showModalAboutReciepts(clickedEl.id);
 });

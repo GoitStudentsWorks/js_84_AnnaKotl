@@ -124,7 +124,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
+  z-index: 2;
   width: 22px;
   height: 22px;
   color: #f8f8f8;
@@ -140,6 +140,10 @@
 
 .heart-button-icon:hover,
 .heart-button-icon:focus {
+  fill: currentColor;
+}
+
+.heart-button.active {
   fill: currentColor;
 }
 
