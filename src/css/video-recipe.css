@@ -192,7 +192,6 @@ background: var(--accent-color);
 color: var(--light-text-color);
 }
 .btn-outline-remove{
-    visibility: hidden;
     opacity: 1;
     position: fixed;
     cursor: pointer;
@@ -201,7 +200,7 @@ color: var(--light-text-color);
     padding: 14px 28px;
     font-size: 14px;
     font-weight: 500;
-    color: var(--input-label-error);
+    color: red;
     border: 1px solid red;
     transition: all .3s;
 }
@@ -213,7 +212,7 @@ color: var(--light-text-color);
 .rating__body::before {
     content: '★★★★★';
     display: block;
-    color: var(--primary-text-CH-color-STARS);
+    color: var(--dark-text-color);
     font-size: 16px;
   }
   
@@ -265,6 +264,9 @@ color: var(--light-text-color);
     .tags-rating-minuts{
         order: 3;
         padding-bottom:  33px;
+        flex-direction: column;
+        display: flex;
+        gap: 15px;
     }
     .ingredients-recipe{
         order: 4;
@@ -331,6 +333,10 @@ line-height: 18px;
 .instructions-recipe{
     order: 5;
     padding-bottom: 32px;
+}
+.tags-rating-minuts {
+    display: flex;
+    flex-direction: row;
 }
 .buttons-add{
     order: 6;
