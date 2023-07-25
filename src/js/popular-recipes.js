@@ -53,6 +53,6 @@ const openResipesCards = document.querySelectorAll('.pop-recipe-link');
 
 openResipesCards.forEach(card => {
   card.addEventListener('click', event => {
-    showModalAboutReciepts(event.target.id);
+    showModalAboutReciepts(event.target._id);
   });
 });
