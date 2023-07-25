@@ -48,23 +48,40 @@ async function renderMk() {
 function addMkInfo() {
   renderMk();
   const swiper = new Swiper(".swiper", {
-    // slidesPerView: 1,
+        // slidesPerView: 1,
     // slidesPerGroup: 1,
     spaceBetween: 16,
     grabCursor: true,
     slidesPerView: 'auto',
     direction: 'horizontal',
-    rewind: true,
+    // rewind: true,
     loop: true,
-    scrollbar: {
-      el: '.swiper-scrollbar',
-      draggable: true,
-    },
+    // scrollbar: {
+    //   el: '.swiper-scrollbar',
+    //   draggable: true,
+    // },
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
     },
+    slidesPerView: 0.65,
+ 
+    speed: 600,
+
+    breakpoints: {
+      375: {
+      slidesPerView: 0.65,
+        spaceBetween: 8
+      },
+      768: {
+        slidesPerView: 0.85,
+        spaceBetween: 16
+      },
+      1280: {
+        slidesPerView: 0.81,
+        spaceBetween: 16
+      }
+    }
   });
-  console.log(swiper);
 }
 addMkInfo(); 
