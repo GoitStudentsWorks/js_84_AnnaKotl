@@ -5,6 +5,7 @@
 
 import { showModalAboutReciepts } from './video-recipe';
 
+
 const url = 'https://tasty-treats-backend.p.goit.global/api/recipes/popular';
 
 const pop_recipe_info = document.querySelector('.popular-recipes');
@@ -30,8 +31,8 @@ fetchPopularRecipes()
 
 function renderPopularRecipes(recipes) {
   return recipes
-    .map(({ id, preview, title, description }) => {
-      return `<li class="pop-recipe-link" id="${id}">
+    .map(({ _id, preview, title, description }) => {
+      return `<li class="pop-recipe-link" id="${_id}">
       <div class="pop-recipe-card">
     <img class="img-pop-recipe" src="${preview}" width="64" height="64" alt="">
     <div class="text-pop-recipe">
@@ -49,10 +50,11 @@ function renderPopularRecipes(recipes) {
 //showModalAboutReciepts('6462a8f74c3d0ddd28898040');
 // // const openResipesCards = document.querySelectorAll('li');
 
-const openResipesCards = document.querySelectorAll('.pop-recipe-link');
 
-openResipesCards.forEach(card => {
-  card.addEventListener('click', event => {
-    showModalAboutReciepts(event.target.id);
-  });
+document.getElementById('popularRecipeList').addEventListener('click', (event) => {
+  const clickedRecipeElement = event.target.closest('.pop-recipe-link');
+  if (clickedRecipeElement) {
+    const recipeId = clickedRecipeElement.id;
+    showModalAboutReciepts(recipeId);
+  }
 });
