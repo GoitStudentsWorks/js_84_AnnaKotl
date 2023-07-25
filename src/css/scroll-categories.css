@@ -1,6 +1,9 @@
 .category-container {
+  width: 326px;
   max-height: 402px;
   margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .all-category-button {
