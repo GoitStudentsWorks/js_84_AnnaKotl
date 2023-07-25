@@ -53,8 +53,5 @@ function renderPopularRecipes(recipes) {
 
 document.getElementById('popularRecipeList').addEventListener('click', (event) => {
   const clickedRecipeElement = event.target.closest('.pop-recipe-link');
-  if (clickedRecipeElement) {
-    const recipeId = clickedRecipeElement.id;
-    showModalAboutReciepts(recipeId);
-  }
+    showModalAboutReciepts(clickedRecipeElement.id);
 });

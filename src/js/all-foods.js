@@ -1,4 +1,5 @@
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
+import { showModalAboutReciepts } from "./video-recipe";
 
 class RecipesPlaceholderAPI {
   fetchRecipes() {
@@ -32,10 +33,11 @@ recipesplaceholderInstance
     console.warn(err);
   });
 
-function createMarkup(arr) {
+export function createMarkup(arr) {
   return arr
     .map(
       ({
+        _id,
         title,
         category,
         preview,
@@ -50,7 +52,7 @@ function createMarkup(arr) {
     <img class="images" src="${preview}" alt="${tags}" />
   </div>
   <div class="recipe-desc">
-    <h2 class="title-recipe">Title: ${title}</h2>
+    <h2 class="title-recipe">${title}</h2>
     <h3 class="${category} hidden">category: ${category}</h3>
     <p class="instructions">(${instructions})</p>
     <p class="area hidden">(${area})</p>
@@ -59,10 +61,18 @@ function createMarkup(arr) {
   </div>
   <div class="rating-panel">
     <div class="rating"></div>
-    <button type="button" class="see-recipe-btn btn">See recipe</button>
+    <button type="button" class="see-recipe-btn btn" id="${_id}">See recipe</button>
   </div>
 </li>`;
       }
     )
     .join('');
 }
+
+const recipeButtons = document.querySelectorAll('.see-recipe-btn');
+recipeButtons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    const clickedRecipeElement = event.currentTarget.id;
+    showModalAboutReciepts(clickedRecipeElement);
+  });
+});
