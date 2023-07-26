@@ -37,10 +37,22 @@
 }
 
 .pagination {
-    margin-top: 40px;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto 0;
 }
 .tui-pagination .tui-first+.tui-prev {
     background-color: var(--primary-text-color);
+    
+}
+strong {
+    background-color: var(--bgc-CH-background-mob-menu);
+}
+.tui-pagination .tui-first+.tui-prev:hover,
+.tui-pagination .tui-first+.tui-prev:focus
+ {
+background-color: var(--primary-text-CH-color);
+color: var(--bgc-background);
 }
 .tui-page-btn-tui-is-disabled .tui-first {
     background-color: var(--primary-text-color);
@@ -48,7 +60,9 @@
 .tui-page-btn .tui-next-is-ellip-tui-last-child {
     background-color: white;
 }
-
+.tui-pagination.tui-page-btn-is-select {
+    background-color: var(--border-paginatio);
+}
 @media screen and (min-width: 768px) {
     .pagination {
         margin-top: 64px;
@@ -56,7 +70,6 @@
 }
 
 .tui-pagination {
-    height: 100%;
     line-height: normal;
     text-align: center;
     font-size: 0;
@@ -80,7 +93,7 @@
     color: var(--primary-text-CH-color);
     border-radius: 50%;
     border: 1px solid var(--border-paginatio);
-    margin-right: 8px;
+    margin-right: 4px;
 }
 
 .tui-pagination .tui-prev {
@@ -88,7 +101,6 @@
 }
 
 .tui-pagination .tui-next {
-    margin-left: 14px;
     margin-right: 0;
     background-color: var(--bgc-CH-background-mob-menu);
 }
@@ -151,6 +163,11 @@ margin-left: 8px;
 }
 
 @media screen and (min-width: 768px) {
+    .pagination {
+        margin-top: 64px;
+        max-width: 450px;
+        max-height: 50px;
+    }
     .pagination .pag__current-page {
         margin: 0 10px 0 0;
     }

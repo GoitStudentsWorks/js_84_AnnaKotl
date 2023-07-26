@@ -5,14 +5,14 @@ import 'notiflix/src/notiflix.css';
 const refs = {
   openModalBtn: document.querySelectorAll('.give-a-rating'),
   closeModalBtn: document.querySelectorAll('.close-rating-btn'),
-  modal: document.querySelector('.modal-rating'), // Враховано, що .modal-rating - це окремий контейнер модального вікна
-  form: document.querySelector('.modal-rating-content'), // Враховано, що .modal-rating-content містить всю форму
+  modal: document.querySelector('.modal-rating'),
+  form: document.querySelector('.modal-rating-content'),
   idButton: document.getElementById('idButton'),
 };
 
 refs.openModalBtn.forEach(btn => btn.addEventListener('click', openModal));
 refs.closeModalBtn.forEach(btn => btn.addEventListener('click', closeModal));
-refs.form.addEventListener('submit', sendForm); // Використовуємо addEventListener, бо refs.form - це один елемент
+refs.form.addEventListener('submit', sendForm);
 
 function openModal(e) {
   e.preventDefault();

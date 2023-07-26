@@ -1,4 +1,5 @@
 import svg from '../images/heart-defs.svg';
+import { showModalAboutReciepts } from './video-recipe';
 
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
 
@@ -26,14 +27,20 @@ jsonplaceholderInstance
 
     const renderCardsFilter = createMarkup(arrayRecipesFilter);
     const renderFilter = createFilterMarkup(arrayRecipesFilter);
-
-    favoriteFilterList.insertAdjacentHTML('beforeend', renderFilter);
+    
+    favoriteFilterList.insertAdjacentHTML('afterbegin', renderFilter);
     favoriteRecipesList.insertAdjacentHTML('beforeend', renderCardsFilter);
 
     if (renderCardsFilter) {
       blockFavorit.classList.add('hidden');
     } else favoriteFilterList.classList.add('hidden');
-
+const recipeButtons = document.querySelectorAll('.recipe-btn');
+    recipeButtons.forEach(button => {
+      button.addEventListener('click', event => {
+        const clickedRecipeElement = event.currentTarget.id;
+        showModalAboutReciepts(clickedRecipeElement);
+      });
+    });
     favoriteFilterList.addEventListener('click', onFilterClick);
   })
 
@@ -43,7 +50,7 @@ jsonplaceholderInstance
 
 function createMarkup(arr) {
   return arr
-    .map(({ title, category, preview, tags, instructions }) => {
+    .map(({ _id, title, category, preview, tags, instructions }) => {
       return `<li class="cards-favorite ${category}">
   <div class="recipe-img">
     <img class="images" src="${preview}" alt="${tags}" />
@@ -56,8 +63,8 @@ function createMarkup(arr) {
   </div>
   <div class="rating-panel-favorite">
     <div class="rating"></div>
-    <button type="button" class="recipe-btn btn">See recipe</button>
-  </div>
+    <button type="button" class="recipe-btn btn" id="${_id}">See recipe</button>
+  </div>  
     <button class="heart-button" type="button">
   <svg class="heart-button-icon" width="20" height="20">
   <use href="${svg}#heart">
@@ -99,3 +106,12 @@ function onFilterClick(evt) {
     }
   });
 }
+
+
+const recipeButtons = document.querySelectorAll('.recipe-btn');
+recipeButtons.forEach(button => {
+  button.addEventListener('click', event => {
+    const clickedRecipeElement = event.currentTarget.id;
+    showModalAboutReciepts(clickedRecipeElement);
+  });
+});
