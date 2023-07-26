@@ -50,6 +50,15 @@
 .tui-page-btn .tui-next-is-ellip-tui-last-child {
     background-color: white;
 }
+.tui-pagination.tui-page-btn-is-select {
+    background-color: var(--border-paginatio);
+}
+@media screen and (min-width: 768px) {
+    .pagination {
+        margin-top: 64px;
+    }
+}
+
 .tui-pagination {
     line-height: normal;
     text-align: center;
