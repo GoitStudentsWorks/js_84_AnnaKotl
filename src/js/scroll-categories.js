@@ -1,45 +1,47 @@
-import { fetchCategories } from '../js/api-kay-js-files/api-scroll-categories';
+const refs = {
+  categoryList: document.querySelector('.category-list'),
+  categoryContainer: document.querySelector('.category-container'),
+  allCategoryButton: document.querySelector('.all-category-button'),
+};
 
-const categoriesContainer = document.querySelector('.category-container');
-const allCategoryBtn = document.querySelector('.all-category-button');
-const categories = document.querySelector('.category-list');
-
-const createCategoryButtons = async () => {
-  const categoryListEl = document.querySelector('.category-list');
-
-  const categories = await fetchCategories();
-
-  const markup = categories.map(({ name }) => `
-              <li class="categories-item">
-                <button class="category-btn" type="button">
-                  ${name}
-                </button>
-              </li>`).join('');
-  
-  categoryListEl.insertAdjacentHTML('beforeend', markup);
-}
-createCategoryButtons();
+refs.categoryContainer.addEventListener('click', onBtnCLick);
 
 let lastClickedBtn = null;
-categoriesContainer.addEventListener('click', (e) => {
-  const Btn = e.target;
+
+
+function onBtnCLick(event) {
+  const Btn = event.target;
+
   if (Btn.nodeName !== 'BUTTON') {
     return;
   }
+
   if (lastClickedBtn) {
     lastClickedBtn.classList.remove('active');
   }
-  if (Btn === allCategoryBtn) {
-    removeActive();
+
+  if (Btn === refs.allCategoryButton) {
+    removeActiveClassFromAllButtons();
   } else {
-    allCategoryBtn.classList.remove('active');
+    refs.allCategoryButton.classList.remove('active');
   }
+
   Btn.classList.add('active');
   lastClickedBtn = Btn;
-});
-const removeActive = () => {
-  const buttons = categories.querySelectorAll('button');
+};
+
+
+function removeActiveClassFromAllButtons() {
+  const buttons = refs.categoryList.querySelectorAll('button');
+
   buttons.forEach(button => {
     button.classList.remove('active');
   });
-}
+};
+
+
+refs.categoryList.addEventListener('click', event => {
+  if (!event.target.classList.contains('category-btn')) {
+    event.stopPropagation();
+  }
+});
