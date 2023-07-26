@@ -123,6 +123,9 @@
     ),
     no-repeat;
 }
+.rating-panel-favorite {
+  position: relative;
+}
 .title-favor {
   color: #f8f8f8;
   font-family: Inter;
