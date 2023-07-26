@@ -6,17 +6,20 @@
 .hero-section-container {
   display: flex;
   flex-wrap: wrap;
-  padding-left: 24px;
+  width: 355px; 
   margin-bottom: 80px;
+}
+
+.hero-section {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 48px;
-  margin-left: auto;
-  margin-right: auto;
-  /*margin-left: 20px;*/
+  width: 335px;
+  margin-bottom: 48px;  
 }
 
 .hero-title {
@@ -81,18 +84,13 @@
 }
 
 /* Адаптивна верстка */
-/* Стилі ддя моб */
-@media screen and (min-width: 375px) {
-  .hero-container {
-    width: 375px;
-  }
-}
+/* Стилі для моб */
 
 /* Стилі для таблета */
 @media screen and (min-width: 768px) {
   .hero-section-container {
-    padding-left: 32px;
-
+    width: 736px;
+    /*padding-left: 32px;*/
   }
 
   .hero-section {
@@ -101,53 +99,49 @@
 
   .hero-container {
     width: 448px;
-    margin-left: 0px;
-    /*padding-right: 290px;*/
   }
+
   .hero-title {
     width: 444px;
     font-size: 36px;
     margin-bottom: 16px;
   }
+
   .hero-title-text {
     font-size: 36px;
   }
+
   .hero-text {
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 32px;
   }
+
   .hero-btn-modal {
     padding: 14px 28px;
   }
 }
 
 /* Стилі для десктопа */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
 
   .hero-section-container {
     flex-wrap: nowrap;
     gap: 32px;
-    padding-left: 100px;
     margin-bottom: 100px;
   }
 
   .hero-container {
-    margin-left: 0px;
-    margin-bottom: 0;
-  }
-
-  .hero-container {
     padding-right: 0;
+    margin-bottom: 0;
     max-width: 546px;
-    /*padding-left: 100px;*/
   }
 
   .hero-section-container {
     display: flex;
     flex-direction: row;
     gap: 32px;
-    max-width: 1280px;
+    width: 1180px;
   }
 
   .hero-section {

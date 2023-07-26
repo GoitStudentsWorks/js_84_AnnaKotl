@@ -1,11 +1,10 @@
 .category-container {
-  width: 326px;
+  width: 335px;
   max-height: 402px;
   margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
 }
-
 .all-category-button {
   width: 176px;
   height: 50px;
@@ -19,20 +18,17 @@
   margin-bottom: 24px;
   padding: 14px 10px;
 }
-
 .all-category-button:hover,
 .all-category-button:focus{
   border: 1px solid var(--accent-color);
   background-color: var(--accent-color);
   color: var(--light-text-color);
 }
-
 .all-category-button.active {
   border: 1px solid var(--accent-color);
   background-color: var(--accent-color);
   color: var(--light-text-color);
 }
-
 .category-list {
   height: 198px;
   display: flex;
@@ -40,7 +36,6 @@
   gap: 18px;
   overflow-y: scroll;
 }
-
 .category-btn {
   border: none;
   background-color: transparent;
@@ -50,11 +45,9 @@
   font-family: "Inter", sans-serif;
   padding: 0;
 }
-
 .category-btn:hover{
   color: var(--accent-color);
 }
-
 .category-btn.active {
   color: var(--accent-color);
 }
@@ -69,33 +62,28 @@
     max-width: 176px;
     margin-bottom: 64px;
   }
-
   .all-category-button {
     margin-top: 24px;
     margin-bottom: 30px;
   }
-
   .category-list {
     width: 176px;
     height: 416px;
     gap: 24px;
   }
-
   .category-btn {
     font-size: 16px;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .category-container {
     max-height: 540px;
     max-width: 235px;
   }
-
   .all-category-button {
     width: 174px;
   }
-
   .category-list {
     width: 235px;
   }
