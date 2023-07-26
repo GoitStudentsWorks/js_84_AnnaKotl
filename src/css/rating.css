@@ -94,13 +94,15 @@
     fill: rgba(217, 217, 217, 1);
     width: 36px;
     height: 36px;
+    transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }.rating-modal-form-icon.active svg {
     fill: gold;
 }
 
 .rating-modal-form-icon svg:hover {
-    fill: rgb(193, 190, 167);
+    stroke: gold;
+    fill: rgba(255, 215, 0, 0.1);
 }
 
 .close-rating-btn svg:hover{
