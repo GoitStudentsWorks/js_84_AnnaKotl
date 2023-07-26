@@ -45,7 +45,7 @@ export function showModalAboutReciepts(id) {
   recieptsOfFood(id).then(data => {
     //   isFavorite(data._id);
     renderRanting(data);
-    markUpRating();
+    markUpRating(data);
     renderIngridient(data);
     renderHashtags(data);
     renderText(data);
@@ -70,27 +70,19 @@ function renderText(data) {
   refs.minutesRecipe.textContent = data.time + ' min';
 }
 
-let ratingStars;
+let ratings;
 let ratingActive, ratingValue;
 
 function initRating(rating) {
-  initValues(rating);
-  if (ratingValue.innerHTML > 5) {
-    ratingValue.innerHTML = 5;
-  }
-  const ratingActiveWidth = ratingValue.innerHTML / 0.05;
-
+  ratingActive = rating.querySelector('.rating__active');
+  ratingValue = rating.querySelector('.rating__value');
+  const ratingActiveWidth = ratingValue * 20 
   ratingActive.style.width = `${ratingActiveWidth}%`;
 }
 
-function initValues(rating) {
-  ratingActive = rating.querySelector('.rating__active');
-  ratingValue = rating.querySelector('.rating__value');
-}
-
 export function markUpRating() {
-  ratingStars = document.querySelectorAll('.rating-stars');
-  ratingStars.forEach(item => {
+  ratings = document.querySelectorAll('.cards__rating');
+  ratings.forEach(item => {
     const rating = item;
     initRating(rating);
   });
