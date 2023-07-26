@@ -25,6 +25,9 @@ p {
   height: 150px;
   overflow: hidden;
 }
+.pop-recipe-link{
+ cursor: pointer;
+}
 .pop-recipe-card {
   display: flex;
   gap: 16px;
