@@ -27,7 +27,7 @@ jsonplaceholderInstance
     const renderCardsFilter = createMarkup(arrayRecipesFilter);
     const renderFilter = createFilterMarkup(arrayRecipesFilter);
 
-    favoriteFilterList.insertAdjacentHTML('beforeend', renderFilter);
+    favoriteFilterList.insertAdjacentHTML('afterbegin', renderFilter);
     favoriteRecipesList.insertAdjacentHTML('beforeend', renderCardsFilter);
 
     if (renderCardsFilter) {

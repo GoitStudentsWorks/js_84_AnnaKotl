@@ -3,19 +3,21 @@ import { showModalAboutReciepts } from './video-recipe';
 
 import svg from '../images/heart-defs.svg';
 
-let page = 1;
-let limit = 9;
+// let page = 1;
+// let limit = 9;
 
 class RecipesPlaceholderAPI {
+  page = 1;
+  limit = 9;
   async fetchRecipes() {
-    return await fetch(`${BASE_URL}/recipes?limit=${limit}&page=${page}`).then(
-      response => {
-        if (!response.ok) {
-          throw new Error(response.status);
-        }
-        return response.json();
+    return await fetch(
+      `${BASE_URL}/recipes?limit=${this.limit}&page=${this.page}`
+    ).then(response => {
+      if (!response.ok) {
+        throw new Error(response.status);
       }
-    );
+      return response.json();
+    });
   }
 }
 
@@ -40,6 +42,13 @@ recipesplaceholderInstance
     const cardsOfRecipe = document.querySelectorAll('.cards');
     heartButton.addEventListener('click', onHeartButtonClick);
     console.log(cardsOfRecipe[3]);
+    const recipeButtons = document.querySelectorAll('.see-recipe-btn');
+    recipeButtons.forEach(button => {
+      button.addEventListener('click', event => {
+        const clickedRecipeElement = event.currentTarget.id;
+        showModalAboutReciepts(clickedRecipeElement);
+      });
+    });
   })
   .catch(err => {
     console.warn(err);
@@ -103,7 +112,7 @@ recipeButtons.forEach(button => {
 });
 
 function onHeartButtonClick(evt) {
-  // if (evt.target.tagName !== 'BUTTON') return;
+  if (evt.target.tagName !== 'heartButton') return;
   let currentBtn = evt.target;
   console.dir(currentBtn);
   // currentBtn.classList.toggle('active');
