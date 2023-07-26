@@ -37,7 +37,11 @@
 }
 
 .pagination {
-    margin-top: 40px;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto 0;
+    max-width: 450px;
+    max-height: 50px;
 }
 .tui-pagination .tui-first+.tui-prev {
     background-color: var(--primary-text-color);
@@ -56,7 +60,7 @@
 }
 
 .tui-pagination {
-    height: 100%;
+    /* height: 100%; */
     line-height: normal;
     text-align: center;
     font-size: 0;
