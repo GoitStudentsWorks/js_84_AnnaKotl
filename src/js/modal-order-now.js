@@ -1,21 +1,48 @@
 // Js для відкриття/закриття модального вікна
 
 const openModalBtn = document.getElementById('openModalOrderNowBtn');
+const openModalBtnSecond = document.getElementById(
+  'openModalOrderNowBtnSecond'
+);
 const closeModalBtn = document.getElementById('closeModalOrderNowBtn');
 const modal = document.getElementById('modalordernow');
 const backdropmodal = document.getElementById('backdropmodalordernow');
+const form = document.getElementById('formordernow');
 
 function openModalOrderNow() {
   modal.classList.add('open');
   backdropmodal.classList.add('open');
+  window.addEventListener('keydown', escPress);
+}
+
+function clearFormFields() {
+  const inputElements = form.querySelectorAll('input');
+  const textareaElements = form.querySelectorAll('textarea');
+  inputElements.forEach(input => (input.value = ''));
+  textareaElements.forEach(textarea => (textarea.value = ''));
 }
 
 function closeModalOrderNow() {
   modal.classList.remove('open');
   backdropmodal.classList.remove('open');
+  window.removeEventListener('keydown', escPress);
+  clearFormFields();
+}
+
+window.addEventListener('click', event => {
+  if (event.target === backdropmodal) {
+    closeModalOrderNow();
+  }
+});
+
+function escPress(key) {
+  if (key.code === 'Escape') {
+    closeModalOrderNow();
+  }
 }
 
 openModalBtn.addEventListener('click', openModalOrderNow);
+openModalBtnSecond.addEventListener('click', openModalOrderNow);
 closeModalBtn.addEventListener('click', closeModalOrderNow);
 
 //Js для відправки введених даних на бекенд

@@ -45,7 +45,7 @@ export function showModalAboutReciepts(id) {
   recieptsOfFood(id).then(data => {
     //   isFavorite(data._id);
     renderRanting(data);
-    // markUpRating();
+    markUpRating();
     renderIngridient(data);
     renderHashtags(data);
     renderText(data);
@@ -70,7 +70,7 @@ function renderText(data) {
   refs.minutesRecipe.textContent = data.time + ' min';
 }
 
-let ratings;
+let ratingStars;
 let ratingActive, ratingValue;
 
 function initRating(rating) {
@@ -89,8 +89,8 @@ function initValues(rating) {
 }
 
 export function markUpRating() {
-  ratings = document.querySelectorAll('.rating');
-  ratings.forEach(item => {
+  ratingStars = document.querySelectorAll('.rating-stars');
+  ratingStars.forEach(item => {
     const rating = item;
     initRating(rating);
   });
@@ -126,31 +126,31 @@ function renderRanting(data) {
         <input
           type="radio"
           class="rating__item"
-          name="rating"
+          name="rating-stars"
           value="1"
         />
         <input
           type="radio"
           class="rating__item"
-          name="rating"
+          name="rating-stars"
           value="2"
         />
         <input
           type="radio"
           class="rating__item"
-          name="rating"
+          name="rating-stars"
           value="3"
         />
         <input
           type="radio"
           class="rating__item"
-          name="rating"
+          name="rating-stars"
           value="4"
         />
         <input
           type="radio"
           class="rating__item"
-          name="rating"
+          name="rating-stars"
           value="5"
         />
       </div>
@@ -184,3 +184,4 @@ function renderHashtags(data) {
 }
 
 // showModalAboutReciepts('6462a8f74c3d0ddd28897fc8');
+
