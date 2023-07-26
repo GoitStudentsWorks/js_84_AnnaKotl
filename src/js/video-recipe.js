@@ -86,7 +86,7 @@ function renderText(data) {
   refs.minutesRecipe.textContent = data.time + ' min';
 }
 
-export function initRating() {
+function initRating() {
   const ratingValue = parseFloat(document.querySelector(".rating__value.detail").textContent);
   const ratingActive = document.querySelector(".rating__active");
   const percentageOfStars = ratingValue * 20 + "%"; 

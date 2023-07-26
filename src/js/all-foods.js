@@ -41,7 +41,7 @@ recipesplaceholderInstance
     const cardsOfRecipe = document.querySelectorAll('.cards');
     heartButton.addEventListener('click', onHeartButtonClick);
     console.log(cardsOfRecipe[3]);
-    
+    initRating()
     const recipeButtons = document.querySelectorAll('.see-recipe-btn');
     recipeButtons.forEach(button => {
       button.addEventListener('click', event => {
@@ -107,13 +107,13 @@ export function createMarkup(arr) {
     .join('');
 }
 
-const recipeButtons = document.querySelectorAll('.see-recipe-btn');
-recipeButtons.forEach(button => {
-  button.addEventListener('click', event => {
-    const clickedRecipeElement = event.currentTarget.id;
-    showModalAboutReciepts(clickedRecipeElement);
-  });
-});
+function initRating() {
+  const ratingValue = parseFloat(document.querySelector(".raitingAllFoods").textContent);
+  const ratingActive = document.querySelector(".rating__activeAllFoods");
+  const percentageOfStars = ratingValue * 20 + "%"; 
+
+  ratingActive.style.setProperty("width", percentageOfStars);
+}
 
 function onHeartButtonClick(evt) {
   if (evt.target.tagName !== 'heartButton') return;
