@@ -74,20 +74,27 @@ let ratings;
 let ratingActive, ratingValue;
 
 function initRating(rating) {
-  ratingActive = rating.querySelector('.rating__active');
-  ratingValue = rating.querySelector('.rating__value');
-  const ratingActiveWidth = ratingValue * 20 
+  initValues(rating);
+  if (ratingValue.innerHTML > 5) {
+    ratingValue.innerHTML = 5;
+  }
+  const ratingActiveWidth = ratingValue.innerHTML / 0.05;
+
   ratingActive.style.width = `${ratingActiveWidth}%`;
 }
 
+function initValues(rating) {
+  ratingActive = rating.querySelector('.rating__active');
+  ratingValue = rating.querySelector('.rating__value');
+}
+
 export function markUpRating() {
-  ratings = document.querySelectorAll('.cards__rating');
+  ratings = document.querySelectorAll('cards__rating');
   ratings.forEach(item => {
     const rating = item;
     initRating(rating);
   });
 }
-
 function getKeyYouTybe(url) {
   let indexLast = url.split('').length;
   let key = url.split('').splice(32, indexLast).join('');
