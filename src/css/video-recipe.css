@@ -211,17 +211,18 @@
 .rating__body::before {
   content: '★★★★★';
   display: block;
-  color: var(--primary-text-CH-color-STARS);
+  color: var(--dark-text-color);
   font-size: 16px;
 }
 
 .rating__active {
   position: absolute;
-  width: 0;
+  
   height: 100%;
   top: 0;
   left: 0;
   overflow: hidden;
+  color: #eea10c;
 }
 .rating__body {
   position: relative;
@@ -233,7 +234,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  color: #eea10c;
+  
   font-size: 16px;
 }
 .rating__items {
