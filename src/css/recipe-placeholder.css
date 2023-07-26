@@ -1,5 +1,52 @@
+:root {
+--primary-text-CH-color: #050505;
+    --primary-text-CH-color-08: rgba(5, 5, 5, .8);
+    --primary-text-CH-color-05: rgba(5, 5, 5, .5);
+    --primary-text-CH-color-03: rgba(5, 5, 5, .3);
+    --primary-text-CH-color-02: rgba(5, 5, 5, .2);
+    --primary-text-CH-color-01: rgba(5, 5, 5, .1);
+    --primary-text-CH-color-RATING: #f8f8f8;
+    --primary-text-CH-color-RATING-modal: rgba(5, 5, 5, .5);
+    --primary-text-CH-color-STARS: rgba(248, 248, 248, .1);
+    --primary-text-CH-color-CardTitle-Description: #f8f8f8;
+    --primary-text-CH-color-menu-mob: #f8f8f8;
+    --bgc-CH-background: #f8f8f8;
+    --bgc-CH-background-mob-menu: #9bb537;
+    --border-paginatio: #9bb537;
+
+    --main-color: #9bb537;
+    --primary-text-color: #050505;
+    --primary-text-color-08: rgba(5, 5, 5, .8);
+    --primary-text-color-05: rgba(5, 5, 5, .5);
+    --primary-text-color-03: rgba(5, 5, 5, .3);
+    --primary-text-color-02: rgba(5, 5, 5, .2);
+    --dark-th-text-color-08: rgba(255, 255, 255, .8);
+    --dark-th-text-color-05: rgba(255, 255, 255, .5);
+    --dark-th-text-color-03: rgba(255, 255, 255, .3);
+    --light-text-color: #f8f8f8;
+    --switch-color: #cecdcd;
+    --input-label-error: #e74a3b;
+    --input-label-correct: #3cbc81;
+    --bgc-background: #f8f8f8;
+    --ident: 16px;
+    --items: 3;
+    --transition-set: 2s cubic-bezier(.4, 0, .2, 1);
+}
+.pagination .pag__current-page {
+    background-color: var(--border-paginatio);
+}
+
 .pagination {
     margin-top: 40px;
+}
+.tui-pagination .tui-first+.tui-prev {
+    background-color: var(--primary-text-color);
+}
+.tui-page-btn-tui-is-disabled .tui-first {
+    background-color: var(--primary-text-color);
+}
+.tui-page-btn .tui-next-is-ellip-tui-last-child {
+    background-color: white;
 }
 
 @media screen and (min-width: 768px) {
@@ -20,7 +67,7 @@
 }
 
 .tui-pagination .tui-page-btn {
-    background-color: var(--bgc-CH-background);
+    background-color: var(--bgc-background);
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -30,9 +77,10 @@
     font-weight: 600;
     line-height: calc(22 / 18);
     position: relative;
-    color: black;
+    color: var(--primary-text-CH-color);
     border-radius: 50%;
     border: 1px solid var(--border-paginatio);
+    margin-right: 8px;
 }
 
 .tui-pagination .tui-prev {
@@ -41,11 +89,14 @@
 
 .tui-pagination .tui-next {
     margin-left: 14px;
+    margin-right: 0;
+    background-color: var(--bgc-CH-background-mob-menu);
 }
 
 .tui-pagination .tui-first-child.tui-is-selected,
 .tui-pagination .tui-last-child.tui-is-selected {
-    border: none;
+background-color: var(--bgc-CH-background-mob-menu);
+border: none;
 }
 
 .pagination .pag__current-page {
@@ -55,6 +106,8 @@
 
 .tui-pagination .tui-last-child.tui-is-selected {
     margin: 0;
+    background-color: var(--bgc-CH-background-mob-menu);
+    margin-left: 0;
 }
 
 .pagination .pag__current-page:hover {
@@ -70,7 +123,9 @@
 }
 
 .tui-pagination .tui-page-btn:last-child {
-    margin-left: 4px;
+background-color: var(--bgc-CH-background-mob-menu);
+margin-right: 0;
+margin-left: 8px;
 }
 
 .pagination .pag__btn-move {
@@ -83,6 +138,7 @@
 
 .pagination .pag__btn-move:first-child {
     margin-right: 4px;
+    background-color: var(--primary-text-color);
 }
 
 .pagination .pag__btn-disabled {
