@@ -1,6 +1,6 @@
-import { setRecipeRating } from './api-kay-js-files/api-rating';
-import Notiflix from 'notiflix';
-import 'notiflix/src/notiflix.css';
+// import { setRecipeRating } from './api-kay-js-files/api-rating';
+// import Notiflix from 'notiflix';
+// import 'notiflix/src/notiflix.css';
 
 const refs = {
   openModalBtn: document.querySelectorAll('.give-a-rating'),
