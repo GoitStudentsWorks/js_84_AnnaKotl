@@ -14,7 +14,7 @@ refs.openModalBtn.forEach(btn => btn.addEventListener('click', openModal));
 refs.closeModalBtn.forEach(btn => btn.addEventListener('click', closeModal));
 refs.form.addEventListener('submit', sendForm);
 
-export function openModal(e) {
+function openModal(e) {
   e.preventDefault();
   document.addEventListener('keydown', keyDownRate);
   refs.modal.classList.remove('is-hidden');
