@@ -19,10 +19,14 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+    "@parcel/transformer-webmanifest": "^2.9.3",
     "axios": "^1.4.0",
     "local-storage": "^2.0.0",
+    "lodash": "^4.17.21",
+    "lodash.debounce": "^4.0.8",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
+    "smooth-scrollbar": "^8.8.4",
     "swiper": "^10.0.4",
     "tui-pagination": "^3.4.1"
   },
@@ -30,10 +34,11 @@
     "@parcel/transformer-sass": "^2.6.0",
     "buffer": "^6.0.3",
     "css-loader": "^6.8.1",
-    "gulp": "^4.0.2",
-    "gulp-file-include": "^2.3.0",
+    "gulp": "^3.9.1",
+    "gulp-file-include": "^0.10.0",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
+    "parcel-transformer-hbs": "^1.0.4",
     "posthtml-include": "^1.7.4",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
