@@ -1,4 +1,4 @@
-import { openModal } from './rating'; //open rating modal
+import { openModalRating } from './rating'; //open rating modal
 
 export let refs = {
   addToFavoriteBtn: document.querySelector('.btn-add'),
@@ -20,7 +20,7 @@ export let refs = {
 refs.closeBtn.addEventListener('click', closeModalClose);
 refs.backdropRecipe.addEventListener('click', clickBackdropClick);
 
-function openModal(e) {
+function openModalRating(e) {
   e.preventDefault();
   document.addEventListener('keydown', keyDownRate);
   refs.modal.classList.remove('is-hidden');
@@ -29,7 +29,7 @@ function openModal(e) {
   refs.modal.addEventListener('click', closeBackdrop);
   document.body.classList.add('modal-open');
 }  //open rating modal
-refs.openModalBtn.forEach(btn => btn.addEventListener('click', openModal)); //open rating modal
+refs.openModalBtn.forEach(btn => btn.addEventListener('click', openModalRating)); //open rating modal
 
 
 function openModalOpen() {

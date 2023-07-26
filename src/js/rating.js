@@ -10,11 +10,11 @@ const refs = {
   idButton: document.getElementById('idButton'),
 };
 
-refs.openModalBtn.forEach(btn => btn.addEventListener('click', openModal));
+refs.openModalBtn.forEach(btn => btn.addEventListener('click', openModalRating));
 refs.closeModalBtn.forEach(btn => btn.addEventListener('click', closeModal));
 refs.form.addEventListener('submit', sendForm);
 
-export function openModal(e) {
+export function openModalRating(e) {
   e.preventDefault();
   document.addEventListener('keydown', keyDownRate);
   refs.modal.classList.remove('is-hidden');
