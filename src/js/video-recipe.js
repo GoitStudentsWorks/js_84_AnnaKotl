@@ -120,38 +120,6 @@ function renderRanting(data) {
     <div class="rating__value detail">${data.rating}</div>
     <div class="rating__body">
       <div class="rating__active"></div>
-      <div class="rating__items">
-        <input
-          type="radio"
-          class="rating__item"
-          name="rating-stars"
-          value="1"
-        />
-        <input
-          type="radio"
-          class="rating__item"
-          name="rating-stars"
-          value="2"
-        />
-        <input
-          type="radio"
-          class="rating__item"
-          name="rating-stars"
-          value="3"
-        />
-        <input
-          type="radio"
-          class="rating__item"
-          name="rating-stars"
-          value="4"
-        />
-        <input
-          type="radio"
-          class="rating__item"
-          name="rating-stars"
-          value="5"
-        />
-      </div>
     </div>
   </div>`;
   refs.ratingRecipe.innerHTML = markupR; // Change refs.ratingBox to refs.ratingRecipe
