@@ -1,10 +1,4 @@
-//-----------------------------------------
-// закоментувала все бо помилки в консолі:
-// ЗРОБИТИ ПУШ ПІСЛЯ ВИПРАВЛЕНЬ І БЕЗ ПОМИЛОК
-//-----------------------------------------
-
 import { showModalAboutReciepts } from './video-recipe';
-
 
 const url = 'https://tasty-treats-backend.p.goit.global/api/recipes/popular';
 
@@ -45,13 +39,11 @@ function renderPopularRecipes(recipes) {
     .join('');
 }
 
+
 // // тут може бути помилка:
 
-//showModalAboutReciepts('6462a8f74c3d0ddd28898040');
-// // const openResipesCards = document.querySelectorAll('li');
-
-
-document.getElementById('popularRecipeList').addEventListener('click', (event) => {
-  const clickedRecipeElement = event.target.closest('.pop-recipe-link');
-    showModalAboutReciepts(clickedRecipeElement.id);
+const openResipesCards = document.getElementById('popularRecipeList');
+openResipesCards.addEventListener('click', event => {
+  const clickedEl = event.target.closest('.pop-recipe-link');
+    showModalAboutReciepts(clickedEl.id);
 });
