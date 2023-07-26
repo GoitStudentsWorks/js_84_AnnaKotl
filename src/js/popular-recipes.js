@@ -15,7 +15,6 @@ function fetchPopularRecipes() {
 
 fetchPopularRecipes()
   .then(data => {
-    console.log(data);
     //pop_recipe_info.insertAdjacentHTML('beforeend', renderPopularRecipes(data));
     pop_recipe_info.innerHTML = renderPopularRecipes(data);
   })
@@ -39,11 +38,8 @@ function renderPopularRecipes(recipes) {
     .join('');
 }
 
-
-// // тут може бути помилка:
-
 const openResipesCards = document.getElementById('popularRecipeList');
 openResipesCards.addEventListener('click', event => {
   const clickedEl = event.target.closest('.pop-recipe-link');
-    showModalAboutReciepts(clickedEl.id);
+  showModalAboutReciepts(clickedEl.id);
 });

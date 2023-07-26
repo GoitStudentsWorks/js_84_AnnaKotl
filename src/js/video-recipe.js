@@ -1,3 +1,5 @@
+// import { openModalRating } from './rating'; //open rating modal
+
 export let refs = {
   addToFavoriteBtn: document.querySelector('.btn-add'),
   removeFromFavoriteBtn: document.querySelector('.btn-outline-remove'),
@@ -11,10 +13,24 @@ export let refs = {
   ingredientsRecipe: document.querySelector('.ingredients-recipe'),
   instructionsRecipe: document.querySelector('.instructions-recipe'),
   videoRecipe: document.querySelector('.video-recipe'),
+
+  // openModalBtn: document.querySelectorAll('.give-a-rating') //open rating modal
 };
 
 refs.closeBtn.addEventListener('click', closeModalClose);
 refs.backdropRecipe.addEventListener('click', clickBackdropClick);
+
+// function openModalRating(e) {
+//   e.preventDefault();
+//   document.addEventListener('keydown', keyDownRate);
+//   refs.modal.classList.remove('is-hidden');
+//   refs.backdropRecipe.classList.add('active'); 
+//   refs.modalRecipe.classList.add('active');
+//   refs.modal.addEventListener('click', closeBackdrop);
+//   document.body.classList.add('modal-open');
+// }  //open rating modal
+// refs.openModalBtn.forEach(btn => btn.addEventListener('click', openModalRating)); //open rating modal
+
 
 function openModalOpen() {
   setTimeout(() => {
@@ -45,7 +61,7 @@ export function showModalAboutReciepts(id) {
   recieptsOfFood(id).then(data => {
     //   isFavorite(data._id);
     renderRanting(data);
-    markUpRating();
+    markUpRating(data);
     renderIngridient(data);
     renderHashtags(data);
     renderText(data);
@@ -70,7 +86,7 @@ function renderText(data) {
   refs.minutesRecipe.textContent = data.time + ' min';
 }
 
-let ratingStars;
+let ratings;
 let ratingActive, ratingValue;
 
 function initRating(rating) {
@@ -89,13 +105,12 @@ function initValues(rating) {
 }
 
 export function markUpRating() {
-  ratingStars = document.querySelectorAll('.rating-stars');
-  ratingStars.forEach(item => {
+  ratings = document.querySelectorAll('cards__rating');
+  ratings.forEach(item => {
     const rating = item;
     initRating(rating);
   });
 }
-
 function getKeyYouTybe(url) {
   let indexLast = url.split('').length;
   let key = url.split('').splice(32, indexLast).join('');

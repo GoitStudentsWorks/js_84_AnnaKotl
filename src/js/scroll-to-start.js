@@ -1,5 +1,7 @@
 const scrollButton = document.getElementById('scroll-up-button');
 
+scrollButton.style.display = 'none';
+
 function scrollToTop() {
   window.scrollTo({
     top: 0,
