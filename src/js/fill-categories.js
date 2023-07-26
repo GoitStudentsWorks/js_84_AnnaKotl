@@ -8,10 +8,10 @@ const refs = {
 };
 
 
-async function fillCategoriesList() {
+async function fillCategoryList() {
   try {
     const categories = await fetchCategories();
-    renderCategoriesList(categories);
+    renderCategoryList(categories);
   } catch (err) {
     console.log(err);
     Notify.failure('Something went wrong. Please try again');
@@ -19,10 +19,10 @@ async function fillCategoriesList() {
 };
 
 
-fillCategoriesList();
+fillCategoryList();
 
 
-function renderCategoriesList(categories) {
+function renderCategoryList(categories) {
   refs.categroyList.insertAdjacentHTML(
     'beforeend',
     TemplateCategories(categories)
