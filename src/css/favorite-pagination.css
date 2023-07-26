@@ -1,5 +1,5 @@
 :root {
---primary-text-CH-color: #050505;
+    --primary-text-CH-color: #050505;
     --primary-text-CH-color-08: rgba(5, 5, 5, .8);
     --primary-text-CH-color-05: rgba(5, 5, 5, .5);
     --primary-text-CH-color-03: rgba(5, 5, 5, .3);
@@ -36,9 +36,12 @@
 .tui-pagination .tui-is-disabled {
     background-color: var(--primary-text-CH-color);
 }
-.tui-pagination .tui-is-disabled:hover, .tui-pagination .tui-is-disabled:focus{
+
+.tui-pagination .tui-is-disabled:hover,
+.tui-pagination .tui-is-disabled:focus {
     background-color: var(--primary-text-CH-color);
 }
+
 .pagination .pag__current-page {
     background-color: var(--border-paginatio);
 }
@@ -48,28 +51,34 @@
     justify-content: center;
     margin: 40px auto 0;
 }
+
 .tui-pagination .tui-first+.tui-prev {
     background-color: var(--primary-text-color);
-    
+
 }
+
 strong {
     background-color: var(--bgc-CH-background-mob-menu);
 }
+
 .tui-pagination .tui-first+.tui-prev:hover,
-.tui-pagination .tui-first+.tui-prev:focus
- {
-background-color: var(--primary-text-CH-color);
-color: var(--bgc-background);
+.tui-pagination .tui-first+.tui-prev:focus {
+    background-color: var(--primary-text-CH-color);
+    color: var(--bgc-background);
 }
+
 .tui-page-btn-tui-is-disabled .tui-first {
     background-color: var(--primary-text-color);
 }
+
 .tui-page-btn .tui-next-is-ellip-tui-last-child {
     background-color: white;
 }
+
 .tui-pagination.tui-page-btn-is-select {
     background-color: var(--border-paginatio);
 }
+
 @media screen and (min-width: 768px) {
     .pagination {
         margin-top: 64px;
@@ -114,8 +123,8 @@ color: var(--bgc-background);
 
 .tui-pagination .tui-first-child.tui-is-selected,
 .tui-pagination .tui-last-child.tui-is-selected {
-background-color: var(--bgc-CH-background-mob-menu);
-border: none;
+    background-color: var(--bgc-CH-background-mob-menu);
+    border: none;
 }
 
 .pagination .pag__current-page {
@@ -142,9 +151,9 @@ border: none;
 }
 
 .tui-pagination .tui-page-btn:last-child {
-background-color: var(--bgc-CH-background-mob-menu);
-margin-right: 0;
-margin-left: 8px;
+    background-color: var(--bgc-CH-background-mob-menu);
+    margin-right: 0;
+    margin-left: 8px;
 }
 
 .pagination .pag__btn-move {
@@ -175,6 +184,7 @@ margin-left: 8px;
         max-width: 450px;
         max-height: 50px;
     }
+
     .pagination .pag__current-page {
         margin: 0 10px 0 0;
     }

@@ -45,7 +45,7 @@ export function showModalAboutReciepts(id) {
   recieptsOfFood(id).then(data => {
     //   isFavorite(data._id);
     renderRanting(data);
-    markUpRating();
+    markUpRating(data);
     renderIngridient(data);
     renderHashtags(data);
     renderText(data);
@@ -70,7 +70,7 @@ function renderText(data) {
   refs.minutesRecipe.textContent = data.time + ' min';
 }
 
-let ratingStars;
+let ratings;
 let ratingActive, ratingValue;
 
 function initRating(rating) {
@@ -89,13 +89,12 @@ function initValues(rating) {
 }
 
 export function markUpRating() {
-  ratingStars = document.querySelectorAll('.rating-stars');
-  ratingStars.forEach(item => {
+  ratings = document.querySelectorAll('cards__rating');
+  ratings.forEach(item => {
     const rating = item;
     initRating(rating);
   });
 }
-
 function getKeyYouTybe(url) {
   let indexLast = url.split('').length;
   let key = url.split('').splice(32, indexLast).join('');

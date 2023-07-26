@@ -99,6 +99,14 @@
     fill: gold;
 }
 
+.rating-modal-form-icon svg:hover {
+    fill: rgb(193, 190, 167);
+}
+
+.close-rating-btn svg:hover{
+    fill: var(--accent-color);
+}
+
 .rating-input {
     width: 295px;
     height: 46px;
