@@ -43,6 +43,16 @@
 }
 .tui-pagination .tui-first+.tui-prev {
     background-color: var(--primary-text-color);
+    
+}
+strong {
+    background-color: var(--bgc-CH-background-mob-menu);
+}
+.tui-pagination .tui-first+.tui-prev:hover,
+.tui-pagination .tui-first+.tui-prev:focus
+ {
+background-color: var(--primary-text-CH-color);
+color: var(--bgc-background);
 }
 .tui-page-btn-tui-is-disabled .tui-first {
     background-color: var(--primary-text-color);
