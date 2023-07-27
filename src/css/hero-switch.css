@@ -1,5 +1,10 @@
 /* .mk-container {
 } */
+.swiper-pagination {
+  margin-top: 0;
+  margin-bottom: 10px;
+  height: 20px;
+}
 .img {
   max-width: none;
 }
@@ -165,7 +170,9 @@
     font-size: 12px;
     line-height: 1.17;
   }
-  /* .swiper-pagination {
-    height: 20px;
-  } */
+  .swiper-pagination {
+    margin-bottom: 0;
+    margin-top: 20px;
+    height: 30px;
+  }
 }
