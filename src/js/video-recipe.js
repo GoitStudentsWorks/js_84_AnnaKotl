@@ -23,6 +23,16 @@ function openModalOpen() {
     document.body.classList.add('overflowHidden');
     refs.backdropRecipe.classList.add('active');
     refs.modalRecipe.classList.add('active');
+
+    const card = findRecipe(refs.addToFavoriteBtn);
+    const inStorage = favoriteArr.some(({ _id }) => _id === card._id);
+    if (inStorage) {
+      refs.addToFavoriteBtn.classList.add('active');
+      refs.addToFavoriteBtn.textContent = 'Remove from Favorite';
+    } else {
+      refs.addToFavoriteBtn.classList.remove('active');
+      refs.addToFavoriteBtn.textContent = 'Add to Favorite';
+    }
   }, 50);
 }
 
@@ -146,28 +156,23 @@ function isRecieptFavourite(data) {
     refs.addToFavoriteBtn.textContent = 'Add to Favorite';
   }
 }
-
 function onFavouriteBtnClick() {
-  refs.addToFavoriteBtn.classList.toggle('active'); // Toggle the active class on the button
-
   const card = findRecipe(refs.addToFavoriteBtn); // Find the recipe associated with the button
   const inStorage = favoriteArr.some(({ _id }) => _id === card._id);
 
-  if (refs.addToFavoriteBtn.classList.contains('active')) {
-    // If the button is being added to favorites
-    if (!inStorage) {
-      favoriteArr.push(card); // Add the recipe to favoriteArr
-      localStorage.setItem('favorites', JSON.stringify(favoriteArr)); // Update localStorage
-    }
+  if (!inStorage) {
+    // If the recipe is not in favorites, add it
+    favoriteArr.push(card);
+    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
+    refs.addToFavoriteBtn.classList.add('active');
+    refs.addToFavoriteBtn.textContent = 'Remove from Favorite';
   } else {
-    // If the button is being removed from favorites
-    if (inStorage) {
-      favoriteArr = favoriteArr.filter(({ _id }) => _id !== card._id); // Remove the recipe from favoriteArr
-      localStorage.setItem('favorites', JSON.stringify(favoriteArr)); // Update localStorage
-    }
+    // If the recipe is already in favorites, remove it
+    favoriteArr = favoriteArr.filter(({ _id }) => _id !== card._id);
+    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
+    refs.addToFavoriteBtn.classList.remove('active');
+    refs.addToFavoriteBtn.textContent = 'Add to Favorite';
   }
-
-  isRecieptFavourite(card); // Update the button state
 }
 
 refs.addToFavoriteBtn.addEventListener('click', onFavouriteBtnClick);
