@@ -80,19 +80,15 @@ recipesplaceholderInstance
       // console.log(cardId);
       return arrayRecipes.find(({ _id }) => _id === cardId);
     }
-    // function onHeartButtonClick(evt) {
-    //   evt.preventDefault();
-    //   const currentBtn = evt.currentTarget;
-    //   // console.log(currentBtn.id);
-    //   if (currentBtn.classList.contains('active')) {
-    //     currentBtn.classList.remove('active');
-    //   } else {
-    //     currentBtn.classList.toggle('active');
-    //     setToStorige();
-    //   }
+    function initRating() {
+      const ratingValue = parseFloat(
+        document.querySelector('.raitingAllFoods').textContent
+      );
+      const ratingActive = document.querySelector('.rating__activeAllFoods');
+      const percentageOfStars = ratingValue * 20 + '%';
 
-    //
-    // }
+      ratingActive.style.setProperty('width', percentageOfStars);
+    }
   })
   .catch(err => {
     console.warn(err);
@@ -155,16 +151,6 @@ function onSeeBtnClick(evt) {
   evt.preventDefault();
   const clickedRecipeElement = evt.currentTarget.id;
   showModalAboutReciepts(clickedRecipeElement);
-}
-
-function initRating() {
-  const ratingValue = parseFloat(
-    document.querySelector('.raitingAllFoods').textContent
-  );
-  const ratingActive = document.querySelector('.rating__activeAllFoods');
-  const percentageOfStars = ratingValue * 20 + '%';
-
-  ratingActive.style.setProperty('width', percentageOfStars);
 }
 
 const recipeButtons = document.querySelectorAll('.recipe-btn');
