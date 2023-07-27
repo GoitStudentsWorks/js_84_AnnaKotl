@@ -1,4 +1,4 @@
-// import { openModalRating } from './rating'; //open rating modal
+import { openModalRating } from './rating'; //open rating modal
 
 export let refs = {
   addToFavoriteBtn: document.querySelector('.btn-add'),
@@ -14,22 +14,22 @@ export let refs = {
   instructionsRecipe: document.querySelector('.instructions-recipe'),
   videoRecipe: document.querySelector('.video-recipe'),
 
-  // openModalBtn: document.querySelectorAll('.give-a-rating') //open rating modal
+  openModalBtn: document.querySelectorAll('.give-a-rating') //open rating modal
 };
 
 refs.closeBtn.addEventListener('click', closeModalClose);
 refs.backdropRecipe.addEventListener('click', clickBackdropClick);
 
-// function openModalRating(e) {
-//   e.preventDefault();
-//   document.addEventListener('keydown', keyDownRate);
-//   refs.modal.classList.remove('is-hidden');
-//   refs.backdropRecipe.classList.add('active'); 
-//   refs.modalRecipe.classList.add('active');
-//   refs.modal.addEventListener('click', closeBackdrop);
-//   document.body.classList.add('modal-open');
-// }  //open rating modal
-// refs.openModalBtn.forEach(btn => btn.addEventListener('click', openModalRating)); //open rating modal
+function openModalRating(e) {
+  e.preventDefault();
+  document.addEventListener('keydown', keyDownRate);
+  refs.modal.classList.remove('is-hidden');
+  refs.backdropRecipe.classList.add('active'); 
+  refs.modalRecipe.classList.add('active');
+  refs.modal.addEventListener('click', closeBackdrop);
+  document.body.classList.add('modal-open');
+}  //open rating modal
+refs.openModalBtn.forEach(btn => btn.addEventListener('click', openModalRating)); //open rating modal
 
 
 function openModalOpen() {
