@@ -26,7 +26,7 @@ const recipesList = document.querySelector('.recipes-list');
 const recipesplaceholderInstance = new RecipesPlaceholderAPI();
 const maxLength = 65;
 let arrayRecipes = {};
-const favoriteArr = JSON.parse(localStorage.getItem('favorites')) ?? [];
+export const favoriteArr = JSON.parse(localStorage.getItem('favorites')) ?? [];
 
 recipesplaceholderInstance
   .fetchRecipes()
@@ -153,6 +153,19 @@ function initRating() {
     ratingActive.style.setProperty('width', percentageOfStars);
   });
 }
+export function addToFavorites(id) { // Accept the id as a parameter
+  if (id) {
+    const inStorage = favoriteArr.some(({ _id }) => _id === id);
+    if (inStorage) {
+      return;
+    }
+
+    const recipe = arrayRecipes.find(({ _id }) => _id === id);
+    favoriteArr.push(recipe);
+    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
+  }
+}
+
 // const storage = localStorage.getItem('favorites');
 // const data = JSON.parse(storage);
 // if (storage && data.find(el => el.id === id)) {

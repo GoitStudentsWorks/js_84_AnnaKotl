@@ -192,25 +192,6 @@
   background: var(--accent-color);
   color: var(--light-text-color);
 }
-.btn-outline-remove {
-  visibility: hidden;
-  opacity: 1;
-  position: fixed;
-  cursor: pointer;
-  background: 0 0;
-  border-radius: 15px;
-  padding: 14px 28px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--input-label-error);
-  border: 1px solid red;
-  transition: all 0.3s;
-}
-.btn-outline-remove:hover {
-  background-color: red;
-  border: 1px solid red;
-  color: var(--light-text-color);
-}
 .rating__body::before {
   content: '★★★★★';
   display: block;
@@ -219,6 +200,24 @@
 }
 .rating__body {
   position: relative;
+}
+
+.btn-add:hover,
+.btn-add:focus {
+  background-color: #9bb537;
+  color: #050505;
+}
+.btn-add.active {
+  border-color: #ff0000;
+  border: 1px solid;
+  background-color: transparent;
+  color: #ff0000;
+  transform: scale(1);
+}
+.btn-add.active:hover,
+.btn-add.active:focus {
+  background-color: #ff0000;
+  color: #f8f8f8;
 }
 .rating__active {
   position: absolute;
