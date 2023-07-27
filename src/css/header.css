@@ -5,7 +5,10 @@
 .section-header {
   margin-bottom: 84px;
 }
-
+.container-header {
+  max-width: 375px;
+  padding: 0 20px;
+}
 .nav-header {
   display: flex;
   align-items: center;
@@ -126,6 +129,7 @@
 }
 @media (min-width: 768px) {
   .container-header {
+    max-width: 768px;
     padding: 0 32px;
   }
 
@@ -240,6 +244,7 @@
 }
 @media screen and (min-width: 1200px) {
   .container-header {
+    max-width: 1280px;
     padding: 0 100px;
   }
 
