@@ -13,6 +13,9 @@
   margin-left: 491px;
   position: absolute;
 }
+.modal-video-recipes-close-button-icon:hover {
+  fill: var(--accent-color);
+}
 .backdrop-video-recipes {
   z-index: 2;
   visibility: hidden;
@@ -211,20 +214,19 @@
 .rating__body::before {
   content: '★★★★★';
   display: block;
-  color: var(--primary-text-CH-color-STARS);
+  color: var(--dark-text-color);
   font-size: 16px;
 }
-
+.rating__body {
+  position: relative;
+}
 .rating__active {
   position: absolute;
-  width: 0;
   height: 100%;
   top: 0;
   left: 0;
   overflow: hidden;
-}
-.rating__body {
-  position: relative;
+  color: #eea10c;
 }
 .rating__active::before {
   content: '★★★★★';
@@ -233,7 +235,6 @@
   height: 100%;
   top: 0;
   left: 0;
-  color: #eea10c;
   font-size: 16px;
 }
 .rating__items {
@@ -263,6 +264,9 @@
   .tags-rating-minuts {
     order: 3;
     padding-bottom: 33px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
   .ingredients-recipe {
     order: 4;
@@ -321,6 +325,8 @@
   .tags-rating-minuts {
     order: 3;
     padding: 16px 0px 18px 0px;
+    display: flex;
+    flex-direction: row;
   }
   .ingredients-recipe {
     order: 4;

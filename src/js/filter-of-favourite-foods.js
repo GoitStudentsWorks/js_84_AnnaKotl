@@ -1,4 +1,5 @@
 import svg from '../images/heart-defs.svg';
+import { showModalAboutReciepts } from './video-recipe';
 
 // const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
 
@@ -41,24 +42,26 @@ const blockFavorit = document.querySelector('.block-favorit');
 //     console.warn(err);
 //   });
 
-const renderCardsFilter = createMarkup(favoriteStorige);
-const renderFilter = createFilterMarkup(favoriteStorige);
+    const renderCardsFilter = createMarkup(arrayRecipesFilter);
+    const renderFilter = createFilterMarkup(arrayRecipesFilter);
 
-favoriteFilterList.insertAdjacentHTML('beforeend', renderFilter);
-favoriteRecipesList.insertAdjacentHTML('beforeend', renderCardsFilter);
+    favoriteFilterList.insertAdjacentHTML('afterbegin', renderFilter);
+    favoriteRecipesList.insertAdjacentHTML('beforeend', renderCardsFilter);
 
-// favoriteFilterList.innerHTML = createFilterMarkup(favoriteStorige);
-// favoriteRecipesList.innerHTML = createMarkup(favoriteStorige);
+    if (renderCardsFilter) {
+      blockFavorit.classList.add('hidden');
+    } else favoriteFilterList.classList.add('hidden');
 
-if (renderCardsFilter) {
-  blockFavorit.classList.add('hidden');
-} else favoriteFilterList.classList.add('hidden');
+    favoriteFilterList.addEventListener('click', onFilterClick);
+  })
 
-favoriteFilterList.addEventListener('click', onFilterClick);
+  .catch(err => {
+    console.warn(err);
+  });
 
 function createMarkup(arr) {
   return arr
-    .map(({ title, category, preview, tags, instructions }) => {
+    .map(({ _id, title, rating, category, preview, tags, instructions }) => {
       return `<li class="cards-favorite ${category}">
   <div class="recipe-img">
     <img class="images" src="${preview}" alt="${tags}" />
@@ -70,9 +73,12 @@ function createMarkup(arr) {
     <p class="instr-favor">(${instructions}).slice(0, 50)</p>
   </div>
   <div class="rating-panel-favorite">
-    <div class="rating"></div>
-    <button type="button" class="recipe-btn btn">See recipe</button>
+  <div class="raitingAllFoods">${rating}</div>
+  <div class="rating_blackAllFoods">
+    <div class="rating__activeAllFoods"></div>
   </div>
+    <button type="button" class="recipe-btn btn" id="${_id}">See recipe</button>
+  </div>  
     <button class="heart-button" type="button">
   <svg class="heart-button-icon" width="20" height="20">
   <use href="${svg}#heart">
@@ -114,3 +120,19 @@ function onFilterClick(evt) {
     }
   });
 }
+
+function initRating() {
+  const ratingValue = parseFloat(document.querySelector(".raitingAllFoods").textContent);
+  const ratingActive = document.querySelector(".rating__activeAllFoods");
+  const percentageOfStars = ratingValue * 20 + "%"; 
+
+  ratingActive.style.setProperty("width", percentageOfStars);
+}
+
+const recipeButtons = document.querySelectorAll('.recipe-btn');
+recipeButtons.forEach(button => {
+  button.addEventListener('click', event => {
+    const clickedRecipeElement = event.currentTarget.id;
+    showModalAboutReciepts(clickedRecipeElement);
+  });
+});

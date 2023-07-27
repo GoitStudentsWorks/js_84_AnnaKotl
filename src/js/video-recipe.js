@@ -45,7 +45,7 @@ export function showModalAboutReciepts(id) {
   recieptsOfFood(id).then(data => {
     //   isFavorite(data._id);
     renderRanting(data);
-    markUpRating();
+    initRating()
     renderIngridient(data);
     renderHashtags(data);
     renderText(data);
@@ -70,30 +70,12 @@ function renderText(data) {
   refs.minutesRecipe.textContent = data.time + ' min';
 }
 
-let ratingStars;
-let ratingActive, ratingValue;
+function initRating() {
+  const ratingValue = parseFloat(document.querySelector(".rating__value.detail").textContent);
+  const ratingActive = document.querySelector(".rating__active");
+  const percentageOfStars = ratingValue * 20 + "%"; 
 
-function initRating(rating) {
-  initValues(rating);
-  if (ratingValue.innerHTML > 5) {
-    ratingValue.innerHTML = 5;
-  }
-  const ratingActiveWidth = ratingValue.innerHTML / 0.05;
-
-  ratingActive.style.width = `${ratingActiveWidth}%`;
-}
-
-function initValues(rating) {
-  ratingActive = rating.querySelector('.rating__active');
-  ratingValue = rating.querySelector('.rating__value');
-}
-
-export function markUpRating() {
-  ratingStars = document.querySelectorAll('.rating-stars');
-  ratingStars.forEach(item => {
-    const rating = item;
-    initRating(rating);
-  });
+  ratingActive.style.setProperty("width", percentageOfStars);
 }
 
 function getKeyYouTybe(url) {
@@ -122,38 +104,6 @@ function renderRanting(data) {
     <div class="rating__value detail">${data.rating}</div>
     <div class="rating__body">
       <div class="rating__active"></div>
-      <div class="rating__items">
-        <input
-          type="radio"
-          class="rating__item"
-          name="rating-stars"
-          value="1"
-        />
-        <input
-          type="radio"
-          class="rating__item"
-          name="rating-stars"
-          value="2"
-        />
-        <input
-          type="radio"
-          class="rating__item"
-          name="rating-stars"
-          value="3"
-        />
-        <input
-          type="radio"
-          class="rating__item"
-          name="rating-stars"
-          value="4"
-        />
-        <input
-          type="radio"
-          class="rating__item"
-          name="rating-stars"
-          value="5"
-        />
-      </div>
     </div>
   </div>`;
   refs.ratingRecipe.innerHTML = markupR; // Change refs.ratingBox to refs.ratingRecipe

@@ -1,6 +1,5 @@
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
 import { showModalAboutReciepts } from './video-recipe';
-
 import svg from '../images/heart-defs.svg';
 import { stringify } from 'querystring';
 
@@ -39,8 +38,11 @@ recipesplaceholderInstance
     const renderCards = createMarkup(arrayRecipes);
 
     recipesList.insertAdjacentHTML('beforeend', renderCards);
-
-    const heartButton = document.querySelectorAll('.heart-button');
+    // recipesList.innerHTML = createMarkup(arrayRecipes);
+    const heartButton = document.querySelector('.heart-button');
+    const cardsOfRecipe = document.querySelectorAll('.cards');
+    heartButton.addEventListener('click', onHeartButtonClick);
+    console.log(cardsOfRecipe[3]);
     const recipeButtons = document.querySelectorAll('.see-recipe-btn');
 
     // console.log(renderCards);
@@ -114,6 +116,7 @@ export function createMarkup(arr) {
         _id,
         title,
         category,
+        rating,
         preview,
         tags,
         instructions,
@@ -139,7 +142,10 @@ export function createMarkup(arr) {
   </div>
 
   <div class="rating-panel">
-    <div class="rating"></div>
+    <div class="raitingAllFoods">${rating}</div>
+    <div class="rating_blackAllFoods">
+      <div class="rating__activeAllFoods"></div>
+    </div>
     <button type="button" class="see-recipe-btn btn" id="${_id}">See recipe</button>
   </div>
   
@@ -156,11 +162,22 @@ export function createMarkup(arr) {
     .join('');
 }
 
-function onSeeBtnClick(evt) {
-  evt.preventDefault();
-  const clickedRecipeElement = evt.currentTarget.id;
-  showModalAboutReciepts(clickedRecipeElement);
-}
+const recipeButtons = document.querySelectorAll('.see-recipe-btn');
+recipeButtons.forEach(button => {
+  button.addEventListener('click', event => {
+    const clickedRecipeElement = event.currentTarget.id;
+    showModalAboutReciepts(clickedRecipeElement);
+  });
+});
+
+function onHeartButtonClick(evt) {
+  if (evt.target.tagName !== 'heartButton') return;
+  let currentBtn = evt.target;
+  console.dir(currentBtn);
+  // currentBtn.classList.toggle('active');
+  if (!currentBtn.classList.contains('active')) {
+    currentBtn.classList.toggle('active');
+  }
 
 // console.log([...cardsOfRecipe.filter(el => el.id === currentBtn.id)]);
 // JSON.stringify(

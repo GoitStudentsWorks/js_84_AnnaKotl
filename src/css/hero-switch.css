@@ -107,10 +107,7 @@
   border-radius: 50%;
   background-color: var(--accent-color);
 }
-/* .swiper {
-  width: 512px;
-  height: 302px;
-} */
+
 @media screen and (min-width: 768px) {
   .mk.swiper-wrapper {
     height: 468px;
@@ -140,7 +137,7 @@
     height: 663px;
   }
   .mk-card {
-    margin-right: -141px; 
+    margin-right: -141px;
   }
   .mk-list {
     gap: 16px;
