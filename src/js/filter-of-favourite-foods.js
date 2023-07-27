@@ -5,7 +5,8 @@ const favoriteStorige = JSON.parse(localStorage.getItem('favorites')) ?? [];
 const favoriteRecipesList = document.querySelector('.favorite-recipes-list');
 const favoriteFilterList = document.querySelector('.favorite-filter-list');
 const blockFavorit = document.querySelector('.block-favorit');
-const recipeButtons = document.querySelectorAll('.see-recipe-btn');
+const recipeFavButtons = document.querySelectorAll('.recipe-btn');
+const heartFavButtons = document.querySelectorAll('.heart-fav-button');
 
 const renderCardsFilter = createMarkup(favoriteStorige);
 const renderFilter = createFilterMarkup(favoriteStorige);
@@ -37,10 +38,10 @@ function createMarkup(arr) {
     <div class="rating_blackAllFoods">
       <div class="rating__activeAllFoods"></div>
     </div>
-    <button type="button" class="see-recipe-btn btn" id="${_id}">See recipe</button>
+    <button type="button" class="recipe-btn btn" id="${_id}">See recipe</button>
   </div>
   
-  <button class="heart-button" type="button" >
+  <button class="heart-fav-button" type="button" >
   <svg class="heart-button-icon" width="20" height="20">
   <use href="${svg}#heart">
   </use>
@@ -66,7 +67,7 @@ function createFilterMarkup(arr) {
 function onFilterClick(evt) {
   if (evt.target.tagName !== 'BUTTON') return;
   let filterClass = evt.target.textContent;
-  console.log(filterClass);
+  //console.log(filterClass);
   let allCards = [...document.getElementsByClassName('cards-favorite')];
   // console.log(allCards);
   allCards.forEach(elem => {
@@ -90,7 +91,7 @@ function initRating() {
   ratingActive.style.setProperty('width', percentageOfStars);
 }
 
-function onSeeBtnClick(evt) {
+function onFavSeeBtnClick(evt) {
   evt.preventDefault();
   const clickedRecipeElement = evt.currentTarget.id;
   showModalAboutReciepts(clickedRecipeElement);
@@ -98,6 +99,26 @@ function onSeeBtnClick(evt) {
 
 favoriteFilterList.addEventListener('click', onFilterClick);
 
-recipeButtons.forEach(button => {
-  button.addEventListener('click', onSeeBtnClick);
+recipeFavButtons.forEach(button => {
+  button.addEventListener('click', onFavSeeBtnClick);
 });
+
+heartFavButtons.forEach(button => {
+  button.addEventListener('click', onHeartFavButtonClick);
+});
+
+function onHeartFavButtonClick(evt) {
+  evt.preventDefault();
+  const currentBtn = evt.currentTarget;
+  const card = findRecipe(currentBtn);
+  console.log(currentBtn);
+  currentBtn.classList.add('active');
+
+  if (currentBtn.classList.contains('active')) {
+    currentBtn.classList.remove('active');
+    const recipeIndex = favoriteArr.findIndex(({ _id }) => _id === card._id);
+    console.log(recipeIndex);
+    favoriteArr.splice(recipeIndex, 1);
+    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
+  }
+}

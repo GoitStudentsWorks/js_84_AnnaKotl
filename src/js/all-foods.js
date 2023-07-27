@@ -50,20 +50,23 @@ recipesplaceholderInstance
     function onHeartButtonClick(evt) {
       evt.preventDefault();
       const currentBtn = evt.currentTarget;
+      const card = findRecipe(currentBtn);
+      currentBtn.classList.toggle('active');
 
       if (currentBtn.classList.contains('active')) {
-        currentBtn.classList.remove('active');
-      } else {
-        currentBtn.classList.toggle('active');
-      }
-      if (currentBtn.classList.contains('heart-button')) {
-        const card = findRecipe(currentBtn);
+        favoriteArr.push(card);
+        localStorage.setItem('favorites', JSON.stringify(favoriteArr));
         const inStorage = favoriteArr.some(({ _id }) => _id === card._id);
         if (inStorage) {
           return;
         }
-
-        favoriteArr.push(card);
+      } else {
+        currentBtn.classList.remove('active');
+        const recipeIndex = favoriteArr.findIndex(
+          ({ _id }) => _id === card._id
+        );
+        console.log(recipeIndex);
+        favoriteArr.splice(recipeIndex, 1);
         localStorage.setItem('favorites', JSON.stringify(favoriteArr));
       }
     }
@@ -135,14 +138,6 @@ function onSeeBtnClick(evt) {
   const clickedRecipeElement = evt.currentTarget.id;
   showModalAboutReciepts(clickedRecipeElement);
 }
-
-const recipeButtons = document.querySelectorAll('.recipe-btn');
-recipeButtons.forEach(button => {
-  button.addEventListener('click', event => {
-    const clickedRecipeElement = event.currentTarget.id;
-    showModalAboutReciepts(clickedRecipeElement);
-  });
-});
 
 function initRating() {
   const ratingValue = parseFloat(
