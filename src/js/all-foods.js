@@ -33,7 +33,7 @@ recipesplaceholderInstance
   .fetchRecipes()
   .then(data => {
     arrayRecipes = data.results;
-    console.log(arrayRecipes);
+    //console.log(arrayRecipes);
 
     const renderCards = createMarkup(arrayRecipes);
 
