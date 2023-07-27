@@ -68,7 +68,7 @@ function addMkInfo() {
     },
     slidesPerView: 0.65,
  
-    speed: 600,
+    speed: 1000,
 
     breakpoints: {
       375: {

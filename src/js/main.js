@@ -14,8 +14,8 @@ import './heder-modal-menu.js';
 import './scroll-to-start.js';
 import './addToFavourite.js';
 
-// import './video-recipe.js';
-// import './popular-recipes.js';
+import './video-recipe.js';
+import './popular-recipes.js';
 
 // All API js files
 import './api-kay-js-files/api-filter-area-ingredients.js';

@@ -53,3 +53,8 @@
     </symbol>
   </defs>
 </svg>
+
+<!-- ! swiper ! -->
+<symbol id="icon-Ellipse-green" viewBox="0 0 23 32">
+<path fill="#9bb537" style="fill: var(--color1, #9bb537)" opacity="0.6" d="M16.417 9.953c2.743 2.791 2.684 7.258-0.131 9.977s-7.32 2.659-10.063-0.132c-2.743-2.791-2.684-7.258 0.131-9.977s7.32-2.659 10.063 0.132z"></path>
+</symbol>
