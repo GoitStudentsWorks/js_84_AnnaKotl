@@ -32,6 +32,8 @@ recipesplaceholderInstance
   .fetchRecipes()
   .then(data => {
     arrayRecipes = data.results;
+  filter-of-favorite-foods
+
 
     const renderCards = createMarkup(arrayRecipes);
 
