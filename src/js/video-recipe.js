@@ -157,7 +157,7 @@ function onFavouriteBtnClick() {
     refs.addToFavoriteBtn.classList.remove('active');
     refs.addToFavoriteBtn.textContent = 'Add to Favorite';
 
-    if (!inStorage) { // Negate the condition here
+    if (!inStorage) {
       return;
     }
 
