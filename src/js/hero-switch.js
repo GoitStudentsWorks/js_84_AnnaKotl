@@ -1,7 +1,7 @@
-import 'swiper/swiper-bundle.css';
-import Swiper from 'swiper';
-// import Swiper from 'swiper/swiper-bundle.min.mjs';
-// import '../../node_modules/swiper/swiper-bundle.min.css';
+// import 'swiper/swiper-bundle.css';
+// import Swiper from 'swiper';
+import Swiper from 'swiper/swiper-bundle.min.mjs';
+import '../../node_modules/swiper/swiper-bundle.min.css';
 
 const mkBox = document.querySelector('.swiper-wrapper');
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/events';

@@ -1,6 +1,6 @@
-// import { setRecipeRating } from './api-kay-js-files/api-rating';
-// import Notiflix from 'notiflix';
-// import 'notiflix/src/notiflix.css';
+import { setRecipeRating } from './api-kay-js-files/api-rating';
+import Notiflix from 'notiflix';
+import 'notiflix/src/notiflix.css';
 
 const refs = {
   openModalBtn: document.querySelectorAll('.give-a-rating'),
@@ -14,7 +14,7 @@ refs.openModalBtn.forEach(btn => btn.addEventListener('click', openModalRating))
 refs.closeModalBtn.forEach(btn => btn.addEventListener('click', closeModal));
 refs.form.addEventListener('submit', sendForm);
 
-export function openModalRating(e) {
+function openModalRating(e) {
   e.preventDefault();
   document.addEventListener('keydown', keyDownRate);
   refs.modal.classList.remove('is-hidden');

@@ -1,19 +1,18 @@
-const timer = document.querySelector("#timesearch");
+const timer = document.querySelector('#timesearch');
 
 createTimerBtns();
 
-function createTimerBtns(){
-    for (let i = 0; i <= 120; i += 5) {
+function createTimerBtns() {
+  for (let i = 0; i <= 120; i += 5) {
+    const li = document.createElement('li');
+    li.classList.add('option');
 
-        const li = document.createElement('li');
-        li.classList.add('option');
+    const button = document.createElement('button');
+    button.classList.add('option-item');
 
-        const button = document.createElement('button');
-        button.classList.add('option-item');
+    button.textContent = i + ' min';
 
-        button.textContent = i + ' min';
-
-        li.appendChild(button);
-        timer.appendChild(li);
-    }
-};
+    li.appendChild(button);
+    // timer.appendChild(li);
+  }
+}
