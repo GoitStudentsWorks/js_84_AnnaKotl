@@ -32,7 +32,7 @@ recipesplaceholderInstance
   .fetchRecipes()
   .then(data => {
     arrayRecipes = data.results;
-
+    initRating()
     const renderCards = createMarkup(arrayRecipes);
 
     recipesList.insertAdjacentHTML('beforeend', renderCards);
@@ -145,13 +145,13 @@ recipeButtons.forEach(button => {
 });
 
 function initRating() {
-  const ratingValue = parseFloat(
-    document.querySelector('.raitingAllFoods').textContent
-  );
-  const ratingActive = document.querySelector('.rating__activeAllFoods');
-  const percentageOfStars = ratingValue * 20 + '%';
-
-  ratingActive.style.setProperty('width', percentageOfStars);
+  const ratingValueElements = document.querySelectorAll('.raitingAllFoods');
+  ratingValueElements.forEach(ratingElem => {
+    const ratingValue = parseFloat(ratingElem.textContent);
+    const ratingActive = ratingElem.nextElementSibling.querySelector('.rating__activeAllFoods');
+    const percentageOfStars = ratingValue * 20 + '%';
+    ratingActive.style.setProperty('width', percentageOfStars);
+  });
 }
 // const storage = localStorage.getItem('favorites');
 // const data = JSON.parse(storage);
