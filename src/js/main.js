@@ -14,7 +14,7 @@ import './all-foods.js';
 import './heder-modal-menu.js';
 import './scroll-to-start.js';
 // All API js files
-import './api-kay-js-files/api-filter-of-favourite-foods.js'
+import './api-kay-js-files/api-filter-of-favourite-foods.js';
 import './api-kay-js-files/api-filter.js';
 import './api-kay-js-files/api-header.js';
 import './api-kay-js-files/api-hero-switch.js';

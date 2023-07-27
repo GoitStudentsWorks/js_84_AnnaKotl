@@ -2,22 +2,23 @@ const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
 import { showModalAboutReciepts } from './video-recipe';
 
 import svg from '../images/heart-defs.svg';
+import { stringify } from 'querystring';
 
-// let page = 1;
-// let limit = 9;
+let page = 1;
+let limit = 9;
 
 class RecipesPlaceholderAPI {
-  page = 1;
-  limit = 9;
+  // page = 1;
+  // limit = 9;
   async fetchRecipes() {
-    return await fetch(
-      `${BASE_URL}/recipes?limit=${this.limit}&page=${this.page}`
-    ).then(response => {
-      if (!response.ok) {
-        throw new Error(response.status);
+    return await fetch(`${BASE_URL}/recipes?limit=${limit}&page=${page}`).then(
+      response => {
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+        return response.json();
       }
-      return response.json();
-    });
+    );
   }
 }
 
@@ -25,34 +26,86 @@ const recipesList = document.querySelector('.recipes-list');
 
 const recipesplaceholderInstance = new RecipesPlaceholderAPI();
 const maxLength = 65;
-
+let arrayRecipes = {};
+const favoriteArr = JSON.parse(localStorage.getItem('favorites')) ?? [];
 // console.log(cards);
 
 recipesplaceholderInstance
   .fetchRecipes()
   .then(data => {
     arrayRecipes = data.results;
-    // console.log([...arrayRecipes]);
+    console.log(arrayRecipes);
 
     const renderCards = createMarkup(arrayRecipes);
 
     recipesList.insertAdjacentHTML('beforeend', renderCards);
-    // recipesList.innerHTML = createMarkup(arrayRecipes);
-    const heartButton = document.querySelector('.heart-button');
-    const cardsOfRecipe = document.querySelectorAll('.cards');
-    heartButton.addEventListener('click', onHeartButtonClick);
-    console.log(cardsOfRecipe[3]);
+
+    const heartButton = document.querySelectorAll('.heart-button');
     const recipeButtons = document.querySelectorAll('.see-recipe-btn');
+
+    // console.log(renderCards);
+    // console.log(recipeButtons);
+
     recipeButtons.forEach(button => {
-      button.addEventListener('click', event => {
-        const clickedRecipeElement = event.currentTarget.id;
-        showModalAboutReciepts(clickedRecipeElement);
-      });
+      button.addEventListener('click', onSeeBtnClick);
     });
+    heartButton.forEach(button => {
+      button.addEventListener('click', onHeartButtonClick);
+    });
+
+    function onHeartButtonClick(evt) {
+      evt.preventDefault();
+      const currentBtn = evt.currentTarget;
+
+      if (currentBtn.classList.contains('active')) {
+        currentBtn.classList.remove('active');
+      } else {
+        currentBtn.classList.toggle('active');
+      }
+      if (currentBtn.classList.contains('heart-button')) {
+        const card = findRecipe(currentBtn);
+        const inStorage = favoriteArr.some(({ _id }) => _id === card._id);
+        if (inStorage) {
+          return;
+        }
+        console.log(favoriteArr.title);
+        console.log(card._id);
+
+        favoriteArr.push(card);
+        localStorage.setItem('favorites', JSON.stringify(favoriteArr));
+      }
+    }
+
+    function findRecipe(elem) {
+      const cardId = elem.closest('.cards').dataset.id;
+      // console.log(cardId);
+      return arrayRecipes.find(({ _id }) => _id === cardId);
+    }
+    // function onHeartButtonClick(evt) {
+    //   evt.preventDefault();
+    //   const currentBtn = evt.currentTarget;
+    //   // console.log(currentBtn.id);
+    //   if (currentBtn.classList.contains('active')) {
+    //     currentBtn.classList.remove('active');
+    //   } else {
+    //     currentBtn.classList.toggle('active');
+    //     setToStorige();
+    //   }
+
+    //
+    // }
   })
   .catch(err => {
     console.warn(err);
   });
+
+// function setToStorige() {
+//   const cardsOfRecipe = document.querySelectorAll('.cards');
+//   const idCard = cardsOfRecipe.id;
+//   console.log(...cardsOfRecipe);
+
+//   localStorage.setItem('favorites', JSON.stringify(...cardsOfRecipe._id));
+// }
 
 export function createMarkup(arr) {
   return arr
@@ -68,7 +121,7 @@ export function createMarkup(arr) {
         time,
         ingredients,
       }) => {
-        return `<li class="cards ${category}" id="${_id}">
+        return `<li class="cards ${category}" data-id="${_id}">
 
   <div class="recipe-img">
     <img class="images" src="${preview}" alt="${tags}" />
@@ -90,7 +143,7 @@ export function createMarkup(arr) {
     <button type="button" class="see-recipe-btn btn" id="${_id}">See recipe</button>
   </div>
   
-  <button class="heart-button" type="button">
+  <button class="heart-button" type="button" >
   <svg class="heart-button-icon" width="20" height="20">
   <use href="${svg}#heart">
   </use>
@@ -103,33 +156,27 @@ export function createMarkup(arr) {
     .join('');
 }
 
-const recipeButtons = document.querySelectorAll('.see-recipe-btn');
-recipeButtons.forEach(button => {
-  button.addEventListener('click', event => {
-    const clickedRecipeElement = event.currentTarget.id;
-    showModalAboutReciepts(clickedRecipeElement);
-  });
-});
-
-function onHeartButtonClick(evt) {
-  if (evt.target.tagName !== 'heartButton') return;
-  let currentBtn = evt.target;
-  console.dir(currentBtn);
-  // currentBtn.classList.toggle('active');
-  if (!currentBtn.classList.contains('active')) {
-    currentBtn.classList.toggle('active');
-  }
-
-  // const storage = JSON.parse(localStorage.getItem('favorites')) || [];
-  // if (currentBtn.classList.contains('active')) {
-  //   localStorage.setItem('favorites', JSON.stringify(arrayRecipes));
-  // } else {
-  //   localStorage.setItem(
-  //     'favorites',
-  //     JSON.stringify([...arrayRecipes.filter(el => el.id !== currentBtn._id)])
-  //   );
-  // }
+function onSeeBtnClick(evt) {
+  evt.preventDefault();
+  const clickedRecipeElement = evt.currentTarget.id;
+  showModalAboutReciepts(clickedRecipeElement);
 }
+
+// console.log([...cardsOfRecipe.filter(el => el.id === currentBtn.id)]);
+// JSON.stringify(
+//   [...arrayRecipes].filter(function (el) {
+//     return el.id === currentBtn.id;
+//   })
+// );
+// const storage = JSON.parse(localStorage.getItem('favorites')) || [];
+// if (currentBtn.classList.contains('active')) {
+//   localStorage.setItem('favorites', JSON.stringify(arrayRecipes));
+// } else {
+//   localStorage.setItem(
+//     'favorites',
+//     JSON.stringify([...arrayRecipes.filter(el => el.id !== currentBtn._id)])
+//   );
+// }
 
 // const storage = localStorage.getItem('favorites');
 // const data = JSON.parse(storage);

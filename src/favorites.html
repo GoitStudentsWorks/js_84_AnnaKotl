@@ -4,28 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorites</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
 
-    <link rel="stylesheet" href="/node_modules/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="/node_modules/swiper/swiper-bundle.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-    <link rel="stylesheet" href="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.css" />
-    <link rel="stylesheet" href="./favorites.css">
-    <link rel="stylesheet" href="./css/main.css">
+    <link
+      rel="stylesheet"
+      href="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.css"
+    />
+    <link rel="stylesheet" href="./favorites.css" />
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
 
   <body>
-
-    <header class="header section-header ">
+    <header class="header section-header">
       <div class="container-header">
         <nav class="nav-header">
           <ul class="nav-list list">
@@ -65,7 +70,9 @@
               aria-controls="mobile-menu"
             >
               <svg class="burger-menu-icon" width="32" height="32">
-                <use href="/src/images/symbol-defs.svg#icon-align-justify"></use>
+                <use
+                  href="/src/images/symbol-defs.svg#icon-align-justify"
+                ></use>
               </svg>
             </button>
             <!-- TOGGLE SWITCH -->
@@ -103,7 +110,9 @@
             <a class="nav-link home link" href="./index.html">Home</a>
           </li>
           <li class="nav-item-burger item">
-            <a class="nav-link favorites link current" href="./favorites.html">Favorites</a>
+            <a class="nav-link favorites link current" href="./favorites.html"
+              >Favorites</a
+            >
           </li>
 
           <!-- toggle switch burger -->
@@ -116,63 +125,79 @@
           </li>
         </ul>
       </div>
-  </header>
+    </header>
 
-  <main>
+    <main>
       <!-- hero -->
-    <section class="hero-section-of-favorites">
-      <div class="hero-container-of-favorites container">
-        <div class="hero-img-of-favorites block-img"></div>
-      </div>
-    </section>
+      <section class="hero-section-of-favorites">
+        <div class="hero-container-of-favorites container">
+          <div class="hero-img-of-favorites block-img"></div>
+        </div>
+      </section>
       <!-- /hero -->
 
       <!-- Favorites recipes -->
-    <div class="favorites-categories" id="favoritesCategories"></div>
-    <!----------------------------- ФІЛЬТР ---------------------->
-    <div class="container favorite-filter-container">
-      <ul class="favorite-filter-list list">
-        <li class="favorite-filter-item">
-          <button type="button" class="filter-btn btn">All categories</button>
-        </li>
-      </ul>
-      <ul class="favorite-recipes-list"></ul>
-    </div>
-
-    <div
-      class="favorites-recipe-container"
-      id="favoritesRecipeContainer"
-    ></div>
-
-    <div class="favorit-container block-favorit mobil-favorit-container">
-      <img
-        src="./images/elements.png"
-        alt="no-resipe-img"
-        width="68px"
-        height="58px"
-        class="no-resipe-img"
-      />
-
-      <div class="no-favorites-recipe" id="noFavoritesMessage">
-        It appears that you haven't added any recipes to your favorites yet.
-        To get started, you can add recipes that you like to your favorites
-        for easier access in the future.
+      <div class="favorites-categories" id="favoritesCategories"></div>
+      <!----------------------------- ФІЛЬТР ---------------------->
+      <div class="container favorite-filter-container">
+        <ul class="favorite-filter-list list">
+          <li class="favorite-filter-item">
+            <button type="button" class="filter-btn btn">All categories</button>
+          </li>
+        </ul>
+        <ul class="favorite-recipes-list"></ul>
       </div>
-    </div>
-    <!-- /Favorites recipes -->
-    <!-- scroll -->
-    <a href="#" class="to-top">
-      <i class="fas fa-chevron-up"></i>
-    </a>
-    <!-- /scroll -->
+
+      <div
+        class="favorites-recipe-container"
+        id="favoritesRecipeContainer"
+      ></div>
+
+      <div class="favorit-container block-favorit mobil-favorit-container">
+        <img
+          src="./images/elements.png"
+          alt="no-resipe-img"
+          width="68px"
+          height="58px"
+          class="no-resipe-img"
+        />
+
+        <div class="no-favorites-recipe" id="noFavoritesMessage">
+          It appears that you haven't added any recipes to your favorites yet.
+          To get started, you can add recipes that you like to your favorites
+          for easier access in the future.
+        </div>
+      </div>
+      <!-- /Favorites recipes -->
+      <!-- scroll -->
+      <a href="#" class="to-top">
+        <i class="fas fa-chevron-up"></i>
+      </a>
+      <!-- /scroll -->
     </main>
     <script src="./js/main.js" type="module"></script>
     <script src="/src/favorites.js" type="module"></script>
-    <script src="/src/js-file-fevorites/one-fevorites.js" type="module"></script>
-    <script src="/src/js-file-fevorites/two-fevorites.js" type="module"></script>
-    <script src="/src/js-file-fevorites/three-fevorites.js" type="module"></script>
-    <script src="/src/js-file-fevorites/four-fevorites.js" type="module"></script>
-    <script src="/src/js-file-fevorites/five-fevorites.js" type="module"></script>
+    <script src="/src/js/filter-of-favourite-foods.js" type="module"></script>
+    <script
+      src="/src/js-file-fevorites/one-fevorites.js"
+      type="module"
+    ></script>
+    <script
+      src="/src/js-file-fevorites/two-fevorites.js"
+      type="module"
+    ></script>
+    <script
+      src="/src/js-file-fevorites/three-fevorites.js"
+      type="module"
+    ></script>
+    <script
+      src="/src/js-file-fevorites/four-fevorites.js"
+      type="module"
+    ></script>
+    <script
+      src="/src/js-file-fevorites/five-fevorites.js"
+      type="module"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- <script src="dist/notiflix-3.2.6.min.js"></script> -->
   </body>
