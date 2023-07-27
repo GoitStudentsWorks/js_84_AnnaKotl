@@ -1,5 +1,3 @@
-import './filter-of-favourite-foods.js';
-
 import Pagination from 'tui-pagination';
 import { createMarkup } from './filter-of-favourite-foods';
 
