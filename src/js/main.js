@@ -1,4 +1,4 @@
-import './filter-of-favourite-foods.js';
+// import './filter-of-favourite-foods.js';
 import './filter.js';
 import './time.js';
 import './area.js';
