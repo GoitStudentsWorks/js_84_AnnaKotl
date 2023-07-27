@@ -16,3 +16,13 @@ function createTimerBtns() {
     timer.appendChild(li);
   }
 }
+
+
+
+
+
+
+
+
+
+
