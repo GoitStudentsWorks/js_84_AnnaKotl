@@ -3,7 +3,7 @@ const timer = document.querySelector('#timesearch');
 createTimerBtns();
 
 function createTimerBtns() {
-  for (let i = 0; i <= 120; i += 5) {
+  for (let i = 5; i <= 120; i += 5) {
     const li = document.createElement('li');
     li.classList.add('option');
 
@@ -13,6 +13,6 @@ function createTimerBtns() {
     button.textContent = i + ' min';
 
     li.appendChild(button);
-    // timer.appendChild(li);
+    timer.appendChild(li);
   }
 }

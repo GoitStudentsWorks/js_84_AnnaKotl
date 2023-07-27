@@ -45,7 +45,7 @@ export function showModalAboutReciepts(id) {
   recieptsOfFood(id).then(data => {
     //   isFavorite(data._id);
     renderRanting(data);
-    initRating()
+    initRating();
     renderIngridient(data);
     renderHashtags(data);
     renderText(data);
@@ -71,11 +71,13 @@ function renderText(data) {
 }
 
 function initRating() {
-  const ratingValue = parseFloat(document.querySelector(".rating__value.detail").textContent);
-  const ratingActive = document.querySelector(".rating__active");
-  const percentageOfStars = ratingValue * 20 + "%"; 
+  const ratingValue = parseFloat(
+    document.querySelector('.rating__value.detail').textContent
+  );
+  const ratingActive = document.querySelector('.rating__active');
+  const percentageOfStars = ratingValue * 20 + '%';
 
-  ratingActive.style.setProperty("width", percentageOfStars);
+  ratingActive.style.setProperty('width', percentageOfStars);
 }
 
 function getKeyYouTybe(url) {

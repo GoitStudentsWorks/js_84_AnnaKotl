@@ -72,19 +72,6 @@ recipesplaceholderInstance
       const cardId = elem.closest('.cards').dataset.id;
       return arrayRecipes.find(({ _id }) => _id === cardId);
     }
-    // function onHeartButtonClick(evt) {
-    //   evt.preventDefault();
-    //   const currentBtn = evt.currentTarget;
-    //   // console.log(currentBtn.id);
-    //   if (currentBtn.classList.contains('active')) {
-    //     currentBtn.classList.remove('active');
-    //   } else {
-    //     currentBtn.classList.toggle('active');
-    //     setToStorige();
-    //   }
-
-    //
-    // }
   })
   .catch(err => {
     console.warn(err);
@@ -149,6 +136,14 @@ function onSeeBtnClick(evt) {
   showModalAboutReciepts(clickedRecipeElement);
 }
 
+const recipeButtons = document.querySelectorAll('.recipe-btn');
+recipeButtons.forEach(button => {
+  button.addEventListener('click', event => {
+    const clickedRecipeElement = event.currentTarget.id;
+    showModalAboutReciepts(clickedRecipeElement);
+  });
+});
+
 function initRating() {
   const ratingValue = parseFloat(
     document.querySelector('.raitingAllFoods').textContent
@@ -158,15 +153,6 @@ function initRating() {
 
   ratingActive.style.setProperty('width', percentageOfStars);
 }
-
-const recipeButtons = document.querySelectorAll('.recipe-btn');
-recipeButtons.forEach(button => {
-  button.addEventListener('click', event => {
-    const clickedRecipeElement = event.currentTarget.id;
-    showModalAboutReciepts(clickedRecipeElement);
-  });
-});
-
 // const storage = localStorage.getItem('favorites');
 // const data = JSON.parse(storage);
 // if (storage && data.find(el => el.id === id)) {
