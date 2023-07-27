@@ -6,8 +6,8 @@
 .hero-section-container {
   display: flex;
   flex-wrap: wrap;
-  width: 355px; 
   margin-bottom: 80px;
+  margin-left: auto;
 }
 
 .hero-section {
