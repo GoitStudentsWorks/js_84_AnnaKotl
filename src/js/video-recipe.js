@@ -13,8 +13,8 @@ export let refs = {
   videoRecipe: document.querySelector('.video-recipe'),
 };
 
-refs.closeBtn.addEventListener('click', closeModalClose);
-refs.backdropRecipe.addEventListener('click', clickBackdropClick);
+refs.closeBtn?.addEventListener('click', closeModalClose);
+refs.backdropRecipe?.addEventListener('click', clickBackdropClick);
 
 function openModalOpen() {
   setTimeout(() => {
