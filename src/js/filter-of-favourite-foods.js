@@ -34,6 +34,7 @@ jsonplaceholderInstance
     if (renderCardsFilter) {
       blockFavorit.classList.add('hidden');
     } else favoriteFilterList.classList.add('hidden');
+    initRating()
 const recipeButtons = document.querySelectorAll('.recipe-btn');
     recipeButtons.forEach(button => {
       button.addEventListener('click', event => {
@@ -50,7 +51,7 @@ const recipeButtons = document.querySelectorAll('.recipe-btn');
 
 function createMarkup(arr) {
   return arr
-    .map(({ _id, title, category, preview, tags, instructions }) => {
+    .map(({ _id, title, rating, category, preview, tags, instructions }) => {
       return `<li class="cards-favorite ${category}">
   <div class="recipe-img">
     <img class="images" src="${preview}" alt="${tags}" />
@@ -62,7 +63,10 @@ function createMarkup(arr) {
     <p class="instr-favor">(${instructions}).slice(0, 50)</p>
   </div>
   <div class="rating-panel-favorite">
-    <div class="rating"></div>
+  <div class="raitingAllFoods">${rating}</div>
+  <div class="rating_blackAllFoods">
+    <div class="rating__activeAllFoods"></div>
+  </div>
     <button type="button" class="recipe-btn btn" id="${_id}">See recipe</button>
   </div>  
     <button class="heart-button" type="button">
@@ -107,6 +111,13 @@ function onFilterClick(evt) {
   });
 }
 
+function initRating() {
+  const ratingValue = parseFloat(document.querySelector(".raitingAllFoods").textContent);
+  const ratingActive = document.querySelector(".rating__activeAllFoods");
+  const percentageOfStars = ratingValue * 20 + "%"; 
+
+  ratingActive.style.setProperty("width", percentageOfStars);
+}
 
 const recipeButtons = document.querySelectorAll('.recipe-btn');
 recipeButtons.forEach(button => {

@@ -1,6 +1,5 @@
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
 import { showModalAboutReciepts } from './video-recipe';
-
 import svg from '../images/heart-defs.svg';
 
 // let page = 1;
@@ -42,6 +41,7 @@ recipesplaceholderInstance
     const cardsOfRecipe = document.querySelectorAll('.cards');
     heartButton.addEventListener('click', onHeartButtonClick);
     console.log(cardsOfRecipe[3]);
+    initRating()
     const recipeButtons = document.querySelectorAll('.see-recipe-btn');
     recipeButtons.forEach(button => {
       button.addEventListener('click', event => {
@@ -61,6 +61,7 @@ export function createMarkup(arr) {
         _id,
         title,
         category,
+        rating,
         preview,
         tags,
         instructions,
@@ -86,7 +87,10 @@ export function createMarkup(arr) {
   </div>
 
   <div class="rating-panel">
-    <div class="rating"></div>
+    <div class="raitingAllFoods">${rating}</div>
+    <div class="rating_blackAllFoods">
+      <div class="rating__activeAllFoods"></div>
+    </div>
     <button type="button" class="see-recipe-btn btn" id="${_id}">See recipe</button>
   </div>
   
@@ -103,13 +107,13 @@ export function createMarkup(arr) {
     .join('');
 }
 
-const recipeButtons = document.querySelectorAll('.see-recipe-btn');
-recipeButtons.forEach(button => {
-  button.addEventListener('click', event => {
-    const clickedRecipeElement = event.currentTarget.id;
-    showModalAboutReciepts(clickedRecipeElement);
-  });
-});
+function initRating() {
+  const ratingValue = parseFloat(document.querySelector(".raitingAllFoods").textContent);
+  const ratingActive = document.querySelector(".rating__activeAllFoods");
+  const percentageOfStars = ratingValue * 20 + "%"; 
+
+  ratingActive.style.setProperty("width", percentageOfStars);
+}
 
 function onHeartButtonClick(evt) {
   if (evt.target.tagName !== 'heartButton') return;
