@@ -13,6 +13,6 @@ function createTimerBtns() {
     button.textContent = i + ' min';
 
     li.appendChild(button);
-    // timer.appendChild(li);
+    timer.appendChild(li);
   }
 }
