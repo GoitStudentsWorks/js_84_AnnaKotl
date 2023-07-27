@@ -41,8 +41,7 @@ recipesplaceholderInstance
     // recipesList.innerHTML = createMarkup(arrayRecipes);
     const heartButton = document.querySelector('.heart-button');
     const cardsOfRecipe = document.querySelectorAll('.cards');
-    heartButton.addEventListener('click', onHeartButtonClick);
-    console.log(cardsOfRecipe[3]);
+
     const recipeButtons = document.querySelectorAll('.see-recipe-btn');
 
     // console.log(renderCards);
@@ -83,31 +82,10 @@ recipesplaceholderInstance
       // console.log(cardId);
       return arrayRecipes.find(({ _id }) => _id === cardId);
     }
-    // function onHeartButtonClick(evt) {
-    //   evt.preventDefault();
-    //   const currentBtn = evt.currentTarget;
-    //   // console.log(currentBtn.id);
-    //   if (currentBtn.classList.contains('active')) {
-    //     currentBtn.classList.remove('active');
-    //   } else {
-    //     currentBtn.classList.toggle('active');
-    //     setToStorige();
-    //   }
-
-    //
-    // }
   })
   .catch(err => {
     console.warn(err);
   });
-
-// function setToStorige() {
-//   const cardsOfRecipe = document.querySelectorAll('.cards');
-//   const idCard = cardsOfRecipe.id;
-//   console.log(...cardsOfRecipe);
-
-//   localStorage.setItem('favorites', JSON.stringify(...cardsOfRecipe._id));
-// }
 
 export function createMarkup(arr) {
   return arr
@@ -162,22 +140,19 @@ export function createMarkup(arr) {
     .join('');
 }
 
-const recipeButtons = document.querySelectorAll('.see-recipe-btn');
-recipeButtons.forEach(button => {
-  button.addEventListener('click', event => {
-    const clickedRecipeElement = event.currentTarget.id;
-    showModalAboutReciepts(clickedRecipeElement);
-  });
-});
-
-function onHeartButtonClick(evt) {
-  if (evt.target.tagName !== 'heartButton') return;
-  let currentBtn = evt.target;
-  console.dir(currentBtn);
-  // currentBtn.classList.toggle('active');
-  if (!currentBtn.classList.contains('active')) {
-    currentBtn.classList.toggle('active');
-  }
+function onSeeBtnClick(evt) {
+  evt.preventDefault();
+  const clickedRecipeElement = evt.currentTarget.id;
+  showModalAboutReciepts(clickedRecipeElement);
+}
+// function onHeartButtonClick(evt) {
+//   if (evt.target.tagName !== 'heartButton') return;
+//   let currentBtn = evt.target;
+//   console.dir(currentBtn);
+//   // currentBtn.classList.toggle('active');
+//   if (!currentBtn.classList.contains('active')) {
+//     currentBtn.classList.toggle('active');
+//   }
 
 // console.log([...cardsOfRecipe.filter(el => el.id === currentBtn.id)]);
 // JSON.stringify(
