@@ -27,13 +27,11 @@ const recipesplaceholderInstance = new RecipesPlaceholderAPI();
 const maxLength = 65;
 let arrayRecipes = {};
 const favoriteArr = JSON.parse(localStorage.getItem('favorites')) ?? [];
-// console.log(cards);
 
 recipesplaceholderInstance
   .fetchRecipes()
   .then(data => {
     arrayRecipes = data.results;
-    console.log(arrayRecipes);
 
     const renderCards = createMarkup(arrayRecipes);
 
@@ -41,9 +39,6 @@ recipesplaceholderInstance
 
     const heartButton = document.querySelectorAll('.heart-button');
     const recipeButtons = document.querySelectorAll('.see-recipe-btn');
-
-    // console.log(renderCards);
-    // console.log(recipeButtons);
 
     recipeButtons.forEach(button => {
       button.addEventListener('click', onSeeBtnClick);
@@ -67,8 +62,6 @@ recipesplaceholderInstance
         if (inStorage) {
           return;
         }
-        console.log(favoriteArr.title);
-        console.log(card._id);
 
         favoriteArr.push(card);
         localStorage.setItem('favorites', JSON.stringify(favoriteArr));
@@ -77,7 +70,6 @@ recipesplaceholderInstance
 
     function findRecipe(elem) {
       const cardId = elem.closest('.cards').dataset.id;
-      // console.log(cardId);
       return arrayRecipes.find(({ _id }) => _id === cardId);
     }
     // function onHeartButtonClick(evt) {
