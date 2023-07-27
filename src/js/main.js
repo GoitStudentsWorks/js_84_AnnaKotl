@@ -9,7 +9,7 @@ import './modal-order-now.js';
 import './popular-recipes.js';
 import './recipe-placeholder.js';
 import './scroll-categories.js';
-import './fill-categories.js'
+import './fill-categories.js';
 import './video-recipe.js';
 import './rating.js';
 import './all-foods.js';
@@ -17,6 +17,14 @@ import './heder-modal-menu.js';
 import './scroll-to-start.js';
 import './addToFavourite.js';
 // All API js files
-import './api-kay-js-files/api-filter-area-ingredients.js';
+import './api-kay-js-files/api-filter-of-favourite-foods.js';
+import './api-kay-js-files/api-filter.js';
+import './api-kay-js-files/api-header.js';
+import './api-kay-js-files/api-hero-switch.js';
+import './api-kay-js-files/api-hero.js';
+import './api-kay-js-files/api-modal-order-now.js';
+import './api-kay-js-files/api-popular-recipes.js';
+import './api-kay-js-files/api-recipe-placeholder.js';
 import './api-kay-js-files/api-scroll-categories.js';
 import './api-kay-js-files/api-rating.js';
+import './api-kay-js-files/api-all-foods.js';

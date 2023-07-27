@@ -1,47 +1,57 @@
 import svg from '../images/heart-defs.svg';
 import { showModalAboutReciepts } from './video-recipe';
 
-const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
+// const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
 
-class JSONPlaceholderAPI {
-  fetchRecipes() {
-    return fetch(`${BASE_URL}/recipes?limit=12&page=1`).then(response => {
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      return response.json();
-    });
-  }
-}
-
+// class JSONPlaceholderAPI {
+//   fetchRecipes() {
+//     return fetch(`${BASE_URL}/recipes?limit=12&page=1`).then(response => {
+//       if (!response.ok) {
+//         throw new Error(response.status);
+//       }
+//       return response.json();
+//     });
+//   }
+// }
+const favoriteStorige = JSON.parse(localStorage.getItem('favorites')) ?? [];
 const favoriteRecipesList = document.querySelector('.favorite-recipes-list');
 const favoriteFilterList = document.querySelector('.favorite-filter-list');
 const blockFavorit = document.querySelector('.block-favorit');
 
-const jsonplaceholderInstance = new JSONPlaceholderAPI();
+// const jsonplaceholderInstance = new JSONPlaceholderAPI();
 
-jsonplaceholderInstance
-  .fetchRecipes()
-  .then(data => {
-    arrayRecipesFilter = data.results;
+// jsonplaceholderInstance
+//   .fetchRecipes()
+//   .then(data => {
+//     arrayRecipesFilter = data.results;
+
+//     const renderCardsFilter = createMarkup(arrayRecipesFilter);
+//     const renderFilter = createFilterMarkup(arrayRecipesFilter);
+
+//     favoriteFilterList.insertAdjacentHTML('afterbegin', renderFilter);
+//     favoriteRecipesList.insertAdjacentHTML('beforeend', renderCardsFilter);
+
+//     if (renderCardsFilter) {
+//       blockFavorit.classList.add('hidden');
+//     } else favoriteFilterList.classList.add('hidden');
+
+//     favoriteFilterList.addEventListener('click', onFilterClick);
+//   })
+
+//   .catch(err => {
+//     console.warn(err);
+//   });
 
     const renderCardsFilter = createMarkup(arrayRecipesFilter);
     const renderFilter = createFilterMarkup(arrayRecipesFilter);
-    
+
     favoriteFilterList.insertAdjacentHTML('afterbegin', renderFilter);
     favoriteRecipesList.insertAdjacentHTML('beforeend', renderCardsFilter);
 
     if (renderCardsFilter) {
       blockFavorit.classList.add('hidden');
     } else favoriteFilterList.classList.add('hidden');
-    initRating()
-const recipeButtons = document.querySelectorAll('.recipe-btn');
-    recipeButtons.forEach(button => {
-      button.addEventListener('click', event => {
-        const clickedRecipeElement = event.currentTarget.id;
-        showModalAboutReciepts(clickedRecipeElement);
-      });
-    });
+
     favoriteFilterList.addEventListener('click', onFilterClick);
   })
 

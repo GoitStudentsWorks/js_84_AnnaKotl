@@ -134,4 +134,3 @@ function renderHashtags(data) {
 }
 
 // showModalAboutReciepts('6462a8f74c3d0ddd28897fc8');
-
