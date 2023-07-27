@@ -43,7 +43,6 @@ function clickBackdropClick(element) {
 
 export function showModalAboutReciepts(id) {
   recieptsOfFood(id).then(data => {
-    //   isFavorite(data._id);
     renderRanting(data);
     initRating();
     renderIngridient(data);
@@ -135,4 +134,3 @@ function renderHashtags(data) {
   refs.tagsRecipe.innerHTML = markup; // Change refs.hashtagsBox to refs.tagsRecipe
 }
 
-// showModalAboutReciepts('6462a8f74c3d0ddd28897fc8');
