@@ -38,10 +38,8 @@ recipesplaceholderInstance
     const renderCards = createMarkup(arrayRecipes);
 
     recipesList.insertAdjacentHTML('beforeend', renderCards);
-    // recipesList.innerHTML = createMarkup(arrayRecipes);
-    const heartButton = document.querySelector('.heart-button');
-    const cardsOfRecipe = document.querySelectorAll('.cards');
 
+    const heartButton = document.querySelectorAll('.heart-button');
     const recipeButtons = document.querySelectorAll('.see-recipe-btn');
 
     // console.log(renderCards);
@@ -145,30 +143,24 @@ function onSeeBtnClick(evt) {
   const clickedRecipeElement = evt.currentTarget.id;
   showModalAboutReciepts(clickedRecipeElement);
 }
-// function onHeartButtonClick(evt) {
-//   if (evt.target.tagName !== 'heartButton') return;
-//   let currentBtn = evt.target;
-//   console.dir(currentBtn);
-//   // currentBtn.classList.toggle('active');
-//   if (!currentBtn.classList.contains('active')) {
-//     currentBtn.classList.toggle('active');
-//   }
 
-// console.log([...cardsOfRecipe.filter(el => el.id === currentBtn.id)]);
-// JSON.stringify(
-//   [...arrayRecipes].filter(function (el) {
-//     return el.id === currentBtn.id;
-//   })
-// );
-// const storage = JSON.parse(localStorage.getItem('favorites')) || [];
-// if (currentBtn.classList.contains('active')) {
-//   localStorage.setItem('favorites', JSON.stringify(arrayRecipes));
-// } else {
-//   localStorage.setItem(
-//     'favorites',
-//     JSON.stringify([...arrayRecipes.filter(el => el.id !== currentBtn._id)])
-//   );
-// }
+function initRating() {
+  const ratingValue = parseFloat(
+    document.querySelector('.raitingAllFoods').textContent
+  );
+  const ratingActive = document.querySelector('.rating__activeAllFoods');
+  const percentageOfStars = ratingValue * 20 + '%';
+
+  ratingActive.style.setProperty('width', percentageOfStars);
+}
+
+const recipeButtons = document.querySelectorAll('.recipe-btn');
+recipeButtons.forEach(button => {
+  button.addEventListener('click', event => {
+    const clickedRecipeElement = event.currentTarget.id;
+    showModalAboutReciepts(clickedRecipeElement);
+  });
+});
 
 // const storage = localStorage.getItem('favorites');
 // const data = JSON.parse(storage);
