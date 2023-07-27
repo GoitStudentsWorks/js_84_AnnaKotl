@@ -1,13 +1,42 @@
 /* .mk-container {
 } */
+
+/* --------- додала Аня--------- */
+.master-thumb-swiper>.swiper-pagination {
+  bottom: -4px !important;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+  width: 7px;
+  height: 7px;
+  background: var(--dark-text-color);
+  border-radius: 50%;
+  opacity: inherit;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+}
+/* --------- додала Аня--------- */
+
+/* .swiper-pagination {
+  margin-top: 0;
+  margin-bottom: 10px;
+  width: 100%;
+} */
 .img {
   max-width: none;
 }
 .mk.swiper-wrapper {
   height: 303px;
   width: 497px;
+  cursor: pointer;
 }
 .mk-photo-wrapper {
+  position: relative;
   display: flex;
   min-width: 0;
   flex-direction: column;
@@ -18,6 +47,12 @@
   position: relative;
   overflow: hidden;
   z-index: -1;
+}
+.icon-hero {
+  position: absolute;
+  top: 5px;
+  left: 25px;
+  filter: blur(10px);
 }
 .mk-photo-wrapper.chief {
   height: 280px;
@@ -166,6 +201,8 @@
     line-height: 1.17;
   }
   /* .swiper-pagination {
-    height: 20px;
+    margin-bottom: 0px;
+    margin-top: 40px;
+    height: 30px;
   } */
 }

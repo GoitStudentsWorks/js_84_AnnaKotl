@@ -5,7 +5,6 @@ import './js/fill-categories.js';
 import './js/all-foods.js';
 import './js/heder-modal-menu.js';
 import './js/scroll-to-start.js';
-import './js/addToFavourite.js';
 
 // import './js/modal-order-now.js';
 // import './js/video-recipe.js';
