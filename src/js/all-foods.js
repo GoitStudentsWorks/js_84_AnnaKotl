@@ -80,6 +80,19 @@ recipesplaceholderInstance
       // console.log(cardId);
       return arrayRecipes.find(({ _id }) => _id === cardId);
     }
+    // function onHeartButtonClick(evt) {
+    //   evt.preventDefault();
+    //   const currentBtn = evt.currentTarget;
+    //   // console.log(currentBtn.id);
+    //   if (currentBtn.classList.contains('active')) {
+    //     currentBtn.classList.remove('active');
+    //   } else {
+    //     currentBtn.classList.toggle('active');
+    //     setToStorige();
+    //   }
+
+    //
+    // }
   })
   .catch(err => {
     console.warn(err);
