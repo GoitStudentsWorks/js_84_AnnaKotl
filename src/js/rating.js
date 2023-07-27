@@ -1,44 +1,44 @@
-import { setRecipeRating } from './api-kay-js-files/api-rating';
-import Notiflix from 'notiflix';
-import 'notiflix/src/notiflix.css';
+// import { setRecipeRating } from './api-kay-js-files/api-rating';
+// import Notiflix from 'notiflix';
+// import 'notiflix/src/notiflix.css';
 
 const refs = {
-  // openRatingModalBtn: document.querySelectorAll('.give-a-rating'),
+  openModalBtn: document.querySelectorAll('.give-a-rating'),
   closeModalBtn: document.querySelectorAll('.close-rating-btn'),
-  modalRatingCont: document.querySelector('.modal-rating'),
-  formRatingModal: document.querySelector('.modal-rating-content'),
-  idButtonRatingSubmit: document.getElementById('idButton'),
+  modal: document.querySelector('.modal-rating'),
+  form: document.querySelector('.modal-rating-content'),
+  idButton: document.getElementById('idButton'),
 };
 
-// refs.openRatingModalBtn.forEach(btn => btn.addEventListener('click', openModalRating));
-refs.closeModalBtn.forEach(btn => btn.addEventListener('click', closeModalRating));
-refs.formRatingModal.addEventListener('submit', sendForm);
+refs.openModalBtn.forEach(btn => btn.addEventListener('click', openModalRating));
+refs.closeModalBtn.forEach(btn => btn.addEventListener('click', closeModal));
+refs.form.addEventListener('submit', sendForm);
 
 export function openModalRating(e) {
   e.preventDefault();
   document.addEventListener('keydown', keyDownRate);
-  refs.modalRatingCont.classList.remove('is-hidden');
-  refs.modalRatingCont.addEventListener('click', closeBackdropRating);
+  refs.modal.classList.remove('is-hidden');
+  refs.modal.addEventListener('click', closeBackdrop);
   document.body.classList.add('modal-open');
 
-  clearRatingModalValue();
+  clearRating();
   setRatingValue(0.0);
 }
 
-function closeModalRating() {
+function closeModal() {
   document.removeEventListener('keydown', keyDownRate);
-  refs.modalRatingCont.removeEventListener('click', closeBackdropRating);
-  refs.modalRatingCont.classList.add('is-hidden');
+  refs.modal.removeEventListener('click', closeBackdrop);
+  refs.modal.classList.add('is-hidden');
   document.body.classList.remove('modal-open');
 
-  clearRatingModalValue();
+  clearRating();
   setRatingValue(0.0);
   clearEmailInput();
 }
 
-function closeBackdropRating(e) {
+function closeBackdrop(e) {
   if (e.target === refs.modal) {
-    closeModalRating();
+    closeModal();
   }
 }
 
@@ -47,18 +47,18 @@ function clearEmailInput() {
   emailInput.value = '';
 }
 
-function clearRatingModalValue() {
+function clearRating() {
   const ratingIcons = document.querySelectorAll('.rating-modal-form-icon');
   ratingIcons.forEach(icon => icon.classList.remove('active'));
 }
 
 function toggleModal() {
-  refs.modalRatingCont.classList.toggle('is-hidden');
+  refs.modal.classList.toggle('is-hidden');
 }
 
 function keyDownRate(e) {
   if (e.key === 'Escape') {
-    closeModalRating();
+    closeModal();
     e.target.blur();
   }
 }
@@ -66,12 +66,12 @@ function keyDownRate(e) {
 async function sendForm(e) {
   try {
     e.preventDefault();
-    const id = refs.idButtonRatingSubmit.getAttribute('data-recipe-id');
+    const id = refs.idButton.getAttribute('data-recipe-id');
     const result = await setRecipeRating(id, getArgs(e.currentTarget.elements));
     if (!result) return Notiflix.Notify.failure('Send rating failure');
     Notiflix.Notify.success('Thank you for your rating');
-    clearRatingModalValue();
-    refs.formRatingModal.reset();
+    clearRating();
+    refs.form.reset();
     toggleModal();
     clearEmailInput();
   } catch (err) {
