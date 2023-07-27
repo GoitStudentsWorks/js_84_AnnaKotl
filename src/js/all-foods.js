@@ -32,8 +32,6 @@ recipesplaceholderInstance
   .fetchRecipes()
   .then(data => {
     arrayRecipes = data.results;
-  filter-of-favorite-foods
-
 
     const renderCards = createMarkup(arrayRecipes);
 
@@ -73,15 +71,6 @@ recipesplaceholderInstance
     function findRecipe(elem) {
       const cardId = elem.closest('.cards').dataset.id;
       return arrayRecipes.find(({ _id }) => _id === cardId);
-    }
-    function initRating() {
-      const ratingValue = parseFloat(
-        document.querySelector('.raitingAllFoods').textContent
-      );
-      const ratingActive = document.querySelector('.rating__activeAllFoods');
-      const percentageOfStars = ratingValue * 20 + '%';
-
-      ratingActive.style.setProperty('width', percentageOfStars);
     }
   })
   .catch(err => {
@@ -155,6 +144,15 @@ recipeButtons.forEach(button => {
   });
 });
 
+function initRating() {
+  const ratingValue = parseFloat(
+    document.querySelector('.raitingAllFoods').textContent
+  );
+  const ratingActive = document.querySelector('.rating__activeAllFoods');
+  const percentageOfStars = ratingValue * 20 + '%';
+
+  ratingActive.style.setProperty('width', percentageOfStars);
+}
 // const storage = localStorage.getItem('favorites');
 // const data = JSON.parse(storage);
 // if (storage && data.find(el => el.id === id)) {
