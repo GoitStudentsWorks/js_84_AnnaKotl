@@ -182,9 +182,7 @@ function funremoveFromFavourite() {
 }
 
 
-const card = {
-  _id: 'recipeId' 
-};
+
 let favoriteArr = JSON.parse(localStorage.getItem('favorites')) || [];
 
 function isRecieptFavourite(data) {
