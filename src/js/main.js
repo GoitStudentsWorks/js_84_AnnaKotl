@@ -13,7 +13,7 @@ import './all-foods.js';
 import './heder-modal-menu.js';
 import './scroll-to-start.js';
 
-import './video-recipe.js';
+// import './video-recipe.js';
 import './popular-recipes.js';
 
 // All API js files
