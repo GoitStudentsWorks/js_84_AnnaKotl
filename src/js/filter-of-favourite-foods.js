@@ -64,7 +64,7 @@ function createFilterMarkup(arr) {
     .join('');
 }
 
-function onFilterClick(evt) {
+export function onFilterClick(evt) {
   if (evt.target.tagName !== 'BUTTON') return;
   let filterClass = evt.target.textContent;
   //console.log(filterClass);
