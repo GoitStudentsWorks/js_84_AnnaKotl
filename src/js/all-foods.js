@@ -25,7 +25,7 @@ const recipesList = document.querySelector('.recipes-list');
 
 const recipesplaceholderInstance = new RecipesPlaceholderAPI();
 const maxLength = 65;
-let arrayRecipes = {};
+export let arrayRecipes = {};
 export const favoriteArr = JSON.parse(localStorage.getItem('favorites')) ?? [];
 
 recipesplaceholderInstance
@@ -162,7 +162,7 @@ export function onHeartButtonClick(evt) {
 //  }
 //}
 
-function findRecipe(elem) {
+export function findRecipe(elem) {
   const cardId = elem.closest('.cards').dataset.id;
   return arrayRecipes.find(({ _id }) => _id === cardId);
 }
