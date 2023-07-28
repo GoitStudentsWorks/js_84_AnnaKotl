@@ -50,9 +50,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #050505;
   background-color: transparent;
   border: none;
+  color: #050505;
   padding: 0;
   cursor: pointer;
 }
@@ -73,6 +73,7 @@
   height: 32px;
   stroke: #050505;
 }
+
 /* ---TOGGLE SWITCH--- */
 .switcher-input[type='checkbox'] {
   height: 0;
@@ -154,7 +155,7 @@
   padding: 0;
   padding-top: 200px;
 
-  background-color: #050505;
+  background-color: #9bb537;
   z-index: 999;
 
   transform: translateX(-100%);
@@ -196,6 +197,9 @@
 @media screen and (max-width: 767px) {
   .nav-list {
     display: none;
+  }
+  .nav-item .item {
+    border: none;
   }
   .theme-switcher.main {
     display: none;
