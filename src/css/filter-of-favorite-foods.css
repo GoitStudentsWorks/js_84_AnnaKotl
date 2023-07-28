@@ -17,7 +17,7 @@
   margin-top: 64px;
   margin-bottom: 32px;
 }
-.filter-btn {
+.ff-btn {
   padding: 14px 18px;
   text-align: center;
   color: rgba(5, 5, 5, 0.3);
@@ -28,8 +28,8 @@
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.filter-btn:hover,
-.filter-btn:focus {
+.ff-btn:hover,
+.ff-btn:focus {
   color: #f8f8f8;
   background-color: #9bb537;
   border: 1px solid #9bb537;
@@ -40,19 +40,7 @@
     line-height: 1.25;
   }
 }
-/* .hidden {
-  position: absolute;
-  opacity: 1;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-} */
+
 .hidden {
   opacity: 1;
   animation-name: a1;
@@ -74,7 +62,6 @@
   }
 }
 
-/* потом удалить */
 .favorite-recipes-list {
   display: block;
   margin-bottom: 64px;
@@ -123,6 +110,9 @@
     ),
     no-repeat;
 }
+.rating-panel-favorite {
+  position: relative;
+}
 .title-favor {
   color: #f8f8f8;
   font-family: Inter;
@@ -148,7 +138,7 @@
 .rating-panel-favorite {
   display: flex;
   align-items: flex-end;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 16px;
   width: 100%;
   height: 100%;
@@ -172,6 +162,28 @@
 .recipe-btn:focus {
   color: #050505;
 }
+
+.heart-fav-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  width: 22px;
+  height: 22px;
+  color: #f8f8f8;
+  background-color: inherit;
+  margin: 16px;
+  border: none;
+  padding: 0;
+}
+
+.heart-fav-button.active {
+  fill: currentColor;
+}
+
 @media screen and (min-width: 768px) {
   .cards-favorite {
     width: calc((100% - 32px) / 3);

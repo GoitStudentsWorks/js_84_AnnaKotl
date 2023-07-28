@@ -54,6 +54,7 @@
     align-items: center;
     justify-content: center;
     margin: 40px auto 0;
+    padding-bottom: 100px;
 }
 .tui-pagination .tui-first+.tui-prev {
     background-color: var(--primary-text-color);

@@ -1,64 +1,93 @@
 <section class="con-select">
-    <div class="con-search">
-      <h2 class="text-search">Search</h2>
-      <div class="con-inp">
-        <input class="inp-search" 
-        type="text" 
-        name="searchQuery" 
-        autocomplete="off" 
-        placeholder="Enter Text">
-        <button type="button" aria-label="btn search" class="btn-search">
-          <svg class="svg-search" width="18px" height="18px">
-            <use class="svg-search-icon" href="./images/symbol-defs.svg#icon-search"></use>
-          </svg>
-        </button>
-        <button type="button" aria-label="btn cancel" class="btn-cancel">
-          <svg class="svg-cacel" width="18px" height="18px">
-            <use class="svg-cancel-icon" href="./images/symbol-defs.svg#icon-close"></use>
-          </svg>
-        </button>
-      </div>
+  <div class="con-search">
+    <h2 class="text-search" data-change-color="true">Search</h2>
+    <div class="con-inp">
+      <input
+        class="inp-search"
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Enter Text"
+        data-change-background="true"
+      />
+      <button type="button" aria-label="btn search" class="btn-search">
+        <svg class="svg-search" width="18px" height="18px">
+          <use
+            class="svg-search-icon"
+            href="./images/symbol-defs.svg#icon-search"
+          ></use>
+        </svg>
+      </button>
+      <button type="button" aria-label="btn cancel" class="btn-cancel">
+        <svg class="svg-cacel" width="18px" height="18px">
+          <use
+            class="svg-cancel-icon"
+            href="./images/symbol-defs.svg#icon-close"
+          ></use>
+        </svg>
+      </button>
     </div>
-    <div class="item-select time">
-      <h2 class="text-search">Time</h2>
-      <div class="custom-select">
-        <div class="selected-option js-for-selected" id="time-toggle">
-          <span class="elem-prev">0 min</span>
-          <svg class="search-arrow" width="18px" height="18px">
-            <use href="./images/symbol-defs.svg#icon-chevron"></use>
-          </svg>
-        </div>
-        <ul class="options-list" id="timesearch">
-          
-        </ul>
+  </div>
+  <div class="item-select time">
+    <h2 class="text-search" data-change-color="true">Time</h2>
+    <div class="custom-select">
+      <div
+        class="selected-option js-for-selected"
+        id="time-toggle"
+        data-change-background="true"
+      >
+        <span class="elem-prev">min</span>
+        <svg class="search-arrow" width="18px" height="18px">
+          <use href="./images/symbol-defs.svg#icon-chevron"></use>
+        </svg>
       </div>
+      <ul class="options-list" id="timesearch"></ul>
     </div>
-    <div class="item-select area">
-      <h2 class="text-search">Area</h2>
-      <div class="custom-select">
-        <div class="selected-option selected-area js-for-selected" id="area-toggle">
-          <span class="elem-prev">Region</span>
-          <svg class="search-arrow" width="18px" height="18px">
-            <use href="./images/symbol-defs.svg#icon-chevron"></use>
-          </svg>
-        </div>
-        <ul class="options-list" id="arealist">
-  
-        </ul>
+  </div>
+  <div class="item-select area">
+    <h2 class="text-search" data-change-color="true">Area</h2>
+    <div class="custom-select">
+      <div
+        class="selected-option selected-area js-for-selected"
+        id="area-toggle"
+        data-change-background="true"
+      >
+        <span class="elem-prev">Region</span>
+        <svg class="search-arrow" width="18px" height="18px">
+          <use href="./images/symbol-defs.svg#icon-chevron"></use>
+        </svg>
       </div>
+      <ul class="options-list" id="arealist"></ul>
     </div>
-    <div class="item-select ingredients">
-      <h2 class="text-search">Ingredients</h2>
-      <div class="custom-select">
-        <div class="item-ingridienst js-for-selected" id="ingredients-toggle">
-          <span class="elem-prev">Products</span>
-          <svg class="search-arrow" width="18px" height="18px">
-            <use href="./images/symbol-defs.svg#icon-chevron"></use>
-          </svg>
-        </div>
-        <ul class="options-list" id="ingredients">
-  
-        </ul>
+  </div>
+  <div class="item-select ingredients" data-change-bg="true">
+    <h2 class="text-search" data-change-color="true">Ingredients</h2>
+    <div class="custom-select">
+      <div
+        class="item-ingridienst js-for-selected"
+        id="ingredients-toggle"
+        data-change-background="true"
+      >
+        <span class="elem-prev">Products</span>
+        <svg class="search-arrow" width="18px" height="18px">
+          <use href="./images/symbol-defs.svg#icon-chevron"></use>
+        </svg>
       </div>
+      <ul class="options-list" id="ingredients"></ul>
     </div>
+  </div>
+</section>
+
+<section>
+  <button class="clear-button">
+    <svg class="svg-button-click" width="16" height="16">
+      <use
+        href="./images/symbol-defs.svg#icon-close"
+        class="svg-icon-clean-button"
+      ></use></svg
+    >Reset the filter
+  </button>
+  <h2 style="display: none">Recipes</h2>
+  <!--<div id="image-container" class="image-container"></div>
+<div id="pagination" class="tui-pagination"></div>-->
 </section>

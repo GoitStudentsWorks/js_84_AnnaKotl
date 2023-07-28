@@ -1,9 +1,5 @@
-// Js для відкриття/закриття модального вікна
-
 const openModalBtn = document.getElementById('openModalOrderNowBtn');
-const openModalBtnSecond = document.getElementById(
-  'openModalOrderNowBtnSecond'
-);
+const openModalBtnSecond = document.getElementById('openModalOrderNowBtnSecond');
 const closeModalBtn = document.getElementById('closeModalOrderNowBtn');
 const modal = document.getElementById('modalordernow');
 const backdropmodal = document.getElementById('backdropmodalordernow');
@@ -41,11 +37,13 @@ function escPress(key) {
   }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  clearFormFields(); 
+});
+
 openModalBtn.addEventListener('click', openModalOrderNow);
 openModalBtnSecond.addEventListener('click', openModalOrderNow);
 closeModalBtn.addEventListener('click', closeModalOrderNow);
-
-//Js для відправки введених даних на бекенд
 
 const feedbackForm = document.querySelector('.ordernow-form');
 const nameInput = feedbackForm.querySelector('input[name="name"]');
@@ -82,7 +80,7 @@ feedbackForm.addEventListener('submit', event => {
     message: messageInput.value,
   };
 
-  localStorage.removeItem('feedback-form-state');
+  localStorage.removeItem('feedback-form-state'); 
 
   nameInput.value = '';
   phoneInput.value = '';
@@ -91,5 +89,3 @@ feedbackForm.addEventListener('submit', event => {
 
   console.log(formData);
 });
-
-console.log(openModalBtn);

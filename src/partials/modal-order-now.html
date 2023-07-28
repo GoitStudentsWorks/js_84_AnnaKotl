@@ -1,18 +1,26 @@
 <div class="backdrop-modal-order-now" id="backdropmodalordernow">
   <div class="modal-ordernow-container" id="modalordernow">
-    <form class="ordernow-form" autocomplete="off" id="formordernow">
+    <form
+      class="ordernow-form"
+      autocomplete="off"
+      id="formordernow"
+      data-change-bg="true"
+    >
       <button
         class="modal-order-now-close-button"
         type="button"
         id="closeModalOrderNowBtn"
+        data-change-color="true"
       >
         <svg class="modal-order-now-close-button-icon" width="20" height="20">
           <use href="/src/images/symbol-defs.svg#icon-close-modal-r"></use>
         </svg>
       </button>
-      <h1 class="modal-tittle">Order Now</h1>
+      <h1 class="modal-tittle" data-change-color="true">Order Now</h1>
       <label class="modal-order-now-form-field label">
-        <span class="modal-order-now-name modal-text">Name</span>
+        <span class="modal-order-now-name modal-text" data-change-color="true"
+          >Name</span
+        >
         <span class="modal-order-now-form-input-wrapper">
           <input
             class="input"
@@ -26,7 +34,7 @@
         </span>
       </label>
       <label class="modal-order-now-phone label" for="phone">
-        <span class="modal-text">Phone</span>
+        <span class="modal-text" data-change-color="true">Phone</span>
         <input
           class="input"
           type="tel"
@@ -34,11 +42,12 @@
           name="phone"
           pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           placeholder="Your telephone"
+          title="Please enter a valid phone number in the format xxx-xxx-xxxx"
           required
         />
       </label>
       <label class="modal-order-now-email label"
-        ><span class="modal-text"> Email</span>
+        ><span class="modal-text" data-change-color="true"> Email</span>
         <input
           class="input"
           type="email"
@@ -49,7 +58,7 @@
         />
       </label>
       <label class="modal-order-now-comment">
-        <span class="modal-text">Comment</span>
+        <span class="modal-text" data-change-color="true">Comment</span>
         <textarea class="comment" name="message" rows="8"></textarea>
       </label>
       <div class="modal-btn-container">

@@ -19,24 +19,24 @@
 
 /* BASE CSS */
 :root {
-    --dark-text-color: #050505;
-    --light-text-color: #F8F8F8;
-    --dark-text-color-with-blur : rgba(5, 5, 5, 0.50);
-    --accent-color: #9BB537;
-    --bgc-light-them: #FFFFFF;
-    --bgc-dark-them: #161616;
+  --dark-text-color: #050505;
+  --light-text-color: #f8f8f8;
+  --dark-text-color-with-blur: rgba(5, 5, 5, 0.5);
+  --accent-color: #9bb537;
+  --bgc-light-them: #ffffff;
+  --bgc-dark-them: #161616;
 }
 
 body {
-    background-color: var(--light-text-color);
-    margin: 0;
-    font-family: "Inter", sans-serif;
-    align-items: center;
+  background-color: var(--light-text-color);
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  align-items: center;
 }
 
 button,
 a {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 h1,
@@ -46,88 +46,114 @@ h4,
 h5,
 h6,
 p {
-    margin: 0;
+  margin: 0;
 }
 
 ul {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 ul,
 li {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .container {
-    min-width: 300px;
-    max-width: 375px;
-    padding: 0 20px;
+  min-width: 300px;
+  max-width: 375px;
+  padding: 0 20px;
 }
 
 .main-container {
-    width: 335px;
+  width: 335px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dark-mode {
+  background-color: #161616;
+  color: #fff;
+}
+
+/* Стили для изменения цвета текста */
+.dark-mode [data-change-color='true'] {
+  color: #fff;
+}
+
+/* Стили для изменения фонового цвета */
+.dark-mode [data-change-bg='true'] {
+  background-color: #161616;
+}
+/* Стили для изменения цвета фона */
+.dark-mode [data-change-background='true'] {
+  background-color: #fff;
+}
+@media screen and (min-width: 280px) and (max-width: 320px) {
+  .main-container {
+    padding: 0 10px;
     margin-left: auto;
     margin-right: auto;
+  }
 }
 @media screen and (min-width: 768px) {
-    .container {
-        padding: 0 32px;
-    }
-    .main-container {
-        width: 704px;
-    }
-    .section-container {
-       display: flex;
-       flex-wrap: wrap;
-       gap: 32px; 
-    }
-    .left-container {
-        width: 176px;
-    }
-    .right-container {
-        width: 496px;
-    }
+  .container {
+    padding: 0 32px;
+  }
+  .main-container {
+    width: 704px;
+  }
+  .section-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  .left-container {
+    width: 176px;
+  }
+  .right-container {
+    width: 496px;
+  }
 }
 @media screen and (min-width: 1280px) {
-    .container {
-        padding: 0px 100px;
-        margin: 0 auto;
-        max-width: 1480px;
-    }
-    .main-container {
-        width: 1080px;
-    }
-    .left-container {
-        width: 235px;
-    }
-    .right-container {
-        width: 780px;
-    }
-    .section-container {
-        gap: 64px;
-    }
+  .container {
+    padding: 0px 100px;
+    margin: 0 auto;
+    max-width: 1480px;
+  }
+  .main-container {
+    width: 1080px;
+  }
+  .left-container {
+    width: 235px;
+  }
+  .right-container {
+    width: 780px;
+  }
+  .section-container {
+    gap: 64px;
+  }
 }
