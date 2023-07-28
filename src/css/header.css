@@ -24,6 +24,9 @@
   border: none;
   padding: 0;
 }
+.nav-item-burger.item {
+  border: none;
+}
 .logo-header {
   color: #9bb537;
   text-align: center;
@@ -198,7 +201,7 @@
   .nav-list {
     display: none;
   }
-  .nav-item .item {
+  .nav-item.item {
     border: none;
   }
   .theme-switcher.main {

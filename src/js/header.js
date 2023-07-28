@@ -1,4 +1,4 @@
-// JavaScript код для переключения темы сайта
+
 const themeSwitcher = document.getElementById('switch');
 const mobileThemeSwitcher = document.getElementById('mobile-switch');
 const body = document.body;
