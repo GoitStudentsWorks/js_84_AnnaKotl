@@ -214,6 +214,7 @@ function funremoveFromFavourite() {
 }
 
 // Add event listeners to the respective buttons
+
 refs.addToFavoriteBtn?.addEventListener('click', () => {
   const cardId = recipeId; 
   onFavouriteBtnClick(cardId);
