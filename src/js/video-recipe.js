@@ -150,10 +150,6 @@ function renderHashtags(data) {
 }
 
 
-
-<<<<<<< HEAD
-=======
-
 function isRecieptFavourite(data) {
   if (localStorage.getItem('favorites').includes(data._id)) {
     refs.addToFavoriteBtn.style.display = 'none';
@@ -197,9 +193,6 @@ function isRecieptFavourite(data) {
     refs.removeFromFavourite.style.display = 'none';
   }
 }
-<<<<<<< HEAD
-function funremoveFromFavourite(localStorageObj, id) {
-=======
 
 function onFavouriteBtnClick(id) { // Передайте идентификатор рецепта как параметр
   const recipe = arrayRecipes.find(({ _id }) => _id === id);
@@ -213,7 +206,6 @@ function funremoveFromFavourite() {
   const recipeIndex = favoriteArr.findIndex(({ _id }) => _id === card._id);
   favoriteArr.splice(recipeIndex, 1);
   localStorage.setItem('favorites', JSON.stringify(favoriteArr));
->>>>>>> parent of 6c5544d (Merge pull request #134 from AnnaKotl/reciept-info)
   refs.addToFavoriteBtn.style.display = 'block';
   refs.removeFromFavourite.style.display = 'none';
   favRecipesObj = omit(localStorageObj, id);
