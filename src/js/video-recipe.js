@@ -1,6 +1,6 @@
 import { favoriteArr } from './all-foods';
-import { arrayRecipes } from './all-foods'; 
-import { findRecipe } from './all-foods';
+import axios from 'axios';
+import { omit } from 'lodash';
 
 export let refs = {
   removeFromFavourite :document.querySelector('.btn-remove'),
@@ -16,17 +16,14 @@ export let refs = {
   instructionsRecipe: document.querySelector('.instructions-recipe'),
   videoRecipe: document.querySelector('.video-recipe'),
 };
-
 refs.closeBtn?.addEventListener('click', closeModalClose);
 refs.backdropRecipe?.addEventListener('click', clickBackdropClick);
-
 function openModalOpen() {
   setTimeout(() => {
     window.addEventListener('keydown', onEscPress);
     document.body.classList.add('overflowHidden');
     refs.backdropRecipe.classList.add('active');
     refs.modalRecipe.classList.add('active');
-
     const card = findRecipe(refs.addToFavoriteBtn);
     const inStorage = favoriteArr.some(({ _id }) => _id === card._id);
     if (inStorage) {
@@ -38,14 +35,12 @@ function openModalOpen() {
     }
   }, 50);
 }
-
 function closeModalClose() {
   window.removeEventListener('keydown', onEscPress);
   document.body.classList.remove('overflowHidden');
   refs.backdropRecipe.classList.remove('active');
   refs.modalRecipe.classList.remove('active');
 }
-
 function onEscPress(key) {
   if (key.code === 'Escape') {
     closeModalClose();
@@ -54,7 +49,6 @@ function onEscPress(key) {
 function clickBackdropClick(element) {
   if (element.currentTarget === element.target) closeModalClose();
 }
-
 export function showModalAboutReciepts(id) {
   recieptsOfFood(id).then(data => {
     isRecieptFavourite(data); 
@@ -68,7 +62,6 @@ export function showModalAboutReciepts(id) {
     recipeId = data._id;
   });
 }
-
 async function recieptsOfFood(id) {
   const resp = await fetch(
     `https://tasty-treats-backend.p.goit.global/api/recipes/${id}`
@@ -76,24 +69,20 @@ async function recieptsOfFood(id) {
   const data = await resp.json();
   return data;
 }
-
 function renderText(data) {
   refs.recieptsTitle.textContent = data.title;
   refs.videoRecipe.src = data.preview;
   refs.instructionsRecipe.textContent = data.instructions;
   refs.minutesRecipe.textContent = data.time + ' min';
 }
-
 function initRating() {
   const ratingValue = parseFloat(
     document.querySelector('.rating__value.detail').textContent
   );
   const ratingActive = document.querySelector('.rating__active');
   const percentageOfStars = ratingValue * 20 + '%';
-
   ratingActive.style.setProperty('width', percentageOfStars);
 }
-
 function getKeyYouTybe(url) {
   let indexLast = url.split('').length;
   let key = url.split('').splice(32, indexLast).join('');
@@ -113,7 +102,6 @@ allowfullscreen
 `;
   refs.videoRecipe.innerHTML = markUp;
 }
-
 function renderRanting(data) {
   let markupR = `
     <div class="cards__rating rating">
@@ -124,7 +112,6 @@ function renderRanting(data) {
   </div>`;
   refs.ratingRecipe.innerHTML = markupR; // Change refs.ratingBox to refs.ratingRecipe
 }
-
 function renderIngridient(data) {
   const markup = data.ingredients
     .map(
@@ -138,7 +125,6 @@ function renderIngridient(data) {
     .join('');
   refs.ingredientsRecipe.innerHTML = markup; // Change refs.IngredientBox to refs.ingredientsRecipe
 }
-
 function renderHashtags(data) {
   if (data.tags.length === 0) {
     return;
@@ -149,42 +135,6 @@ function renderHashtags(data) {
   refs.tagsRecipe.innerHTML = markup; // Change refs.hashtagsBox to refs.tagsRecipe
 }
 
-
-
-
-function isRecieptFavourite(data) {
-  if (localStorage.getItem('favorites').includes(data._id)) {
-    refs.addToFavoriteBtn.style.display = 'none';
-    refs.removeFromFavourite.style.display = 'block';
-  } else {
-    refs.addToFavoriteBtn.style.display = 'block';
-    refs.removeFromFavourite.style.display = 'none';
-  }
-}
-
-
-function onFavouriteBtnClick() {
-    favoriteArr.push(card);
-    refs.addToFavoriteBtn.style.display = 'none';
-    refs.removeFromFavourite.style.display = 'block';
-    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
- const inStorage = favoriteArr.some(({ _id }) => _id === data._id);
-    if (inStorage) {
-      return;
-    }
-} 
-function funremoveFromFavourite() {
-    const recipeIndex = favoriteArr.findIndex(({ _id }) => _id === data._id);
-    favoriteArr.splice(recipeIndex, 1);
-    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
-    refs.addToFavoriteBtn.style.display = 'none';
-    refs.removeFromFavourite.style.display = 'block';
-}
-
-
-const card = {
-  _id: 'recipeId' 
-};
 let favoriteArr = JSON.parse(localStorage.getItem('favorites')) || [];
 
 function isRecieptFavourite(data) {
@@ -197,7 +147,7 @@ function isRecieptFavourite(data) {
   }
 }
 
-function onFavouriteBtnClick(id) { // Передайте идентификатор рецепта как параметр
+function onFavouriteBtnClick(id) { // Use the function that takes the 'id' parameter
   const recipe = arrayRecipes.find(({ _id }) => _id === id);
   favoriteArr.push(recipe);
   refs.addToFavoriteBtn.style.display = 'none';
@@ -211,87 +161,22 @@ function funremoveFromFavourite() {
   localStorage.setItem('favorites', JSON.stringify(favoriteArr));
   refs.addToFavoriteBtn.style.display = 'block';
   refs.removeFromFavourite.style.display = 'none';
+  favRecipesObj = omit(localStorageObj, id);
+  localStorage.save('favorites', favRecipesObj);
 }
-
-// Add event listeners to the respective buttons
-
-refs.addToFavoriteBtn?.addEventListener('click', () => {
-  const cardId = recipeId; 
-  onFavouriteBtnClick(cardId);
-});
-refs.removeFromFavourite?.addEventListener('click', funremoveFromFavourite);
-
-
-// function funremoveFromFavourite(localStorageObj, id) {
-//   refs.addToFavoriteBtn.style.display = 'block';
-//   refs.removeFromFavourite.style.display = 'none';
-//   favRecipesObj = omit(localStorageObj, id);
-//   localStorage.save('favorites', favRecipesObj);
-// }
-// async function onFavouriteBtnClick(localStorageObj = {}, id) {
-//   const data = await getInfo(id);
-//   refs.addToFavoriteBtn.style.display = 'none';
-//   refs.removeFromFavourite.style.display = 'block';
-//   localStorageObj[id] = data;
-//   localctorage.save('favorites', localStorageObj);
-
-//   return localStorageObj;
-// }
-
-// function isRecieptFavourite(data) {
-//   if (localStorage.getItem('favorites').includes(data._id)) {
-//     refs.addToFavoriteBtn.classList.add('active');
-//     refs.addToFavoriteBtn.textContent = 'Remove from favorite';
-//   } else {
-//     refs.addToFavoriteBtn.classList.remove('active');
-//     refs.addToFavoriteBtn.textContent = 'Add to Favorite';
-//   }
-// }
-// function onFavouriteBtnClick() {
-//   const card = findRecipe(refs.addToFavoriteBtn); // Find the recipe associated with the button
-//   const inStorage = favoriteArr.some(({ _id }) => _id === card._id);
-
-//   if (!inStorage) {
-//     // If the recipe is not in favorites, add it
-//     favoriteArr.push(card);
-//     localStorage.setItem('favorites', JSON.stringify(favoriteArr));
-//     refs.addToFavoriteBtn.classList.add('active');
-//     refs.addToFavoriteBtn.textContent = 'Remove from Favorite';
-//   } else {
-//     // If the recipe is already in favorites, remove it
-//     favoriteArr = favoriteArr.filter(({ _id }) => _id !== card._id);
-//     localStorage.setItem('favorites', JSON.stringify(favoriteArr));
-//     refs.addToFavoriteBtn.classList.remove('active');
-//     refs.addToFavoriteBtn.textContent = 'Add to Favorite';
-//   }
-// }
-
-// refs.addToFavoriteBtn.addEventListener('click', onFavouriteBtnClick);
-
-
-
-
-
-// function onFavouriteBtnClick() {
-//   refs.addToFavoriteBtn.classList.toggle('active'); // Toggle the active class on the button
-
-//   const card = findRecipe(refs.addToFavoriteBtn); // Find the recipe associated with the button
-//   const inStorage = favoriteArr.some(({ _id }) => _id === card._id);
-
-//   if (refs.addToFavoriteBtn.classList.contains('active')) {
-//     // If the button is being added to favorites
-//     if (!inStorage) {
-//       favoriteArr.push(card); // Add the recipe to favoriteArr
-//       localStorage.setItem('favorites', JSON.stringify(favoriteArr)); // Update localStorage
-//     }
-//   } else {
-//     // If the button is being removed from favorites
-//     if (inStorage) {
-//       favoriteArr = favoriteArr.filter(({ _id }) => _id !== card._id); // Remove the recipe from favoriteArr
-//       localStorage.setItem('favorites', JSON.stringify(favoriteArr)); // Update localStorage
-//     }
-//   }
-// }
-
-
-// refs.addToFavoriteBtn.addEventListener('click', onFavouriteBtnClick);
+async function onFavouriteBtnClick(localStorageObj = {}, id) {
+  const data = await getInfo(id);
+ refs.addToFavoriteBtn.style.display = 'none';
+    refs.removeFromFavourite.style.display = 'block';
+  localStorageObj[id] = data;
+  localctorage.save('favorites', localStorageObj);
+  return localStorageObj;
+}
+async function getInfo(id) {
+  const response = await axios.get(
+    `https://tasty-treats-backend.p.goit.global/api/recipes/${id}`
+  );
+  return response.data;
+}
+refs.addToFavoriteBtn.addEventListener('click', onFavouriteBtnClick);
+refs.removeFromFavourite.addEventListener('click', funremoveFromFavourite);
