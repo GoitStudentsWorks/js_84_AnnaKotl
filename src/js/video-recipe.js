@@ -149,40 +149,6 @@ function renderHashtags(data) {
   refs.tagsRecipe.innerHTML = markup; // Change refs.hashtagsBox to refs.tagsRecipe
 }
 
-
-
-
-function isRecieptFavourite(data) {
-  if (localStorage.getItem('favorites').includes(data._id)) {
-    refs.addToFavoriteBtn.style.display = 'none';
-    refs.removeFromFavourite.style.display = 'block';
-  } else {
-    refs.addToFavoriteBtn.style.display = 'block';
-    refs.removeFromFavourite.style.display = 'none';
-  }
-}
-
-
-function onFavouriteBtnClick() {
-    favoriteArr.push(card);
-    refs.addToFavoriteBtn.style.display = 'none';
-    refs.removeFromFavourite.style.display = 'block';
-    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
- const inStorage = favoriteArr.some(({ _id }) => _id === data._id);
-    if (inStorage) {
-      return;
-    }
-} 
-function funremoveFromFavourite() {
-    const recipeIndex = favoriteArr.findIndex(({ _id }) => _id === data._id);
-    favoriteArr.splice(recipeIndex, 1);
-    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
-    refs.addToFavoriteBtn.style.display = 'none';
-    refs.removeFromFavourite.style.display = 'block';
-}
-
-
-
 let favoriteArr = JSON.parse(localStorage.getItem('favorites')) || [];
 
 function isRecieptFavourite(data) {
@@ -195,7 +161,7 @@ function isRecieptFavourite(data) {
   }
 }
 
-function onFavouriteBtnClick(id) { // Передайте идентификатор рецепта как параметр
+function onFavouriteBtnClick(id) { // Use the function that takes the 'id' parameter
   const recipe = arrayRecipes.find(({ _id }) => _id === id);
   favoriteArr.push(recipe);
   refs.addToFavoriteBtn.style.display = 'none';
