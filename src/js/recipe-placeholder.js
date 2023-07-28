@@ -2,7 +2,22 @@ import Pagination from 'tui-pagination';
 import { createMarkup } from './all-foods';
 
 function getPagination({ page, perPage, totalPages }) {
-    const container = document.getElementById('tui-pagination-container');
+  const container = document.getElementById('tui-pagination-container');
+  const windowWidth = document.documentElement.clientWidth;
+let  totalItems = 0;
+let visiblePages = 0;
+if (windowWidth < 768) {
+  visiblePages = 2;
+   totalItems = 6;
+} else if (windowWidth > 768 && windowWidth < 1280) {
+  visiblePages = 3;
+ totalItems = 8;
+} else if (windowWidth > 1280) {
+  visiblePages = 3;
+  totalItems = 9;
+}
+
+
     const options = {
         totalItems: totalPages * perPage,
         itemsPerPage: perPage,
@@ -52,3 +67,27 @@ async function getRecipes(page = 1) {
 getRecipes();
 
 
+// let visiblePages; // Declare the variable in the appropriate scope
+
+// function mobPagination() {
+//   const windowWidth = document.documentElement.clientWidth;
+
+//   if (windowWidth < 768) {
+//     visiblePages = 2;
+//   } else {
+//     visiblePages = 3;
+//   }
+// }
+
+// Call the function to set the value of visiblePages
+// mobPagination();
+
+// const windowWidth = document.documentElement.clientWidth;
+// let limitCount = 0;
+// if (windowWidth < 768) {
+//   limitCount = 6;
+// } else if (windowWidth > 768 && windowWidth < 1280) {
+//   limitCount = 8;
+// } else if (windowWidth > 1280) {
+//   limitCount = 9;
+// }
