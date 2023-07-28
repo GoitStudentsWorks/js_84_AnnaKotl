@@ -182,7 +182,6 @@ function funremoveFromFavourite() {
 
 
 let favoriteArr = JSON.parse(localStorage.getItem('favorites')) || [];
->>>>>>> parent of 6c5544d (Merge pull request #134 from AnnaKotl/reciept-info)
 
 function isRecieptFavourite(data) {
   if (localStorage.getItem('favorites').includes(data._id)) {
