@@ -40,19 +40,7 @@
     line-height: 1.25;
   }
 }
-/* .hidden {
-  position: absolute;
-  opacity: 1;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-} */
+
 .hidden {
   opacity: 1;
   animation-name: a1;
@@ -74,7 +62,6 @@
   }
 }
 
-/* потом удалить */
 .favorite-recipes-list {
   display: block;
   margin-bottom: 64px;
@@ -175,6 +162,28 @@
 .recipe-btn:focus {
   color: #050505;
 }
+
+.heart-fav-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  width: 22px;
+  height: 22px;
+  color: #f8f8f8;
+  background-color: inherit;
+  margin: 16px;
+  border: none;
+  padding: 0;
+}
+
+.heart-fav-button.active {
+  fill: currentColor;
+}
+
 @media screen and (min-width: 768px) {
   .cards-favorite {
     width: calc((100% - 32px) / 3);
