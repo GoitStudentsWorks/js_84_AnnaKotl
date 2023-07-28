@@ -98,11 +98,17 @@ function addMkInfo() {
         spaceBetween: 16
       }
     },
-    // ЗРОБИТИ АВТОПЕРЕЛИСТУВАННЯ!!!
+    //  АВТОПЕРЕЛИСТУВАННЯ!!!
     autoplay: {
-      delay: 5000,
-    },
+      delay: 4000,
+    }
     //---------------------------
+  });
+
+  swiper.on('slideChange', () => {
+    setTimeout(() => {
+      swiper.autoplay.start();
+    }, 0);
   });
 }
 addMkInfo(); 
