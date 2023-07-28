@@ -19,6 +19,7 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+    "@parcel/optimizer-swc": "^2.9.3",
     "axios": "^1.4.0",
     "local-storage": "^2.0.0",
     "lodash": "^4.17.21",
