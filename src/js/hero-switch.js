@@ -72,10 +72,7 @@ function addMkInfo() {
     direction: 'horizontal',
     rewind: true,
     loop: true,
-    // scrollbar: {
-    //   el: '.swiper-scrollbar',
-    //   draggable: true,
-    // },
+    
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
