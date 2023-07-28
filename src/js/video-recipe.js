@@ -175,7 +175,7 @@ function funremoveFromFavourite() {
     const recipeIndex = favoriteArr.findIndex(({ _id }) => _id === data._id);
     favoriteArr.splice(recipeIndex, 1);
     localStorage.setItem('favorites', JSON.stringify(favoriteArr));
-    refs.addToFavoriteBtn.style.display = 'none';
+    // refs.addToFavoriteBtn.style.display = 'none';
     refs.removeFromFavourite.style.display = 'block';
 }
 
