@@ -29,8 +29,8 @@ function renderPopularRecipes(recipes) {
       <div class="pop-recipe-card">
     <img class="img-pop-recipe" src="${preview}" width="64" height="64" alt="">
     <div class="text-pop-recipe">
-    <h3 class="title-pop-recipe">${title}</h3>
-    <p class="description-pop-recipe">${description}</p>
+    <h3 class="title-pop-recipe" data-change-color='true'>${title}</h3>
+    <p class="description-pop-recipe" data-change-color='true'>${description}</p>
     </div>
     </div>
   </li>`;

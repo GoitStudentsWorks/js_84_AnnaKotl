@@ -11,7 +11,7 @@
   border: 1px solid rgba(5, 5, 5, 0.2);
   background-color: var(--light-text-color);
   border-radius: 15px;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 18px;
   color: rgba(5, 5, 5, 0.5);
@@ -19,7 +19,7 @@
   padding: 14px 10px;
 }
 .all-category-button:hover,
-.all-category-button:focus{
+.all-category-button:focus {
   border: 1px solid var(--accent-color);
   background-color: var(--accent-color);
   color: var(--light-text-color);
@@ -42,15 +42,16 @@
   color: rgba(5, 5, 5, 0.3);
   font-size: 14px;
   font-weight: 500;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   padding: 0;
 }
-.category-btn:hover{
+.category-btn:hover {
   color: var(--accent-color);
 }
 .category-btn.active {
   color: var(--accent-color);
 }
+
 .onFocus {
   color: var(--accent-color);
   background-color: var(--accent-color);
