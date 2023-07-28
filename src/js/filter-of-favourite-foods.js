@@ -64,7 +64,7 @@ function createFilterMarkup(arr) {
     .join('');
 }
 
-function onFilterClick(evt) {
+export function onFilterClick(evt) {
   if (evt.target.tagName !== 'BUTTON') return;
   let filterClass = evt.target.textContent;
   //console.log(filterClass);
@@ -99,26 +99,26 @@ function onFavSeeBtnClick(evt) {
 
 favoriteFilterList.addEventListener('click', onFilterClick);
 
-recipeFavButtons.forEach(button => {
-  button.addEventListener('click', onFavSeeBtnClick);
-});
+//recipeFavButtons.forEach(button => {
+//  button.addEventListener('click', onFavSeeBtnClick);
+//});
 
-heartFavButtons.forEach(button => {
-  button.addEventListener('click', onHeartFavButtonClick);
-});
+//heartFavButtons.forEach(button => {
+//  button.addEventListener('click', onHeartFavButtonClick);
+//});
 
-function onHeartFavButtonClick(evt) {
-  evt.preventDefault();
-  const currentBtn = evt.currentTarget;
-  const card = findRecipe(currentBtn);
-  console.log(currentBtn);
-  currentBtn.classList.add('active');
+//function onHeartFavButtonClick(evt) {
+//  evt.preventDefault();
+//  const currentBtn = evt.currentTarget;
+//  const card = findRecipe(currentBtn);
+//  console.log(currentBtn);
+//  currentBtn.classList.add('active');
 
-  if (currentBtn.classList.contains('active')) {
-    currentBtn.classList.remove('active');
-    const recipeIndex = favoriteArr.findIndex(({ _id }) => _id === card._id);
-    console.log(recipeIndex);
-    favoriteArr.splice(recipeIndex, 1);
-    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
-  }
-}
+//  if (currentBtn.classList.contains('active')) {
+//    currentBtn.classList.remove('active');
+//    const recipeIndex = favoriteArr.findIndex(({ _id }) => _id === card._id);
+//    console.log(recipeIndex);
+//    favoriteArr.splice(recipeIndex, 1);
+//    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
+//  }
+//}

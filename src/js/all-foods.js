@@ -32,7 +32,7 @@ recipesplaceholderInstance
   .fetchRecipes()
   .then(data => {
     arrayRecipes = data.results;
-    initRating()
+    initRating();
     const renderCards = createMarkup(arrayRecipes);
 
     recipesList.insertAdjacentHTML('beforeend', renderCards);
@@ -43,38 +43,10 @@ recipesplaceholderInstance
     recipeButtons.forEach(button => {
       button.addEventListener('click', onSeeBtnClick);
     });
+
     heartButton.forEach(button => {
       button.addEventListener('click', onHeartButtonClick);
     });
-
-    function onHeartButtonClick(evt) {
-      evt.preventDefault();
-      const currentBtn = evt.currentTarget;
-      const card = findRecipe(currentBtn);
-      currentBtn.classList.toggle('active');
-
-      if (currentBtn.classList.contains('active')) {
-        favoriteArr.push(card);
-        localStorage.setItem('favorites', JSON.stringify(favoriteArr));
-        const inStorage = favoriteArr.some(({ _id }) => _id === card._id);
-        if (inStorage) {
-          return;
-        }
-      } else {
-        currentBtn.classList.remove('active');
-        const recipeIndex = favoriteArr.findIndex(
-          ({ _id }) => _id === card._id
-        );
-        console.log(recipeIndex);
-        favoriteArr.splice(recipeIndex, 1);
-        localStorage.setItem('favorites', JSON.stringify(favoriteArr));
-      }
-    }
-
-    function findRecipe(elem) {
-      const cardId = elem.closest('.cards').dataset.id;
-      return arrayRecipes.find(({ _id }) => _id === cardId);
-    }
   })
   .catch(err => {
     console.warn(err);
@@ -143,30 +115,54 @@ function initRating() {
   const ratingValueElements = document.querySelectorAll('.raitingAllFoods');
   ratingValueElements.forEach(ratingElem => {
     const ratingValue = parseFloat(ratingElem.textContent);
-    const ratingActive = ratingElem.nextElementSibling.querySelector('.rating__activeAllFoods');
+    const ratingActive = ratingElem.nextElementSibling.querySelector(
+      '.rating__activeAllFoods'
+    );
     const percentageOfStars = ratingValue * 20 + '%';
     ratingActive.style.setProperty('width', percentageOfStars);
   });
 }
-export function addToFavorites(id) { // Accept the id as a parameter
-  if (id) {
-    const inStorage = favoriteArr.some(({ _id }) => _id === id);
+
+export function onHeartButtonClick(evt) {
+  evt.preventDefault();
+  const currentBtn = evt.currentTarget;
+  const card = findRecipe(currentBtn);
+  currentBtn.classList.toggle('active');
+
+  if (currentBtn.classList.contains('active')) {
+    favoriteArr.push(card);
+    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
+
+    const inStorage = favoriteArr.some(({ _id }) => _id === card._id);
     if (inStorage) {
       return;
     }
+  } else {
+    currentBtn.classList.remove('active');
+    const recipeIndex = favoriteArr.findIndex(({ _id }) => _id === card._id);
 
-    const recipe = arrayRecipes.find(({ _id }) => _id === id);
-    favoriteArr.push(recipe);
+    //console.log(recipeIndex);
+    favoriteArr.splice(recipeIndex, 1);
     localStorage.setItem('favorites', JSON.stringify(favoriteArr));
   }
 }
 
-// const storage = localStorage.getItem('favorites');
-// const data = JSON.parse(storage);
-// if (storage && data.find(el => el.id === id)) {
-//   return 'active';
-// }
-//   const recipeInfo = JSON.parse(currentBtn.dataset.info);
-//   currentBtn.classList.toggle('active');
-//   const storage = JSON.parse(localStorage.getItem('favorites')) ?? [];
-//
+//export function addToFavorites(id) {
+//  // Accept the id as a parameter
+//  if (id) {
+//    const inStorage = favoriteArr.some(({ _id }) => _id === id);
+//    if (inStorage) {
+//      return;
+//    }
+
+//    const recipe = arrayRecipes.find(({ _id }) => _id === id);
+//    console.log(recipe);
+//    favoriteArr.push(recipe);
+//    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
+//  }
+//}
+
+function findRecipe(elem) {
+  const cardId = elem.closest('.cards').dataset.id;
+  return arrayRecipes.find(({ _id }) => _id === cardId);
+}
