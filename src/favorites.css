@@ -43,10 +43,14 @@
 @media screen and (min-width: 768px) and (max-width: 1199px) {
     .hero-img-of-favorites {
         background-image: url(./images/hero-tablet-2x.png);
-        min-width: 704px;
-        min-height: 356px;
-        padding-bottom: 64px;
+        width: 704px;
+        height: 356px;
+        padding: 0 64px 0;
+        margin: 0 auto;
     }
+    /* .hero-section-of-favorites {
+        margin: 0 auto;
+    } */
     .no-resipe-img {
         width: 97px;
         height: 83px;
@@ -72,7 +76,7 @@
     }
     .no-favorites-recipe {
         width: 480px;
-        padding: 0;
+        padding: 0 0 100px ;
     }
     .block-img {
         display: block;
