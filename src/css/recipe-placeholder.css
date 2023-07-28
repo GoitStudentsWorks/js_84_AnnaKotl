@@ -1,4 +1,4 @@
-:root {
+ :root {
 --primary-text-CH-color: #050505;
     --primary-text-CH-color-08: rgba(5, 5, 5, .8);
     --primary-text-CH-color-05: rgba(5, 5, 5, .5);
@@ -31,6 +31,13 @@
     --ident: 16px;
     --items: 3;
     --transition-set: 2s cubic-bezier(.4, 0, .2, 1);
+}
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+    color: #fff;
+    cursor: default;
+ background-color: var(--bgc-CH-background-mob-menu);
+ border-color: var(--bgc-CH-background-mob-menu);
 }
 
 .tui-pagination .tui-is-disabled {
@@ -75,6 +82,13 @@ color: var(--bgc-background);
     .pagination {
         margin-top: 64px;
     }
+        .tui-pagination .tui-is-selected,
+        .tui-pagination strong {
+            color: #fff;
+            cursor: default;
+            background: var(--bgc-CH-background-mob-menu);
+            border-color: var(--border-paginatio);
+        }
 }
 
 .tui-pagination {
@@ -200,3 +214,57 @@ margin-left: 8px;
         margin-left: 8px;
     }
 }
+@media screen and (min-width: 1200px) {
+    .tui-pagination .tui-is-disabled {
+            background-color: var(--primary-text-CH-color);
+        }
+    
+        .tui-pagination .tui-is-disabled:hover,
+        .tui-pagination .tui-is-disabled:focus {
+            background-color: var(--primary-text-CH-color);
+        }
+    
+        .pagination .pag__current-page {
+            background-color: var(--border-paginatio);
+        }
+    
+        .pagination {
+            align-items: center;
+            justify-content: center;
+            margin: 40px auto 0;
+        }
+    
+        .tui-pagination .tui-first+.tui-prev {
+            background-color: var(--primary-text-color);
+    
+        }
+    
+        strong {
+            background-color: var(--bgc-CH-background-mob-menu);
+        }
+    
+        .tui-pagination .tui-first+.tui-prev:hover,
+        .tui-pagination .tui-first+.tui-prev:focus {
+            background-color: var(--primary-text-CH-color);
+            color: var(--bgc-background);
+        }
+    
+        .tui-page-btn-tui-is-disabled .tui-first {
+            background-color: var(--primary-text-color);
+        }
+    
+        .tui-page-btn .tui-next-is-ellip-tui-last-child {
+            background-color: white;
+        }
+    
+        .tui-pagination.tui-page-btn-is-select {
+            background-color: var(--border-paginatio);
+        }
+                .tui-pagination .tui-is-selected,
+                .tui-pagination strong {
+                    color: #fff;
+                    cursor: default;
+                    background: var(--bgc-CH-background-mob-menu);
+                    border-color: var(--border-paginatio);
+                }
+} 
