@@ -165,7 +165,7 @@ function funremoveFromFavourite(localStorageObj, id) {
   refs.addToFavoriteBtn.style.display = 'block';
   refs.removeFromFavourite.style.display = 'none';
   favRecipesObj = omit(localStorageObj, id);
-  localctorage.save('favorites', favRecipesObj);
+  localStorage.save('favorites', favRecipesObj);
 }
 async function onFavouriteBtnClick(localStorageObj = {}, id) {
   const data = await getInfo(id);
