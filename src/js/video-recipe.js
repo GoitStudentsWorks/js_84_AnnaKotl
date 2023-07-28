@@ -126,13 +126,13 @@ function renderIngridient(data) {
   refs.ingredientsRecipe.innerHTML = markup; // Change refs.IngredientBox to refs.ingredientsRecipe
 }
 function renderHashtags(data) {
-  if (data.tags.length === 0) {
+  if (!Array.isArray(data.tags) || data.tags.length === 0) {
     return;
   }
   const markup = data.tags
     .map(tag => ` <li class="hashtags">#${tag}</li>`)
     .join('');
-  refs.tagsRecipe.innerHTML = markup; // Change refs.hashtagsBox to refs.tagsRecipe
+  refs.tagsRecipe.innerHTML = markup; // Измените refs.hashtagsBox на refs.tagsRecipe
 }
 
 let favoriteArr = JSON.parse(localStorage.getItem('favorites')) || [];
