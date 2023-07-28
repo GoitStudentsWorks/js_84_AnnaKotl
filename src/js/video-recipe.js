@@ -151,6 +151,8 @@ function renderHashtags(data) {
 
 
 
+<<<<<<< HEAD
+=======
 
 function isRecieptFavourite(data) {
   if (localStorage.getItem('favorites').includes(data._id)) {
@@ -161,7 +163,57 @@ function isRecieptFavourite(data) {
     refs.removeFromFavourite.style.display = 'none';
   }
 }
+
+
+function onFavouriteBtnClick() {
+    favoriteArr.push(card);
+    refs.addToFavoriteBtn.style.display = 'none';
+    refs.removeFromFavourite.style.display = 'block';
+    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
+ const inStorage = favoriteArr.some(({ _id }) => _id === data._id);
+    if (inStorage) {
+      return;
+    }
+} 
+function funremoveFromFavourite() {
+    const recipeIndex = favoriteArr.findIndex(({ _id }) => _id === data._id);
+    favoriteArr.splice(recipeIndex, 1);
+    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
+    refs.addToFavoriteBtn.style.display = 'none';
+    refs.removeFromFavourite.style.display = 'block';
+}
+
+
+
+let favoriteArr = JSON.parse(localStorage.getItem('favorites')) || [];
+>>>>>>> parent of 6c5544d (Merge pull request #134 from AnnaKotl/reciept-info)
+
+function isRecieptFavourite(data) {
+  if (localStorage.getItem('favorites').includes(data._id)) {
+    refs.addToFavoriteBtn.style.display = 'none';
+    refs.removeFromFavourite.style.display = 'block';
+  } else {
+    refs.addToFavoriteBtn.style.display = 'block';
+    refs.removeFromFavourite.style.display = 'none';
+  }
+}
+<<<<<<< HEAD
 function funremoveFromFavourite(localStorageObj, id) {
+=======
+
+function onFavouriteBtnClick(id) { // Передайте идентификатор рецепта как параметр
+  const recipe = arrayRecipes.find(({ _id }) => _id === id);
+  favoriteArr.push(recipe);
+  refs.addToFavoriteBtn.style.display = 'none';
+  refs.removeFromFavourite.style.display = 'block';
+  localStorage.setItem('favorites', JSON.stringify(favoriteArr));
+}
+
+function funremoveFromFavourite() {
+  const recipeIndex = favoriteArr.findIndex(({ _id }) => _id === card._id);
+  favoriteArr.splice(recipeIndex, 1);
+  localStorage.setItem('favorites', JSON.stringify(favoriteArr));
+>>>>>>> parent of 6c5544d (Merge pull request #134 from AnnaKotl/reciept-info)
   refs.addToFavoriteBtn.style.display = 'block';
   refs.removeFromFavourite.style.display = 'none';
   favRecipesObj = omit(localStorageObj, id);
