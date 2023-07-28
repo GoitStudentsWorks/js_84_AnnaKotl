@@ -36,11 +36,13 @@
 .img {
   max-width: none;
 }
+
 .mk.swiper-wrapper {
   height: 303px;
   width: 497px;
   cursor: pointer;
 }
+
 .mk-photo-wrapper {
   position: relative;
   display: flex;
@@ -59,6 +61,7 @@
   height: 280px;
   width: 80px;
 }
+
 .chief-img {
   display: block;
   width: 273.5px;
@@ -67,14 +70,17 @@
   border-radius: 15px;
   z-index: 1;
 }
+
 .mk-photo-wrapper.preview {
   height: 280px;
   width: 200px;
 }
+
 .preview-img {
   width: 157px;
   position: absolute;
 }
+
 /* .svg-ellipse {
   border-radius: 15px;
   border: 1px solid rgba(155, 181, 55, 0.3);
@@ -84,6 +90,7 @@
   height: 280px;
   width: 200px;
 }
+
 .dish-img {
   display: block;
   width: 500px;
@@ -92,21 +99,25 @@
   border-radius: 15px;
   z-index: 1;
 }
+
 .mk-card {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   margin-right: -141px;
 }
+
 .mk-list {
   height: 303px;
   display: flex;
   flex-direction: row;
   gap: 8px;
 }
+
 .mk-item {
   display: flex;
 }
+
 .mk-info {
   display: flex;
   position: absolute;
@@ -115,6 +126,7 @@
   bottom: 14px;
   max-height: 44px;
 }
+
 .mk-name {
   max-width: 156px;
   height: 28px;
@@ -125,6 +137,7 @@
   font-weight: 500;
   line-height: 1.4;
 }
+
 .mk-region {
   color: rgba(255, 255, 255, 0.2);
   text-align: center;
@@ -132,9 +145,11 @@
   font-weight: 400;
   line-height: 1.5;
 }
-.mk-container.swiper > .swiper-pagination {
+
+.mk-container.swiper>.swiper-pagination {
   bottom: -4px !important;
 }
+
 .swiper-pagination .swiper-pagination-bullet {
   width: 7px;
   height: 7px;
@@ -149,67 +164,83 @@
   border-radius: 50%;
   background-color: var(--accent-color);
 }
+
 .swiper-pagination {
   width: 24px;
   height: 18px;
 }
+
 @media screen and (min-width: 768px) {
   .swiper-pagination {
     height: 5px;
   }
+
   .icon-hero {
-      position: absolute;
-      top: 5px;
-      left: 25px;
-      filter: blur(10px);
-    }
+    position: absolute;
+    top: 5px;
+    left: 25px;
+    filter: blur(10px);
+  }
+
   .mk.swiper-wrapper {
     height: 442px;
     width: 871px;
   }
+
   .mk-photo-wrapper.chief {
     height: 442px;
     width: 137px;
   }
+
   .chief-img {
     width: 420.7px;
     height: 465px;
   }
+
   .mk-photo-wrapper.preview {
     height: 442px;
     width: 351px;
   }
+
   .preview-img {
     width: 271px;
   }
+
   .mk-photo-wrapper.zoom {
     height: 442px;
     width: 351px;
   }
+
   .dish-img {
     width: 663px;
     height: 663px;
   }
+
   .mk-card {
     margin-right: -141px;
   }
+
   .mk-list {
     gap: 16px;
   }
+
   .mk-info {
     bottom: 32px;
     max-height: 44px;
   }
+
   .mk-name {
     max-width: 276px;
     height: 18px;
     font-size: 14px;
     line-height: 1.28;
   }
+
   .mk-region {
     font-size: 12px;
     line-height: 1.17;
   }
+
   /* .swiper-pagination {
     margin-bottom: 0px;
     margin-top: 40px;
