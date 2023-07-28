@@ -162,7 +162,7 @@
   z-index: 2;
   width: 22px;
   height: 22px;
-  color: #f8f8f8;
+  color: #ee5353;
   background-color: inherit;
   margin: 16px;
   border: none;
@@ -179,7 +179,7 @@
 }
 
 .heart-button.active {
-  fill: currentColor;
+  fill: #ed1f25;
 }
 
 @media screen and (min-width: 768px) {
