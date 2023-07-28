@@ -16,14 +16,17 @@ export let refs = {
   instructionsRecipe: document.querySelector('.instructions-recipe'),
   videoRecipe: document.querySelector('.video-recipe'),
 };
+
 refs.closeBtn?.addEventListener('click', closeModalClose);
 refs.backdropRecipe?.addEventListener('click', clickBackdropClick);
+
 function openModalOpen() {
   setTimeout(() => {
     window.addEventListener('keydown', onEscPress);
     document.body.classList.add('overflowHidden');
     refs.backdropRecipe.classList.add('active');
     refs.modalRecipe.classList.add('active');
+
     const card = findRecipe(refs.addToFavoriteBtn);
     const inStorage = favoriteArr.some(({ _id }) => _id === card._id);
     if (inStorage) {
@@ -35,12 +38,14 @@ function openModalOpen() {
     }
   }, 50);
 }
+
 function closeModalClose() {
   window.removeEventListener('keydown', onEscPress);
   document.body.classList.remove('overflowHidden');
   refs.backdropRecipe.classList.remove('active');
   refs.modalRecipe.classList.remove('active');
 }
+
 function onEscPress(key) {
   if (key.code === 'Escape') {
     closeModalClose();
@@ -49,6 +54,7 @@ function onEscPress(key) {
 function clickBackdropClick(element) {
   if (element.currentTarget === element.target) closeModalClose();
 }
+
 export function showModalAboutReciepts(id) {
   recieptsOfFood(id).then(data => {
     isRecieptFavourite(data); 
@@ -62,6 +68,7 @@ export function showModalAboutReciepts(id) {
     recipeId = data._id;
   });
 }
+
 async function recieptsOfFood(id) {
   const resp = await fetch(
     `https://tasty-treats-backend.p.goit.global/api/recipes/${id}`
@@ -69,20 +76,24 @@ async function recieptsOfFood(id) {
   const data = await resp.json();
   return data;
 }
+
 function renderText(data) {
   refs.recieptsTitle.textContent = data.title;
   refs.videoRecipe.src = data.preview;
   refs.instructionsRecipe.textContent = data.instructions;
   refs.minutesRecipe.textContent = data.time + ' min';
 }
+
 function initRating() {
   const ratingValue = parseFloat(
     document.querySelector('.rating__value.detail').textContent
   );
   const ratingActive = document.querySelector('.rating__active');
   const percentageOfStars = ratingValue * 20 + '%';
+
   ratingActive.style.setProperty('width', percentageOfStars);
 }
+
 function getKeyYouTybe(url) {
   let indexLast = url.split('').length;
   let key = url.split('').splice(32, indexLast).join('');
@@ -102,6 +113,7 @@ allowfullscreen
 `;
   refs.videoRecipe.innerHTML = markUp;
 }
+
 function renderRanting(data) {
   let markupR = `
     <div class="cards__rating rating">
@@ -112,6 +124,7 @@ function renderRanting(data) {
   </div>`;
   refs.ratingRecipe.innerHTML = markupR; // Change refs.ratingBox to refs.ratingRecipe
 }
+
 function renderIngridient(data) {
   const markup = data.ingredients
     .map(
@@ -125,64 +138,41 @@ function renderIngridient(data) {
     .join('');
   refs.ingredientsRecipe.innerHTML = markup; // Change refs.IngredientBox to refs.ingredientsRecipe
 }
+
 function renderHashtags(data) {
-  if (!Array.isArray(data.tags) || data.tags.length === 0) {
+  if (data.tags.length === 0) {
     return;
   }
   const markup = data.tags
     .map(tag => ` <li class="hashtags">#${tag}</li>`)
     .join('');
-  refs.tagsRecipe.innerHTML = markup; // Измените refs.hashtagsBox на refs.tagsRecipe
+  refs.tagsRecipe.innerHTML = markup; // Change refs.hashtagsBox to refs.tagsRecipe
 }
 
-<<<<<<< HEAD
-let favoriteArr = JSON.parse(localStorage.getItem('favorites')) || [];
-=======
 
 
->>>>>>> parent of cfa5963 (Merge branch 'main' of https://github.com/AnnaKotl/upGrate)
 
 function isRecieptFavourite(data) {
   if (localStorage.getItem('favorites').includes(data._id)) {
+    refs.addToFavoriteBtn.classList.add('active');
+    refs.addToFavoriteBtn.textContent = 'Remove from favorite';
     refs.addToFavoriteBtn.style.display = 'none';
     refs.removeFromFavourite.style.display = 'block';
   } else {
+    refs.addToFavoriteBtn.classList.remove('active');
+    refs.addToFavoriteBtn.textContent = 'Add to Favorite';
     refs.addToFavoriteBtn.style.display = 'block';
     refs.removeFromFavourite.style.display = 'none';
   }
 }
-<<<<<<< HEAD
-
-function onFavouriteBtnClick(id) { // Use the function that takes the 'id' parameter
-  const recipe = arrayRecipes.find(({ _id }) => _id === id);
-  favoriteArr.push(recipe);
-  refs.addToFavoriteBtn.style.display = 'none';
-  refs.removeFromFavourite.style.display = 'block';
-  localStorage.setItem('favorites', JSON.stringify(favoriteArr));
-}
-
-function funremoveFromFavourite() {
-  const recipeIndex = favoriteArr.findIndex(({ _id }) => _id === card._id);
-  favoriteArr.splice(recipeIndex, 1);
-  localStorage.setItem('favorites', JSON.stringify(favoriteArr));
-=======
+function onFavouriteBtnClick() {
+  const card = findRecipe(refs.addToFavoriteBtn); // Find the recipe associated with the button
+  const inStorage = favoriteArr.some(({ _id }) => _id === card._id);
 function funremoveFromFavourite(localStorageObj, id) {
->>>>>>> parent of cfa5963 (Merge branch 'main' of https://github.com/AnnaKotl/upGrate)
   refs.addToFavoriteBtn.style.display = 'block';
   refs.removeFromFavourite.style.display = 'none';
   favRecipesObj = omit(localStorageObj, id);
-  localStorage.save('favorites', favRecipesObj);
-<<<<<<< HEAD
-}
-async function onFavouriteBtnClick(localStorageObj = {}, id) {
-  const data = await getInfo(id);
- refs.addToFavoriteBtn.style.display = 'none';
-    refs.removeFromFavourite.style.display = 'block';
-  localStorageObj[id] = data;
-  localctorage.save('favorites', localStorageObj);
-  return localStorageObj;
-}
-=======
+  localctorage.save('favorites', favRecipesObj);
 }
 async function onFavouriteBtnClick(localStorageObj = {}, id) {
   const data = await getInfo(id);
@@ -194,17 +184,23 @@ async function onFavouriteBtnClick(localStorageObj = {}, id) {
   return localStorageObj;
 }
 
->>>>>>> parent of cfa5963 (Merge branch 'main' of https://github.com/AnnaKotl/upGrate)
+  if (!inStorage) {
+    // If the recipe is not in favorites, add it
+    favoriteArr.push(card);
+    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
+    refs.addToFavoriteBtn.classList.add('active');
+    refs.addToFavoriteBtn.textContent = 'Remove from Favorite';
+  } else {
+    // If the recipe is already in favorites, remove it
+    favoriteArr = favoriteArr.filter(({ _id }) => _id !== card._id);
+    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
+    refs.addToFavoriteBtn.classList.remove('active');
+    refs.addToFavoriteBtn.textContent = 'Add to Favorite';
+  }
 async function getInfo(id) {
   const response = await axios.get(
     `https://tasty-treats-backend.p.goit.global/api/recipes/${id}`
   );
-
-  return response.data;
-}
-refs.addToFavoriteBtn.addEventListener('click', onFavouriteBtnClick);
-refs.removeFromFavourite.addEventListener('click', funremoveFromFavourite);
-
 
   return response.data;
 }
@@ -271,4 +267,3 @@ refs.removeFromFavourite.addEventListener('click', funremoveFromFavourite);
 
 
 // refs.addToFavoriteBtn.addEventListener('click', onFavouriteBtnClick);
->>>>>>> parent of cfa5963 (Merge branch 'main' of https://github.com/AnnaKotl/upGrate)
