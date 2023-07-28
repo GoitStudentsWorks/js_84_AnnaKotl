@@ -149,6 +149,42 @@ function renderHashtags(data) {
   refs.tagsRecipe.innerHTML = markup; // Change refs.hashtagsBox to refs.tagsRecipe
 }
 
+
+
+
+function isRecieptFavourite(data) {
+  if (localStorage.getItem('favorites').includes(data._id)) {
+    refs.addToFavoriteBtn.style.display = 'none';
+    refs.removeFromFavourite.style.display = 'block';
+  } else {
+    refs.addToFavoriteBtn.style.display = 'block';
+    refs.removeFromFavourite.style.display = 'none';
+  }
+}
+
+
+function onFavouriteBtnClick() {
+    favoriteArr.push(card);
+    refs.addToFavoriteBtn.style.display = 'none';
+    refs.removeFromFavourite.style.display = 'block';
+    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
+ const inStorage = favoriteArr.some(({ _id }) => _id === data._id);
+    if (inStorage) {
+      return;
+    }
+} 
+function funremoveFromFavourite() {
+    const recipeIndex = favoriteArr.findIndex(({ _id }) => _id === data._id);
+    favoriteArr.splice(recipeIndex, 1);
+    localStorage.setItem('favorites', JSON.stringify(favoriteArr));
+    refs.addToFavoriteBtn.style.display = 'none';
+    refs.removeFromFavourite.style.display = 'block';
+}
+
+
+const card = {
+  _id: 'recipeId' 
+};
 let favoriteArr = JSON.parse(localStorage.getItem('favorites')) || [];
 
 function isRecieptFavourite(data) {
@@ -161,7 +197,7 @@ function isRecieptFavourite(data) {
   }
 }
 
-function onFavouriteBtnClick(id) { // Use the function that takes the 'id' parameter
+function onFavouriteBtnClick(id) { // Передайте идентификатор рецепта как параметр
   const recipe = arrayRecipes.find(({ _id }) => _id === id);
   favoriteArr.push(recipe);
   refs.addToFavoriteBtn.style.display = 'none';
@@ -178,11 +214,11 @@ function funremoveFromFavourite() {
 }
 
 // Add event listeners to the respective buttons
-refs.addToFavoriteBtn?.addEventListener('click', () => {
+refs.addToFavoriteBtn.addEventListener('click', () => {
   const cardId = recipeId; 
   onFavouriteBtnClick(cardId);
 });
-refs.removeFromFavourite?.addEventListener('click', funremoveFromFavourite);
+refs.removeFromFavourite.addEventListener('click', funremoveFromFavourite);
 
 
 // function funremoveFromFavourite(localStorageObj, id) {
