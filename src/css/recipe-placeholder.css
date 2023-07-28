@@ -36,8 +36,8 @@
 .tui-pagination strong {
     color: #fff;
     cursor: default;
-    background: #4b96e6;
-    border-color: #4b96e6;
+ background-color: var(--bgc-CH-background-mob-menu);
+ border-color: var(--bgc-CH-background-mob-menu);
 }
 
 .tui-pagination .tui-is-disabled {
